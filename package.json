@@ -1,0 +1,39 @@
+{
+  "name": "retro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Team-1-Mercury/retro.git",
+  "author": "Alex Abushanab <38299309+lexabu@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-airbnb": "^5.0.0",
+    "dotenv": "^16.0.0",
+    "dotenv-webpack": "^7.1.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "scripts": {
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --open"
+  }
+}
