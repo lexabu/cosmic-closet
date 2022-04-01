@@ -16,8 +16,9 @@ const detailStore = create(
 
 const ratingStore = create(
   devtools((set) => ({
-    dogs: 0,
+    dogs: 420,
     increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
+    decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
   })),
 );
 
