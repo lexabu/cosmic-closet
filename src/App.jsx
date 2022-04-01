@@ -4,7 +4,7 @@ import { detailStore, ratingStore } from './stores.js';
 import ProductDetail from './containers/ProductDetail.jsx';
 
 function App() {
-  const currentCount = detailStore((state) => state.counter);
+  const currentCount = detailStore((state) => state.counter + 1);
   const goUpBoi = detailStore((state) => state.increaseCounter);
   const goDownBoi = detailStore((state) => state.decreaseCounter);
   const dogs = ratingStore((state) => state.dogs);
