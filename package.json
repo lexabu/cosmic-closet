@@ -6,11 +6,13 @@
   "author": "Alex Abushanab <38299309+lexabu@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.26.1",
     "babel-preset-airbnb": "^5.0.0",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

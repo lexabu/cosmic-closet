@@ -22,5 +22,8 @@
       1,
       "ignorePackages"
     ]
+    // Added these rules to allow for ternary ops and conditional rendering
+    // "allowShortCircuit": true,
+    // "allowTernary": true
   }
 }
