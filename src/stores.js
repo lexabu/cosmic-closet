@@ -18,10 +18,20 @@ const ratingStore = create(
   // To be able to see multiple stores in Redux DevTools, set the selector in the
   // extension to "Autoselect instances"
   devtools((set) => ({
-    dogs: 420,
+    dogs: 999,
     increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
   })),
 );
 
-export { detailStore, ratingStore };
+const questionsStore = create(
+  // To be able to see multiple stores in Redux DevTools, set the selector in the
+  // extension to "Autoselect instances"
+  devtools((set) => ({
+    dogs: 999,
+    increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
+    decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
+  })),
+);
+
+export { detailStore, ratingStore, questionsStore };

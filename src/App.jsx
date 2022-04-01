@@ -8,6 +8,7 @@ function App() {
   const goUpBoi = detailStore((state) => state.increaseCounter);
   const goDownBoi = detailStore((state) => state.decreaseCounter);
   const dogs = ratingStore((state) => state.dogs);
+  const decreaseDogs = ratingStore((state) => state.decreaseDogs);
 
   return (
     <>
@@ -16,7 +17,7 @@ function App() {
       <button type="submit" onClick={goDownBoi}>go DOWN boi</button>
       <button type="submit" onClick={goUpBoi}>go UP boi</button>
       <h2>{`Dogs: ${dogs}`}</h2>
-      <button type="submit" onClick={ratingStore((state) => state.decreaseDogs)}>- dogs</button>
+      <button type="submit" onClick={decreaseDogs}>- dogs</button>
       <button type="submit" onClick={ratingStore((state) => state.increaseDogs)}>+ dogs</button>
       <ProductDetail />
     </>
