@@ -16,14 +16,14 @@ import { devtools } from 'zustand/middleware';
 // );
 
 // New way, more concise
-const details = (set) => ({
+const details = (set, get) => ({
   counter: 654210,
-  increaseCounter: () => set((state) => ({ counter: state.counter + 1 })),
-  decreaseCounter: () => set((state) => ({ counter: state.counter - 1 })),
+  increaseCounter: () => set({ counter: get().counter + 1 }),
+  decreaseCounter: () => set({ counter: get().counter - 1 }),
   apiResults: [1, 2, 3, 4, 5],
-  setApiResults: (data) => set(() => ({ apiResults: data })),
+  setApiResults: (data) => set({ apiResults: data }),
   filteredApiResults: [],
-  setFilteredApiResults: (data) => set(() => ({ filteredApiResults: data })),
+  setFilteredApiResults: (data) => set({ filteredApiResults: data }),
 });
 
 const ratings = (set) => ({
