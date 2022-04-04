@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'; // new way for React 18
 // import reactDOM from "react-dom"; //old way for React 17
+import './index.scss';
 import App from './App.jsx';
 
 // TODO
