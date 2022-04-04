@@ -6,11 +6,13 @@ import './App.scss';
 
 function App() {
   return (
-    <div>
+    // Uses main instead of div to take advantage of the CSS reset template,
+    // which puts everything in a padded container.
+    <main>
       <ProductDetail />
       <QuestionsAnswers />
       <RatingsReviews />
-    </div>
+    </main>
   );
 }
 
