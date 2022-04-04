@@ -1,8 +1,7 @@
 import React from 'react';
-// Import containers and components
-// import { detailStore, ratingStore } from './stores.js';
 import ProductDetail from './containers/ProductDetail.jsx';
 import RatingsReviews from './containers/RatingsReviews.jsx';
+import './App.scss';
 
 function App() {
   return (
