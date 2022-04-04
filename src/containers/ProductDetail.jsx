@@ -1,5 +1,6 @@
-// Test for zustand!
 import React from 'react';
+
+import { RightDetails, ImageGallery, DetailsFooter } from '../components/ProductDetail';
 
 function ProductDetail() {
   return (
@@ -7,10 +8,10 @@ function ProductDetail() {
       <h1 className="temp-title">ProductDetail</h1>
       <div id="product-detail-widget">
         <div className="pd-top-row-container">
-          <div className="image-gallery" />
-          <div className="right-details-container" />
+          <ImageGallery />
+          <RightDetails />
         </div>
-        <div className="details-footer" />
+        <DetailsFooter />
       </div>
     </>
   );
