@@ -2,6 +2,7 @@ import React from 'react';
 // Import containers and components
 import { detailStore, ratingStore } from './stores.js';
 import ProductDetail from './containers/ProductDetail.jsx';
+import './App.scss';
 
 function App() {
   const currentCount = detailStore((state) => state.counter + 1);
