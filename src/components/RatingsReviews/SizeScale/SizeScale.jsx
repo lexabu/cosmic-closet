@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title() {
+function SizeScale() {
   return (
-    <div className="rr-Title">RATINGS & REVIEWS</div>
+    <div className="rr-SizeScale">SizeScale</div>
   );
 }
 
-export default Title;
+export default SizeScale;

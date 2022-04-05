@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title() {
+function Sort() {
   return (
-    <div className="rr-Title">RATINGS & REVIEWS</div>
+    <div className="rr-Sort">Sort</div>
   );
 }
 
-export default Title;
+export default Sort;

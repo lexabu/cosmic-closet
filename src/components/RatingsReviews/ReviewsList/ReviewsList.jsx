@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title() {
+function ReviewsList() {
   return (
-    <div className="rr-Title">RATINGS & REVIEWS</div>
+    <div className="rr-ReviewsList">ReviewsList</div>
   );
 }
 
-export default Title;
+export default ReviewsList;

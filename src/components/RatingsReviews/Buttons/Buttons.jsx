@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title() {
+function Buttons() {
   return (
-    <div className="rr-Title">RATINGS & REVIEWS</div>
+    <div className="rr-Buttons">RATINGS & REVIEWS</div>
   );
 }
 
-export default Title;
+export default Buttons;

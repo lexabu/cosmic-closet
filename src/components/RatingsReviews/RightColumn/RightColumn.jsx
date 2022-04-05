@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title() {
+function RightColumn() {
   return (
-    <div className="rr-Title">RATINGS & REVIEWS</div>
+    <div className="rr-RightColumn">RightColumn</div>
   );
 }
 
-export default Title;
+export default RightColumn;

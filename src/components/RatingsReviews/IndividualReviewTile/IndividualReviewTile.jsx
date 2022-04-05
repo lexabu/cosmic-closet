@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title() {
+function IndividualReviewTile() {
   return (
-    <div className="rr-Title">RATINGS & REVIEWS</div>
+    <div className="rr-IndividualReviewTile">IndividualReviewTile</div>
   );
 }
 
-export default Title;
+export default IndividualReviewTile;

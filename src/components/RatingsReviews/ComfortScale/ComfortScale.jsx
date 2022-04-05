@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Title() {
+function ComfortScale() {
   return (
-    <div className="rr-Title">RATINGS & REVIEWS</div>
+    <div className="rr-ComfortScale">ComfortScale</div>
   );
 }
 
-export default Title;
+export default ComfortScale;
