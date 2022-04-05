@@ -1,0 +1,25 @@
+.pd-selected-style {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.pd-selected-style svg {
+  margin: 0 10px;
+}
+
+.pd-styles-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+$styleThumbnailSize: 80px;
+
+.pd-style-icon {
+  object-fit: cover;
+  height: $styleThumbnailSize;
+  width: $styleThumbnailSize;
+  border-radius: 50%;
+}
