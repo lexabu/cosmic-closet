@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 import SearchBar from '../SearchBar/SearchBar.jsx';
-import dummyQuestions from './dummyQuestions.js';
+// import dummyQuestions from './dummyQuestions.js';
+// import { useParams} from 'react-router-dom';
 
 function QuestionList() {
-  // const filteredApiResults = detailStore((state) => state.filteredApiResults);
-  const questions = questionsStore((state) => state.questions);
+  const setQuestions = questionsStore((state) => state.setQuestions);
+  const allQuestions = questionsStore((state) => state.questions);
+  const { id } = useParams();
 
   useEffect(() => {
-    // questionsStore.setState({ questions: dummyQuestions });
     axios({
-      url: `${process.env.URL}qa/questions?product_id=66642`,
+      url: `${process.env.URL}qa/questions?product_id=${id}`,
       method: 'GET',
       headers: {
         Authorization: process.env.GITHUB_API_KEY,
@@ -19,18 +21,21 @@ function QuestionList() {
     })
       .then((data) => {
         console.log('data :', data);
-        questionsStore.setState({ questions: data.data.results });
-        console.log(questionsStore.questions);
+        setQuestions(data.data.results);
       })
       .catch((err) => {
         console.log('err :', err);
       });
-  }, [questions]);
+  }, []);
+
+  console.log(allQuestions);
 
   return (
     <div>
       <div>
-        {/* <div>{questions.map((question, index) => (<div key=index>{question}</div>))}</div> */}
+        {/* <div>
+          {allQuestions.map((question) => (<div key={question.question_id}>{question}</div>))}
+        </div> */}
         <div className="title"> Questions & Answers</div>
         <SearchBar />
         Q: question1
