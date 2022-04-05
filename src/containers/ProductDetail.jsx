@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { detailStore } from '../stores.js';
-import { RightDetails, ImageGallery, DetailsFooter } from '../components/ProductDetail';
+import { RightDetails, ImageGallery, DetailsFooter } from '../components/ProductDetail/index.js';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -17,7 +17,6 @@ function ProductDetail() {
   const setStyles = detailStore((state) => state.setStyles);
 
   useEffect(() => {
-    console.log('useEffect() running...');
     // Get product info and add to state
     axios.get(`${process.env.URL}products/${id}`, authHeaders)
       .then((results) => {
@@ -36,19 +35,15 @@ function ProductDetail() {
         throw err;
       });
   }, []);
-  // console.log(process.env.URL);
 
   return (
-    <>
-      <h1 className="temp-title">{id}</h1>
-      <div id="product-detail-widget">
-        <div className="pd-top-row-container">
-          <ImageGallery />
-          <RightDetails />
-        </div>
-        <DetailsFooter />
+    <div id="product-detail-widget">
+      <div className="pd-top-row-container">
+        <ImageGallery />
+        <RightDetails />
       </div>
-    </>
+      <DetailsFooter />
+    </div>
   );
 }
 
