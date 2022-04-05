@@ -6,11 +6,11 @@ import './App.scss';
 
 function App() {
   return (
-    <div>
+    <main>
       <ProductDetail />
       <QuestionsAnswers />
       <RatingsReviews />
-    </div>
+    </main>
   );
 }
 

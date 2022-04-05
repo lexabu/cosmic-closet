@@ -45,6 +45,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
+    // This line below is needed for Webpack to play nicely with React Router
+    historyApiFallback: true,
     compress: true,
     port: 3000,
   },
