@@ -7,20 +7,22 @@ import { RightDetails, ImageGallery, DetailsFooter } from '../components/Product
 function ProductDetail() {
   const { id } = useParams();
 
+  // optional const just to keep it DRY
   const authHeaders = {
     headers: {
       Authorization: process.env.GITHUB_API_KEY,
     },
   };
 
-  const setDetails = detailStore((state) => state.setDetails);
+  // zustand pulling in the specified functions
   const setStyles = detailStore((state) => state.setStyles);
+  const setDetailsFromApiCall = detailStore((state) => state.setProductDetails);
 
   useEffect(() => {
     // Get product info and add to state
     axios.get(`${process.env.URL}products/${id}`, authHeaders)
       .then((results) => {
-        setDetails(results.data);
+        setDetailsFromApiCall(results.data);
       })
       .catch((err) => {
         throw err;

@@ -3,7 +3,7 @@ import './DetailsFooter.scss';
 import { detailStore } from '../../../stores.js';
 
 function DetailsFooter() {
-  const description = detailStore((state) => state.details.description);
+  const description = detailStore((state) => state.productDetails.description);
 
   return (
     <div className="details-footer">

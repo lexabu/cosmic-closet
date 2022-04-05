@@ -4,9 +4,9 @@ import './RightDetails.scss';
 
 function RightDetails() {
   const reviewsCount = 209;
-  const title = detailStore((state) => state.details.name);
-  const category = detailStore((state) => state.details.category);
-  const price = detailStore((state) => state.details.default_price);
+  const title = detailStore((state) => state.productDetails.name);
+  const category = detailStore((state) => state.productDetails.category);
+  const price = detailStore((state) => state.productDetails.default_price);
 
   return (
     <div className="pd-right-details-container">

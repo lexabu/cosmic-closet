@@ -1,18 +1,13 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-const detailStore = create(
-  // All this does is include middleware to add the store to the Redux chrome extension
-  devtools((set) => ({
-    // counter: 0,
-    // increaseCounter: () => set((state) => ({ counter: state.counter + 1 })),
-    // decreaseCounter: () => set((state) => ({ counter: state.counter - 1 })),
-    details: [],
-    setDetails: (data) => set({ details: data }),
-    styles: [],
-    setStyles: (data) => set({ styles: data }),
-  })),
-);
+const details = (set) => ({
+  productDetails: [],
+  setProductDetails: (data) => set({ productDetails: data }),
+  styles: [],
+  setStyles: (data) => set({ styles: data }),
+});
+const detailStore = create(devtools(details));
 
 const ratingStore = create(
   // To be able to see multiple stores in Redux DevTools, set the selector in the
