@@ -7,8 +7,10 @@ const detailStore = create(
     // counter: 0,
     // increaseCounter: () => set((state) => ({ counter: state.counter + 1 })),
     // decreaseCounter: () => set((state) => ({ counter: state.counter - 1 })),
-    detailsApiResults: [],
-    setDetailsApiResults: (data) => set({ detailsApiResults: data }),
+    details: [],
+    setDetails: (data) => set({ details: data }),
+    styles: [],
+    setStyles: (data) => set({ styles: data }),
   })),
 );
 
