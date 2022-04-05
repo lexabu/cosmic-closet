@@ -1,5 +1,6 @@
 import React from 'react';
 import { detailStore } from '../../../stores.js';
+import { Styles } from '..';
 import './RightDetails.scss';
 
 function RightDetails() {
@@ -18,6 +19,9 @@ function RightDetails() {
         <h4 className="pd-category">{category}</h4>
         <h1 className="pd-title">{title}</h1>
         <span className="pd-price">{`$${price}`}</span>
+      </div>
+      <div className="pd-styles">
+        <Styles />
       </div>
     </div>
   );

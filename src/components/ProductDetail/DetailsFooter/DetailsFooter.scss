@@ -1,14 +1,41 @@
 .details-footer {
-  background-color: rgb(255, 220, 168);
-  height: 25vh;
-  padding: 25px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 350px;
+  width: 40%;
+  margin: auto;
 }
 
-.dp-description {
-  width: 35%;
+.dp-slogan {
+  padding: 25px;
 }
 
-.dp-social {
-  width: 65%;
+.dp-social-container {
+  display: flex;
+  font-size: 3em;
+  padding: 25px;
+}
+
+.dp-social-icon {
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+  color: black;
+}
+
+.dp-social-icon:hover {
+  transform: scale(1.2);
+}
+
+.icon-facebook:hover {
+  color: #4267B2;
+}
+
+.icon-twitter:hover {
+  color: #1DA1F2;
+}
+
+.icon-pinterest:hover {
+  color: #E60023;
 }
