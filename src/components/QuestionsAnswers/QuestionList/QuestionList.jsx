@@ -5,6 +5,9 @@ import SearchBar from '../SearchBar/SearchBar.jsx';
 import dummyQuestions from './dummyQuestions.js';
 
 function QuestionList() {
+  // const filteredApiResults = detailStore((state) => state.filteredApiResults);
+  const questions = questionsStore((state) => state.questions);
+
   useEffect(() => {
     // questionsStore.setState({ questions: dummyQuestions });
     axios({
@@ -22,11 +25,12 @@ function QuestionList() {
       .catch((err) => {
         console.log('err :', err);
       });
-  });
+  }, [questions]);
 
   return (
     <div>
       <div>
+        {/* <div>{questions.map((question, index) => (<div key=index>{question}</div>))}</div> */}
         <div className="title"> Questions & Answers</div>
         <SearchBar />
         Q: question1
