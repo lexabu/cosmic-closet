@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { RightDetails, ImageGallery, DetailsFooter } from '../components/ProductDetail';
+import { RightDetails, ImageGallery, DetailsFooter } from '../components/ProductDetail/index.js';
 
 function ProductDetail() {
   const { id } = useParams();
