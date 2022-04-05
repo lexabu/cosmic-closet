@@ -1,4 +1,14 @@
 .details-footer {
   background-color: rgb(255, 220, 168);
   height: 25vh;
+  padding: 25px;
+  display: flex;
+}
+
+.dp-description {
+  width: 35%;
+}
+
+.dp-social {
+  width: 65%;
 }

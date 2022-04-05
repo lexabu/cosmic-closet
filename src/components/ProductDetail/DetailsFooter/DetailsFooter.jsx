@@ -7,7 +7,12 @@ function DetailsFooter() {
 
   return (
     <div className="details-footer">
-      {description}
+      <div className="dp-social">
+        adsf
+      </div>
+      <div className="dp-description">
+        {description}
+      </div>
     </div>
   );
 }
