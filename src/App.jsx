@@ -5,17 +5,12 @@ import RatingsReviews from './containers/RatingsReviews.jsx';
 import './App.scss';
 
 function App() {
-  const url = window.location.href.split('/');
-  const productId = url[url.length - 1];
-  console.log('productId', productId);
-  console.log('window.location.pathname', window.location.pathname);
-
   return (
-    <div>
+    <main>
       <ProductDetail />
       <QuestionsAnswers />
       <RatingsReviews />
-    </div>
+    </main>
   );
 }
 
