@@ -6,6 +6,8 @@ const details = (set) => ({
   setProductDetails: (data) => set({ productDetails: data }),
   styles: [],
   setStyles: (data) => set({ styles: data }),
+  selectedStyle: '', // will be the style_id
+  setSelectedStyle: (data) => set({ selectedStyle: data }),
 });
 const detailStore = create(devtools(details));
 
