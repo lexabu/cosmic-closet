@@ -8,7 +8,7 @@ function RatingsReviews() {
     <div>
       <div className="rr-row">
 
-        <div className="rr-left-column" Left Column>
+        <div className="rr-left-column">
           Left Column
           <Title />
           <div className="rr-Star-Rating"> </div>
