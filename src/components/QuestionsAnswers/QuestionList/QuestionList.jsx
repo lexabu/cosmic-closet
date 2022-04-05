@@ -12,10 +12,13 @@ function QuestionList() {
   // API call to access all questions associated with the current product
   useEffect(() => {
     axios({
-      url: `${process.env.URL}qa/questions?product_id=${id}`,
+      url: `${process.env.URL}qa/questions`,
       method: 'GET',
       headers: {
         Authorization: process.env.GITHUB_API_KEY,
+      },
+      params: {
+        product_id: id,
       },
     })
       .then((data) => {
@@ -56,6 +59,7 @@ function QuestionList() {
         </div>
       </div>
       <button type="button">More Answered Questions</button>
+      <button type="button">Add a Question</button>
     </div>
   );
 }
