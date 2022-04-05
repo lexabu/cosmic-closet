@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { questionsStore } from '../../../stores.js';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 
 function QuestionList() {
+  useEffect(() => {
+    axios({
+      url: `${process.env.URL}qa/questions?product_id=66642`,
+      method: 'GET',
+      headers: {
+        Authorization: process.env.GITHUB_API_KEY,
+      },
+    })
+      .then((data) => {
+        console.log('data :', data);
+        questionsStore.setQuestions(data);
+        console.log(questionsStore.questions);
+      })
+      .catch((err) => {
+        console.log('err :', err);
+      });
+  });
+
   return (
     <div>
       <div>
