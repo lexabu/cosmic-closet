@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD
-=======
 import { detailStore } from '../stores.js';
->>>>>>> fd54ef866ff1219df753a09b973064fec96170a9
 import { RightDetails, ImageGallery, DetailsFooter } from '../components/ProductDetail/index.js';
 
 function ProductDetail() {
