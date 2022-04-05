@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 import SearchBar from '../SearchBar/SearchBar.jsx';
+import dummyQuestions from './dummyQuestions.js';
 
 function QuestionList() {
   useEffect(() => {
+    // questionsStore.setState({ questions: dummyQuestions });
     axios({
       url: `${process.env.URL}qa/questions?product_id=66642`,
       method: 'GET',
@@ -14,7 +16,7 @@ function QuestionList() {
     })
       .then((data) => {
         console.log('data :', data);
-        questionsStore.setQuestions(data);
+        questionsStore.setState({ questions: data.data.results });
         console.log(questionsStore.questions);
       })
       .catch((err) => {
