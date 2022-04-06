@@ -1,8 +1,8 @@
-.pd-styles {
-  // background-color: aquamarine;
-  // height: 60%;
-  overflow: auto;
-}
+// .pd-styles {
+//   // background-color: aquamarine;
+//   // height: 60%;
+//   overflow: auto;
+// }
 
 .pd-selected-style {
   display: flex;
@@ -12,6 +12,10 @@
 
 .pd-selected-style svg {
   margin: 0 10px;
+}
+
+.pd-selected-title {
+  min-width: 135px;
 }
 
 .pd-styles-container {
@@ -25,9 +29,19 @@
 $styleThumbnailSize: 80px;
 
 .pd-style-icon {
-  object-fit: cover;
-  height: $styleThumbnailSize;
-  width: $styleThumbnailSize;
+  // object-fit: cover;
+  // height: $styleThumbnailSize;
+  // width: $styleThumbnailSize;
   border-radius: 50%;
-  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.pd-style-icon.selected {
+  border: solid;
+}
+
+.pd-style-icon.empty {
+  background-color: rgb(209, 209, 209);
+  font-size: 10px;
 }

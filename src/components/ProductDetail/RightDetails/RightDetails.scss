@@ -30,7 +30,16 @@
   font-size: 42px;
 }
 
-.pd-price {
+.pd-price-container {
   display: block;
   margin: 15px 0;
+}
+
+.pd-price.strike {
+  text-decoration: line-through;
+}
+
+.pd-price.sale {
+  color: red;
+  margin-left: 10px;
 }

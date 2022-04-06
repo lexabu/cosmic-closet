@@ -7,7 +7,14 @@ function RightDetails() {
   const reviewsCount = 209;
   const title = detailStore((state) => state.productDetails.name);
   const category = detailStore((state) => state.productDetails.category);
-  const price = detailStore((state) => state.productDetails.default_price);
+  const selectedStyle = detailStore((state) => state.selectedStyle);
+  const originalPrice = selectedStyle.original_price;
+  const salePrice = selectedStyle.sale_price;
+  let onSale = false;
+
+  if (salePrice) {
+    onSale = true;
+  }
 
   return (
     <div className="pd-right-details-container">
@@ -18,7 +25,10 @@ function RightDetails() {
       <div className="pd-info">
         <h4 className="pd-category">{category}</h4>
         <h1 className="pd-title">{title}</h1>
-        <span className="pd-price">{`$${price}`}</span>
+        <div className="pd-price-container">
+          <span className={`pd-price${onSale ? ' strike' : ''}`}>{`$${originalPrice}`}</span>
+          {onSale && <span className={`pd-price${onSale ? ' sale' : ''}`}>{`$${salePrice}`}</span>}
+        </div>
       </div>
       <div className="pd-styles">
         <Styles />
