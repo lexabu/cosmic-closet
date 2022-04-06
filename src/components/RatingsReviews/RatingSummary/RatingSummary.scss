@@ -1,5 +1,6 @@
 .rr-rating-summary {
   margin: 15px 0;
+  position: relative
 }
 
 .rr-rs-header {
@@ -8,5 +9,5 @@
 
 .rr-rs-star-rating {
   display: inline;
-  position: top;
+  position: absolute;
 }
