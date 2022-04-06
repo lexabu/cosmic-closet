@@ -1,11 +1,13 @@
 #product-detail-widget {
-  background-color: rgb(255, 222, 172);
-  height: 90vh;
+  // background-color: rgb(255, 222, 172);
+  // height: 90%;
+  min-height: 90%;
 }
 
 .pd-top-row-container {
   display: flex;
-  height: 65vh;
+  height: 75vh;
+  min-height: 590px;
 }
 
 .temp-title {
