@@ -1,17 +1,18 @@
-.rr-rating-summary {
+.rr-rating-breakdown {
   margin: 15px 0;
-  position: relative
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.rr-rs-header {
+.rr-rb-header {
   display: inline;
   padding: 10px;
-  font-size: 65px;
+  font-size: 15px;
 }
 
-.rr-rs-star-rating {
+.rr-rb-body {
   display: inline;
-  position: absolute;
-  padding: 10px;
-  top: 15px;
+  padding: 5px;
+  font-size: 15px;
 }
