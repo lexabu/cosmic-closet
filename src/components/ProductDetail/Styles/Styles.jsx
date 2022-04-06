@@ -46,7 +46,9 @@ function Styles() {
               () => { handleStyleChange(style); }
             }
             aria-label={`Select style${style.style_id}`}
-          />
+          >
+            {style.photos[0].thumbnail_url == null && style.name}
+          </div>
         ))}
       </div>
     </>
