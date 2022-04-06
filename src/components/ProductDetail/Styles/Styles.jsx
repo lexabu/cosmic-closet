@@ -11,7 +11,6 @@ function Styles() {
 
   const handleStyleChange = (style) => {
     setSelectedStyle(style);
-    // console.log('Changed style to', style);
   };
 
   const handleKeyPress = (e, style) => {

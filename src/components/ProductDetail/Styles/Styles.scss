@@ -36,6 +36,9 @@ $styleThumbnailSize: 80px;
   margin: 5px;
   cursor: pointer;
   position: relative;
+  border: solid;
+  border-width: thin;
+  border-color: rgba(164, 164, 164, 0.667);
 }
 
 .pd-style-check {
@@ -53,4 +56,5 @@ $styleThumbnailSize: 80px;
   padding: 10px;
   text-transform: uppercase;
   text-align: center;
+  font-weight: bold;
 }

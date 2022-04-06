@@ -26,7 +26,7 @@ function RightDetails() {
         <h4 className="pd-category">{category}</h4>
         <h1 className="pd-title">{title}</h1>
         <div className="pd-price-container">
-          <span className={`pd-price${onSale ? ' strike' : ''}`}>{`$${originalPrice}`}</span>
+          <span className={`pd-price${onSale ? ' strike' : ''}`}>{` $${originalPrice} `}</span>
           {onSale && <span className={`pd-price${onSale ? ' sale' : ''}`}>{`$${salePrice}`}</span>}
         </div>
       </div>
