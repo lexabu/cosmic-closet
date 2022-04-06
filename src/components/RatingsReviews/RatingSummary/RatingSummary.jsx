@@ -16,10 +16,12 @@ function RatingSummary() {
 
     return (
       <div className="rr-rating-summary">
-        <h1 className="rr-rating-summary-header">
+        <h1 className="rr-rs-header">
           {avg}
         </h1>
-        <StarRating avg={avg} />
+        <span className="rr-rs-star-rating">
+          <StarRating avg={avg} />
+        </span>
       </div>
     );
   }

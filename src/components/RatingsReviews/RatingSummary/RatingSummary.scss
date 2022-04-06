@@ -1,7 +1,12 @@
-.rr-rating-summary-header {
-  display: inline
+.rr-rs-header {
+  display: inline;
 }
 
 .rr-rating-summary {
   margin: 15px 0;
+}
+
+.rr-rs-star-rating {
+  display: inline;
+  position: top;
 }
