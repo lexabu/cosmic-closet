@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star } from '../index.js';
+import './StarRating.scss';
 
 function StarRating({ avg }) {
   return (

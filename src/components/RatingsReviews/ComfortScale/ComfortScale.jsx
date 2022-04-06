@@ -1,4 +1,5 @@
 import React from 'react';
+import './ComfortScale.scss';
 
 function ComfortScale() {
   return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import './SizeScale.scss';
 
 function SizeScale() {
   return (
