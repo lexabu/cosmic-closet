@@ -1,6 +1,7 @@
 import React from 'react';
 import { detailStore } from '../../../stores.js';
-import { Styles } from '..';
+import Styles from '../Styles/Styles.jsx';
+import CartActions from '../CartActions/CartActions.jsx';
 import './RightDetails.scss';
 
 function RightDetails() {
@@ -32,6 +33,9 @@ function RightDetails() {
       </div>
       <div className="pd-styles">
         <Styles />
+      </div>
+      <div className="cart-actions-container">
+        <CartActions />
       </div>
     </div>
   );
