@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
-import { AiOutlineRight } from 'react-icons/ai';
+import { AiOutlineRight, AiFillCheckCircle } from 'react-icons/ai';
 import { detailStore } from '../../../stores.js';
 import './Styles.scss';
 
@@ -48,6 +48,7 @@ function Styles() {
             aria-label={`Select style${style.style_id}`}
           >
             {style.photos[0].thumbnail_url == null && style.name}
+            {style.name === selectedStyle.name && <AiFillCheckCircle className="pd-style-check" />}
           </div>
         ))}
       </div>
