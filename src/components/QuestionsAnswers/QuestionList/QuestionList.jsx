@@ -3,14 +3,14 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 import SearchBar from '../SearchBar/SearchBar.jsx';
+import Question from '../Question/Question.jsx';
 
 function QuestionList() {
   const setQuestions = questionsStore((state) => state.setQuestions);
   const allQuestions = questionsStore((state) => state.questions);
   const { id } = useParams();
 
-  // API call to access all questions associated with the current product
-  useEffect(() => {
+  function AxiosGetCall() {
     axios({
       url: `${process.env.URL}qa/questions`,
       method: 'GET',
@@ -27,20 +27,23 @@ function QuestionList() {
       .catch((err) => {
         console.log('err :', err);
       });
+  }
+  // API call to access all questions associated with the current product
+  useEffect(() => {
+    AxiosGetCall();
   }, []);
 
+  // console.log(allQuestions);
+
   function mapQuestions(questionsArr) {
-    return questionsArr.map((question) => (
-      <div key={question.question_id}>
-        <div>{`Q: ${question.question_body}`}</div>
-        <div>
-          Helpful?
-          <a href="#Yes">Yes</a>
-          (0)|
-          <a href="#Add Answer">Add Answer</a>
+    if (questionsArr.length > 0) {
+      return questionsArr.map((question) => (
+        <div key={question.questions_id}>
+          <Question questionObj={question} />
         </div>
-      </div>
-    ));
+      ));
+    }
+    return (<div />);
   }
 
   return (
@@ -49,8 +52,6 @@ function QuestionList() {
         <div className="title"> Questions & Answers</div>
         <SearchBar />
         <div>{mapQuestions(allQuestions)}</div>
-        {/* The following div is hard-coded. It will be replaced
-        once my Answer comp is up and running */}
         <div>
           A: Answer1
           <div>by user1, May 14, 2022</div>
