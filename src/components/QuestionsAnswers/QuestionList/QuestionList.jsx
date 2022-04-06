@@ -10,7 +10,8 @@ function QuestionList() {
   const allQuestions = questionsStore((state) => state.questions);
   const { id } = useParams();
 
-  function AxiosGetCall() {
+  // API call to access all questions associated with the current product
+  function getAllQuestions() {
     axios({
       url: `${process.env.URL}qa/questions`,
       method: 'GET',
@@ -28,9 +29,9 @@ function QuestionList() {
         console.log('err :', err);
       });
   }
-  // API call to access all questions associated with the current product
+
   useEffect(() => {
-    AxiosGetCall();
+    getAllQuestions();
   }, []);
 
   // console.log(allQuestions);
