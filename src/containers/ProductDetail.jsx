@@ -15,8 +15,9 @@ function ProductDetail() {
   };
 
   // zustand pulling in the specified functions
-  const setStyles = detailStore((state) => state.setStyles);
   const setDetailsFromApiCall = detailStore((state) => state.setProductDetails);
+  const setStyles = detailStore((state) => state.setStyles);
+  const setSelectedStyle = detailStore((state) => state.setSelectedStyle);
 
   useEffect(() => {
     // Get product info and add to state
@@ -32,6 +33,7 @@ function ProductDetail() {
     axios.get(`${process.env.URL}products/${id}/styles`, authHeaders)
       .then((results) => {
         setStyles(results.data.results);
+        setSelectedStyle(results.data.results[0]);
       })
       .catch((err) => {
         throw err;
