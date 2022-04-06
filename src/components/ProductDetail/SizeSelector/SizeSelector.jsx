@@ -38,7 +38,7 @@ function SizeSelector() {
       {Object.keys(selectedStyle.skus).map((sku) => {
         const obj = selectedStyle.skus[sku];
         return (
-          obj.quantity > 0 && <option key={sku} value={sku}>{selectedStyle.skus[sku].size}</option>
+          obj.quantity > 0 && <option key={sku} value={sku}>{obj.size}</option>
         );
       })}
     </select>
