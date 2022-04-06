@@ -10,6 +10,8 @@ const details = (set) => ({
   setSelectedStyle: (data) => set({ selectedStyle: data }),
   selectedSize: '',
   setSelectedSize: (data) => set({ selectedSize: data }),
+  selectedQuantity: '',
+  setSelectedQuantity: (data) => set({ selectedQuantity: data }),
 });
 const detailStore = create(devtools(details));
 
