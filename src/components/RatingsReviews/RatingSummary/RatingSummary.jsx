@@ -1,5 +1,6 @@
 import React from 'react';
 import { reviewMetaStore } from '../../../stores.js';
+import { StarRating } from '../index.js';
 
 function RatingSummary() {
   const meta = reviewMetaStore((state) => state.ratings);
@@ -14,7 +15,10 @@ function RatingSummary() {
 
     return (
       <div className="rr-rating-summary">
-        {avg}
+        <h2 style={{ display: 'inline' }}>
+          {avg}
+        </h2>
+        <StarRating avg={avg} />
       </div>
     );
   }

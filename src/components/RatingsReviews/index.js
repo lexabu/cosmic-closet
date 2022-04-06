@@ -7,5 +7,7 @@ export { default as ReviewsList } from './ReviewsList/ReviewsList.jsx';
 export { default as RightColumn } from './RightColumn/RightColumn.jsx';
 export { default as SizeScale } from './SizeScale/SizeScale.jsx';
 export { default as Sort } from './Sort/Sort.jsx';
+export { default as Star } from './Star/Star.jsx';
 export { default as StarBreakdown } from './StarBreakdown/StarBreakdown.jsx';
+export { default as StarRating } from './StarRating/StarRating.jsx';
 export { default as Title } from './Title/Title.jsx';

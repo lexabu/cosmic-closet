@@ -18,12 +18,10 @@ function RatingsReviews() {
 
   // zustand pulling in the specified functions
   const setReviewMetaFromApiCall = reviewMetaStore((state) => state.setRatings);
-  console.log(setReviewMetaFromApiCall);
   useEffect(() => {
     // Get ratings via reviewMeta and add to state
     axios.get(`${process.env.URL}reviews/meta`, authHeaders)
       .then((results) => {
-        // console.log(results.data);
         setReviewMetaFromApiCall(results.data);
       })
       .catch((err) => {
