@@ -2,7 +2,10 @@ import React from 'react';
 
 function Answer() {
   return (
-    <div> Answer Comp </div>
+    <div>
+      <div> Answer Comp </div>
+      <div> Answer Comp </div>
+    </div>
   );
 }
 

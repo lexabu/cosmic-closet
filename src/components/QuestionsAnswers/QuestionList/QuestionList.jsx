@@ -53,12 +53,6 @@ function QuestionList() {
         <div className="title"> Questions & Answers</div>
         <SearchBar />
         <div>{mapQuestions(allQuestions)}</div>
-        <div>
-          A: Answer1
-          <div>by user1, May 14, 2022</div>
-          Answer2
-          <div>by user1, May 15, 2022</div>
-        </div>
       </div>
       <button type="button">More Answered Questions</button>
       <button type="button">Add a Question</button>
