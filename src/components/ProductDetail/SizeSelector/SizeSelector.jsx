@@ -5,6 +5,8 @@ import './SizeSelector.scss';
 function SizeSelector() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
   const setSelectedSize = detailStore((state) => state.setSelectedSize);
+  const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
+  const showSizeSelector = detailStore((state) => state.showSizeSelector);
 
   if (Object.keys(selectedStyle).length === 0) {
     return <span>Loading styles...</span>;
@@ -32,17 +34,60 @@ function SizeSelector() {
   };
 
   return (
-    <select key="pd-size-selector" className="pd-size-selector" onChange={(e) => { handleChange(e); }}>
-      <option key="pd-select-size" value="">Select Size</option>
-      {/* Map through all skus */}
-      {Object.keys(selectedStyle.skus).map((sku) => {
-        const obj = selectedStyle.skus[sku];
-        return (
-          obj.quantity > 0 && <option key={sku} value={sku}>{obj.size}</option>
-        );
-      })}
-    </select>
+    <>
+      <button
+        id="pd-size-selector"
+        // className={`pd-size-selector-active ${dropdownActive}`}
+        type="button"
+        onClick={() => {
+          console.log('click');
+          toggleShowSizeSelector();
+        }}
+      >
+        Select Size
+      </button>
+      {
+        Object.keys(selectedStyle.skus).map((sku) => {
+          const obj = selectedStyle.skus[sku];
+          return (
+            obj.quantity > 0
+            && (
+              <button
+                type="button"
+                className={`pd-dd-item-${showSizeSelector}`}
+                key={sku}
+                onClick={() => {
+                  setSelectedSize(sku);
+                  toggleShowSizeSelector(false);
+                }}
+              >
+                {obj.size}
+              </button>
+            )
+          );
+        })
+      }
+    </>
   );
+
+  // return (
+  //   <select
+  //     id="pd-size-selector"
+  //     key="pd-size-selector"
+  //     // className="pd-size-selector"
+  //     onChange={(e) => { handleChange(e); }}
+  //     onClick={() => { console.log('selector clicked'); }}
+  //   >
+  //     <option key="pd-select-size" value="">Select Size</option>
+  //     {/* Map through all skus */}
+  //     {Object.keys(selectedStyle.skus).map((sku) => {
+  //       const obj = selectedStyle.skus[sku];
+  //       return (
+  //         obj.quantity > 0 && <option key={sku} value={sku}>{obj.size}</option>
+  //       );
+  //     })}
+  //   </select>
+  // );
 }
 
 export default SizeSelector;
