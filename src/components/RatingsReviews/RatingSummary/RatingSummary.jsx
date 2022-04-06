@@ -15,9 +15,9 @@ function RatingSummary() {
 
     return (
       <div className="rr-rating-summary">
-        <h2 style={{ display: 'inline' }}>
+        <h1 style={{ display: 'inline' }}>
           {avg}
-        </h2>
+        </h1>
         <StarRating avg={avg} />
       </div>
     );
