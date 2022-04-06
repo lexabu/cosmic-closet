@@ -2,6 +2,7 @@ import React from 'react';
 // import { detailStore } from '../../../stores.js';
 import SizeSelector from '../SizeSelector/SizeSelector.jsx';
 import QuantitySelector from '../QuantitySelector/QuantitySelector.jsx';
+import AddToCart from '../AddToCart/AddToCart.jsx';
 import './CartActions.scss';
 
 function CartActions() {
@@ -11,8 +12,11 @@ function CartActions() {
 
   return (
     <>
-      <SizeSelector />
-      <QuantitySelector />
+      <div className="dp-selectors-container">
+        <SizeSelector />
+        <QuantitySelector />
+      </div>
+      <AddToCart />
     </>
   );
 }
