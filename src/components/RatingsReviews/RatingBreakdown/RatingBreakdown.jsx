@@ -1,34 +1,23 @@
 import React from 'react';
 import './RatingBreakdown.scss';
-import { reviewMetaStore, reviewStore } from '../../../stores.js';
+import { reviewMetaStore } from '../../../stores.js';
 
 function RatingBreakdown() {
   const metaRatings = reviewMetaStore((state) => state.ratings);
   const { ratings, recommended } = metaRatings;
-  console.log('recommended: ', recommended);
-  console.log('ratings: ', ratings);
 
-  // need a numerator to be the number of true
-  // need the denominator to be the count of true and false
-
-  if (recommended) {
-    // percent reccommended
+  if (recommended && ratings) {
     const recommendedTrue = Number(recommended.true);
     const recommendedFalse = Number(recommended.false);
     const numerator = recommendedTrue;
     const denominator = recommendedTrue + recommendedFalse;
     const percentOfReviewsRecommendProduct = ((numerator / denominator) * 100).toFixed(0);
 
-    // breakdown
     const one = ratings['1'] || 0;
     const two = ratings['2'] || 0;
     const three = ratings['3'] || 0;
     const four = ratings['4'] || 0;
     const five = ratings['5'] || 0;
-
-    // const [one] = Object.values(ratings);
-
-    console.log('one: ', one);
 
     return (
       <div className="rr-rating-breakdown">
@@ -64,7 +53,7 @@ function RatingBreakdown() {
       </div>
     );
   }
-  return <div> Loading... </div>;
+  return <div> Loading...</div>;
 }
 
 export default RatingBreakdown;
