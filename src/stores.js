@@ -33,4 +33,20 @@ const questionsStore = create(
   })),
 );
 
-export { detailStore, ratingStore, questionsStore };
+const reviewStore = create(
+  devtools((set) => ({
+    reviews: [],
+    setReviews: (data) => set(() => ({ reviews: data })),
+  })),
+);
+
+const reviewMetaStore = create(
+  devtools((set) => ({
+    ratings: [],
+    setRatings: (data) => set(() => ({ ratings: data })),
+  })),
+);
+
+export {
+  detailStore, ratingStore, questionsStore, reviewStore, reviewMetaStore,
+};
