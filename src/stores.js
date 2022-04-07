@@ -13,6 +13,7 @@ const details = (set, get) => ({
   selectedQuantity: '',
   setSelectedQuantity: (data) => set({ selectedQuantity: data }),
   showSizeSelector: false,
+  // TODO: Combine the two toggle functions to be a single function
   toggleShowSizeSelector: (bool) => {
     if (bool === undefined) {
       set({ showSizeSelector: !get().showSizeSelector });
@@ -35,6 +36,8 @@ const details = (set, get) => ({
       set({ toastShown: false });
     }, 3000);
   },
+  selectedImageIndex: 0,
+  setSelectedImageIndex: (index) => set({ selectedImageIndex: index }),
 });
 const detailStore = create(devtools(details));
 
