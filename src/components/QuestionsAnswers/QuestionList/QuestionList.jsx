@@ -41,7 +41,7 @@ function QuestionList() {
   function mapQuestions(questionsArr) {
     if (questionsArr.length > 0) {
       return questionsArr.map((question) => (
-        <div key={question.questions_id}>
+        <div key={question.question_id}>
           <Question questionObj={question} />
         </div>
       ));
