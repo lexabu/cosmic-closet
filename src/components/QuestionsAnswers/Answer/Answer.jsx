@@ -35,7 +35,7 @@ function Answer({ questionObj }) {
     console.log('answersObjValues :', Object.values(answersObj));
     return Object.values(answersObj).map((answer) => (
       // console.log('answer :', answer)
-      <div key={answer.answer_id}>
+      <div key={answer.id}>
         <div>{`A: ${answer.body}`}</div>
         <div>{`by ${answer.answerer_name}, ${answer.date} | Helpful? Yes(${answer.helpfulness}) | Report`}</div>
       </div>
