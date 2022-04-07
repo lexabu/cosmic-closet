@@ -1,13 +1,40 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-const details = (set) => ({
+const details = (set, get) => ({
   productDetails: [],
   setProductDetails: (data) => set({ productDetails: data }),
   styles: [],
   setStyles: (data) => set({ styles: data }),
   selectedStyle: {}, // will be the style object
   setSelectedStyle: (data) => set({ selectedStyle: data }),
+  selectedSize: '',
+  setSelectedSize: (data) => set({ selectedSize: data }),
+  selectedQuantity: '',
+  setSelectedQuantity: (data) => set({ selectedQuantity: data }),
+  showSizeSelector: false,
+  toggleShowSizeSelector: (bool) => {
+    if (bool === undefined) {
+      set({ showSizeSelector: !get().showSizeSelector });
+    } else {
+      set({ showSizeSelector: bool });
+    }
+  },
+  showQuantitySelector: false,
+  toggleShowQuantitySelector: (bool) => {
+    if (bool === undefined) {
+      set({ showQuantitySelector: !get().showQuantitySelector });
+    } else {
+      set({ showQuantitySelector: bool });
+    }
+  },
+  toastShown: false,
+  toggleToastShown: () => {
+    set({ toastShown: true });
+    setTimeout(() => {
+      set({ toastShown: false });
+    }, 3000);
+  },
 });
 const detailStore = create(devtools(details));
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { detailStore } from '../../../stores.js';
-import { Styles } from '..';
+import Styles from '../Styles/Styles.jsx';
+import CartActions from '../CartActions/CartActions.jsx';
 import './RightDetails.scss';
 
 function RightDetails() {
@@ -30,9 +31,8 @@ function RightDetails() {
           {onSale && <span className={`pd-price${onSale ? ' sale' : ''}`}>{`$${salePrice}`}</span>}
         </div>
       </div>
-      <div className="pd-styles">
-        <Styles />
-      </div>
+      <Styles />
+      <CartActions />
     </div>
   );
 }

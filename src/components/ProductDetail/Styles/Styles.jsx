@@ -8,8 +8,12 @@ function Styles() {
   const styles = detailStore((state) => state.styles);
   const selectedStyle = detailStore((state) => state.selectedStyle);
   const setSelectedStyle = detailStore((state) => state.setSelectedStyle);
+  const setSelectedSize = detailStore((state) => state.setSelectedSize);
+  const setSelectedQuantity = detailStore((state) => state.setSelectedQuantity);
 
   const handleStyleChange = (style) => {
+    setSelectedSize('');
+    setSelectedQuantity('');
     setSelectedStyle(style);
   };
 
@@ -19,7 +23,7 @@ function Styles() {
   };
 
   return (
-    <>
+    <div className="pd-styles">
       <div className="pd-selected-style">
         <span className="pd-selected-title">Selected Style</span>
         <AiOutlineRight />
@@ -51,7 +55,7 @@ function Styles() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
