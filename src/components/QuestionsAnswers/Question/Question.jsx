@@ -9,7 +9,7 @@ function Question({ questionObj }) {
     <div>
       <div>{`Q: ${questionObj.question_body}`}</div>
       <div>Helpful? Yes({questionObj.question_helpfulness}) | Add Answer</div>
-      <Answer />
+      <Answer questionObj={questionObj} />
     </div>
   );
 }

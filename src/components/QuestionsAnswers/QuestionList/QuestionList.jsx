@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
+
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import Question from '../Question/Question.jsx';
 
@@ -34,7 +36,7 @@ function QuestionList() {
     getAllQuestions();
   }, []);
 
-  // console.log(allQuestions);
+  console.log('ALL QUESTIONS', allQuestions);
 
   function mapQuestions(questionsArr) {
     if (questionsArr.length > 0) {

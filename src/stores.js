@@ -32,6 +32,8 @@ const questionsStore = create(
     // dogs: 999,
     questions: [],
     setQuestions: (data) => set(() => ({ questions: data })),
+    answers: [],
+    setAnswers: (data) => set(() => ({ answers: data })),
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
   })),
