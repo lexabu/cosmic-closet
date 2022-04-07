@@ -1,9 +1,17 @@
 import React from 'react';
+import { Star } from '../index.js';
+import './StarRating.scss';
 
-function StarRating() {
+function StarRating({ avg }) {
   return (
-    <div className="rr-StarRating">StarRating</div>
+    <span>
+      {[1, 2, 3, 4, 5].map((value) => (
+        <Star
+          key={value}
+          filled={value <= avg}
+        />
+      ))}
+    </span>
   );
 }
-
 export default StarRating;

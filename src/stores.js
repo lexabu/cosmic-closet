@@ -8,6 +8,10 @@ const details = (set) => ({
   setStyles: (data) => set({ styles: data }),
   selectedStyle: {}, // will be the style object
   setSelectedStyle: (data) => set({ selectedStyle: data }),
+  selectedSize: '',
+  setSelectedSize: (data) => set({ selectedSize: data }),
+  selectedQuantity: '',
+  setSelectedQuantity: (data) => set({ selectedQuantity: data }),
 });
 const detailStore = create(devtools(details));
 
@@ -33,4 +37,20 @@ const questionsStore = create(
   })),
 );
 
-export { detailStore, ratingStore, questionsStore };
+const reviewStore = create(
+  devtools((set) => ({
+    reviews: [],
+    setReviews: (data) => set(() => ({ reviews: data })),
+  })),
+);
+
+const reviewMetaStore = create(
+  devtools((set) => ({
+    ratings: [],
+    setRatings: (data) => set(() => ({ ratings: data })),
+  })),
+);
+
+export {
+  detailStore, ratingStore, questionsStore, reviewStore, reviewMetaStore,
+};

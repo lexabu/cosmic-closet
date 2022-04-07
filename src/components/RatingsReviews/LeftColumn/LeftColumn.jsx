@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Title, StarRating, StarBreakdown, SizeScale, ComfortScale,
+  Title, RatingSummary, RatingBreakdown, SizeScale, ComfortScale,
 } from '../index.js';
 import './LeftColumn.scss';
 
@@ -8,8 +8,8 @@ function LeftColumn() {
   return (
     <div className="rr-left-column">
       <Title />
-      <StarRating />
-      <StarBreakdown />
+      <RatingSummary />
+      <RatingBreakdown />
       <SizeScale />
       <ComfortScale />
     </div>
