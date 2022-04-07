@@ -69,22 +69,31 @@ function ImageGallery() {
             : <div className="ig-spacer" />}
         </div>
         <div className="image-arrow-container">
-          <AiFillLeftCircle
-            className="image-main-arrow-left"
-            onClick={() => {
-              if (imgIdx > 0) {
-                setImgIdx(imgIdx - 1);
-              }
-            }}
-          />
-          <AiFillRightCircle
-            className="image-main-arrow-right"
-            onClick={() => {
-              if (imgIdx < TEST_PHOTOS.length - 1) {
-                setImgIdx(imgIdx + 1);
-              }
-            }}
-          />
+          {imgIdx > 0
+            ? (
+              <AiFillLeftCircle
+                className="image-main-arrow-left"
+                onClick={() => {
+                  if (imgIdx > 0) {
+                    setImgIdx(imgIdx - 1);
+                  }
+                }}
+              />
+            )
+            : <div className="img-arrow-divider" />}
+          {imgIdx < TEST_PHOTOS.length - 1
+            ? (
+              <AiFillRightCircle
+                className="image-main-arrow-right"
+                onClick={() => {
+                  if (imgIdx < TEST_PHOTOS.length - 1) {
+                    setImgIdx(imgIdx + 1);
+                  }
+                }}
+              />
+            )
+            : <div className="img-arrow-divider" />}
+
         </div>
       </div>
     </div>

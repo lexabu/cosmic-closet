@@ -31,9 +31,14 @@
   filter: drop-shadow(0 0 15px rgba(36, 36, 36, 0.556));
 }
 
+.image-arrow-container svg {
+  transition: 0.3s;
+}
+
 .image-arrow-container svg:hover {
   cursor: pointer;
-  color: #25afb96b;
+  color: #ffffffac;
+  // color: #25afb96b;
 }
 
 .image-thumbnail-gallery-container {
