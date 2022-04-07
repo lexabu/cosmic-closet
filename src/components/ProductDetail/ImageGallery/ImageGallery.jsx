@@ -3,7 +3,12 @@
 // TODO: implement the above accessibility features
 
 import React, { useState } from 'react';
-import { AiFillDownCircle, AiFillUpCircle } from 'react-icons/ai';
+import {
+  AiFillDownCircle,
+  AiFillUpCircle,
+  AiFillLeftCircle,
+  AiFillRightCircle,
+} from 'react-icons/ai';
 import './ImageGallery.scss';
 import { detailStore } from '../../../stores.js';
 
@@ -17,8 +22,8 @@ function ImageGallery() {
     return <h1>Loading images...</h1>;
   }
 
-  // const TEST_PHOTOS = selectedStyle.photos;
-  const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
+  const TEST_PHOTOS = selectedStyle.photos;
+  // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
   // after testing, replace TEST_PHOTOS with selectedStyle.photos
 
   const shownThumbnails = [];
@@ -28,7 +33,7 @@ function ImageGallery() {
     }
     shownThumbnails.push(
       <img
-        className="image-thumbnail"
+        className={`image-thumbnail${imgIdx === i ? ' selected' : ''}`}
         src={TEST_PHOTOS[i].thumbnail_url}
         alt="selectedStyle.name"
         onClick={() => { setImgIdx(i); }}
@@ -39,28 +44,48 @@ function ImageGallery() {
   return (
     <div className="image-gallery">
       <img className="image-main" src={TEST_PHOTOS[imgIdx].url} alt={selectedStyle.name} />
-      <div className="image-thumbnail-gallery-container">
-        {startingThumbnailIndex > 0 ? (
-          <AiFillUpCircle
-            className="image-tg-arrow"
-            onClick={() => {
-              setStartingThumbnailIndex(startingThumbnailIndex - 1);
-            }}
-          />
-        )
-          : <div className="ig-spacer" />}
-        <div className="image-thumbnail-gallery">
-          {shownThumbnails}
+      <div className="image-overlay-container">
+        <div className="image-thumbnail-gallery-container">
+          {startingThumbnailIndex > 0 ? (
+            <AiFillUpCircle
+              className="image-tg-arrow"
+              onClick={() => {
+                setStartingThumbnailIndex(startingThumbnailIndex - 1);
+              }}
+            />
+          )
+            : <div className="ig-spacer" />}
+          <div className="image-thumbnail-gallery">
+            {shownThumbnails}
+          </div>
+          {startingThumbnailIndex < TEST_PHOTOS.length - 7 ? (
+            <AiFillDownCircle
+              className="image-tg-arrow"
+              onClick={() => {
+                setStartingThumbnailIndex(startingThumbnailIndex + 1);
+              }}
+            />
+          )
+            : <div className="ig-spacer" />}
         </div>
-        {startingThumbnailIndex < TEST_PHOTOS.length - 7 ? (
-          <AiFillDownCircle
-            className="image-tg-arrow"
+        <div className="image-arrow-container">
+          <AiFillLeftCircle
+            className="image-main-arrow-left"
             onClick={() => {
-              setStartingThumbnailIndex(startingThumbnailIndex + 1);
+              if (imgIdx > 0) {
+                setImgIdx(imgIdx - 1);
+              }
             }}
           />
-        )
-          : <div className="ig-spacer" />}
+          <AiFillRightCircle
+            className="image-main-arrow-right"
+            onClick={() => {
+              if (imgIdx < TEST_PHOTOS.length - 1) {
+                setImgIdx(imgIdx + 1);
+              }
+            }}
+          />
+        </div>
       </div>
     </div>
   );
