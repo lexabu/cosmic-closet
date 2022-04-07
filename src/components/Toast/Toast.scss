@@ -1,0 +1,17 @@
+.toast-container-hidden {
+  display: none;
+}
+
+.toast-container-true {
+  position: absolute;
+  top: 10px;
+  left: 40%;
+  background-color: rgb(156, 208, 191);
+  height: 5em;
+  width: 20%;
+}
+
+.toast-title {
+  text-align: center;
+  line-height: 75px;
+}

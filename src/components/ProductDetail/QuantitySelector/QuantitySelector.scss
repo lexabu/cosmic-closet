@@ -1,0 +1,59 @@
+$buttonSize: 48px;
+
+.pd-quantity-selector-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 30%;
+}
+
+.pd-quantity-selector-options-container-true {
+  position: absolute;
+  top: 48px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 14em;
+  overflow: scroll;
+  z-index: 1;
+  border-bottom: solid thin rgb(170, 170, 170);
+  border-top: none;
+  cursor: pointer;
+}
+
+.pd-quantity-selector-options-container-false {
+  display: none;
+}
+
+.pd-quantity-button {
+  height: $buttonSize;
+  width: 100%;
+  background-color: white;
+  border: solid thin;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.pd-quantity-button.hidden {
+  cursor: not-allowed;
+}
+
+.pd-dd-quantity-false {
+  display: none;
+}
+
+.pd-dd-quantity-true {
+  cursor: pointer;
+  height: $buttonSize - 10;
+  background-color: white;
+  border: solid thin rgb(170, 170, 170);
+  border-bottom: none;
+}
+
+.pd-dd-quantity-true:last-child {
+  border-bottom: solid thin rgb(170, 170, 170);
+}
+
+.pd-dd-quantity-true:hover {
+  background-color: aliceblue;
+}

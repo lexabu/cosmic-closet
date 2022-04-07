@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AiFillCaretDown } from 'react-icons/ai';
 import { detailStore } from '../../../stores.js';
 import './QuantitySelector.scss';
 
 function QuantitySelector() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
   const selectedSizeSku = detailStore((state) => state.selectedSize);
-  const selectedQuantity = detailStore((state) => state.selectedQuantity);
   const setSelectedQuantity = detailStore((state) => state.setSelectedQuantity);
+  const showQuantitySelector = detailStore((state) => state.showQuantitySelector);
+  const toggleShowQuantitySelector = detailStore((state) => state.toggleShowQuantitySelector);
 
-  // Set selected dropdown option as selectedQuantity in store
-  const handleChange = (e) => {
-    setSelectedQuantity(e.target.value);
-  };
+  const [shownQuantity, setShownQuantity] = useState(1);
 
   if (selectedSizeSku === '') {
     return (
-      <select disabled>
-        <option>-</option>
-      </select>
+      <div className="pd-quantity-selector-container">
+        <button className="pd-quantity-button hidden" type="button" disabled>-</button>
+      </div>
     );
   }
 
@@ -29,17 +28,40 @@ function QuantitySelector() {
       break;
     }
     quantityArr.push(
-      <option key={i}>{i}</option>,
+      <button
+        className={`pd-dd-quantity-${showQuantitySelector}`}
+        type="button"
+        key={i}
+        onClick={() => {
+          setShownQuantity(i);
+          setSelectedQuantity(i);
+          toggleShowQuantitySelector(false);
+        }}
+      >
+        {i}
+      </button>,
     );
   }
 
-  console.log('quantityArr', quantityArr);
-
   return (
-    <select key="pd-quantity-selector" className="pd-quantity-selector" onChange={(e) => { handleChange(e); }}>
-      {selectedQuantity === '' && <option key="pd-select-quantity" value="">Select Quantity</option>}
-      {quantityArr}
-    </select>
+    <div className="pd-quantity-selector-container">
+      <button
+        className="pd-quantity-button"
+        type="button"
+        onClick={() => {
+          toggleShowQuantitySelector();
+        }}
+      >
+        <div className="pd-inner-button-container">
+          <div className="inner-button-filler" />
+          <h4>{shownQuantity}</h4>
+          <AiFillCaretDown />
+        </div>
+      </button>
+      <div className={`pd-quantity-selector-options-container-${showQuantitySelector}`}>
+        {quantityArr}
+      </div>
+    </div>
   );
 }
 

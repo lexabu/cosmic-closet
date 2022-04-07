@@ -31,12 +31,8 @@ function RightDetails() {
           {onSale && <span className={`pd-price${onSale ? ' sale' : ''}`}>{`$${salePrice}`}</span>}
         </div>
       </div>
-      <div className="pd-styles">
-        <Styles />
-      </div>
-      <div className="cart-actions-container">
-        <CartActions />
-      </div>
+      <Styles />
+      <CartActions />
     </div>
   );
 }
