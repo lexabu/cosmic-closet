@@ -6,9 +6,6 @@ import AddToCart from '../AddToCart/AddToCart.jsx';
 import './CartActions.scss';
 
 function CartActions() {
-  // const selectedStyle = detailStore((state) => state.selectedStyle);
-  // const selectedSize = detailStore((state) => state.selectedSize);
-  // const setSelectedSize = detailStore((state) => state.setSelectedSize);
   const selectedStyle = detailStore((state) => state.selectedStyle);
 
   if (Object.keys(selectedStyle).length === 0) {
@@ -22,14 +19,6 @@ function CartActions() {
   vals.forEach((sku) => {
     qtySum += sku.quantity;
   });
-
-  // if ((vals.length === 1 && vals[0].quantity == null) || qtySum === 0) {
-  //   return (
-  //     <select disabled>
-  //       <option>OUT OF STOCK</option>
-  //     </select>
-  //   );
-  // }
 
   return (
     <div className="cart-actions-container">

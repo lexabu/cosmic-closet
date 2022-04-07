@@ -5,7 +5,6 @@ import './SizeSelector.scss';
 
 function SizeSelector() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
-  // const selectedSize = detailStore((state) => state.selectedSize);
   const setSelectedSize = detailStore((state) => state.setSelectedSize);
   const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
   const showSizeSelector = detailStore((state) => state.showSizeSelector);
@@ -75,6 +74,8 @@ function SizeSelector() {
       </div>
     </div>
   );
+
+  // KEEPING for future reference, will delete once widget is mostly functional
 
   // return (
   //   <select
