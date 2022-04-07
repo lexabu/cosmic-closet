@@ -17,6 +17,8 @@ function SizeSelector() {
   }
 
   // Make checks for OUT OF STOCK items
+  // TODO: separate this into a utility function to be used again
+  // in the CartActions component
   const vals = Object.values(selectedStyle.skus);
   let qtySum = 0;
 
