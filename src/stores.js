@@ -52,7 +52,6 @@ const questionsStore = create(
   // To be able to see multiple stores in Redux DevTools, set the selector in the
   // extension to "Autoselect instances"
   devtools((set) => ({
-    // dogs: 999,
     questions: [],
     setQuestions: (data) => set(() => ({ questions: data })),
     answers: [],

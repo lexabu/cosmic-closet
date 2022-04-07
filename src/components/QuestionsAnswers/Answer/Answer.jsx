@@ -5,7 +5,7 @@ import { questionsStore } from '../../../stores.js';
 
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
-  const allAnswers = questionsStore((state) => state.answers);
+  // const allAnswers = questionsStore((state) => state.answers);
 
   function getAllAnswers() {
     axios({
@@ -28,20 +28,9 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
-  console.log('after call ans :', allAnswers);
-
-  // function dateFormatter(apiDate) {
-  //   const dateString = apiDate.slice(0, 10);
-  //   const longDate = new Date(dateString);
-  //   console.log('date type :', typeof longDate);
-  //   console.log(Object.values(longDate));
-  //   // const date = longDate.slice(4);
-  //   return longDate;
-  // }
+  // console.log('after call ans :', allAnswers);
 
   function mapAnswers(answersObj) {
-    console.log('answersObj :', answersObj);
-    console.log('answersObjValues :', Object.values(answersObj));
     return Object.values(answersObj).map((answer) => (
       // console.log('answer :', answer)
       <div key={answer.id}>

@@ -26,7 +26,7 @@ function QuestionList() {
         setQuestions(data.data.results);
       })
       .catch((err) => {
-        console.log('err :', err);
+        throw err;
       });
   }
 
