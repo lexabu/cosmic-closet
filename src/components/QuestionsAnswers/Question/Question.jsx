@@ -1,9 +1,16 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/prop-types */
 import React from 'react';
+// import Answer from '../index.js';
+import Answer from '../Answer/Answer.jsx';
 
-function Question() {
+function Question({ questionObj }) {
   return (
-    <div>alex</div>
+    <div>
+      <div>{`Q: ${questionObj.question_body}`}</div>
+      <div>Helpful? Yes({questionObj.question_helpfulness}) | Add Answer</div>
+      <Answer questionObj={questionObj} />
+    </div>
   );
 }
-
 export default Question;
