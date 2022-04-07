@@ -20,6 +20,14 @@ const details = (set, get) => ({
       set({ showSizeSelector: bool });
     }
   },
+  showQuantitySelector: false,
+  toggleShowQuantitySelector: (bool) => {
+    if (bool === undefined) {
+      set({ showQuantitySelector: !get().showQuantitySelector });
+    } else {
+      set({ showQuantitySelector: bool });
+    }
+  },
 });
 const detailStore = create(devtools(details));
 

@@ -1,3 +1,59 @@
-.pd-dd-item-false {
+$buttonSize: 48px;
+
+.pd-dd-size-false {
   display: none;
+}
+
+.pd-dd-size-true {
+  cursor: pointer;
+  height: $buttonSize - 10;
+  background-color: white;
+  border: solid thin rgb(170, 170, 170);
+  border-bottom: none;
+}
+
+.pd-dd-size-true:last-child {
+  border-bottom: solid thin rgb(170, 170, 170);
+}
+
+.pd-dd-size-true:hover {
+  background-color: aliceblue;
+}
+
+.pd-selectors-container {
+  display: flex;
+  justify-content: space-between;
+  height: $buttonSize;
+}
+
+.pd-size-button {
+  height: $buttonSize;
+  background-color: white;
+  border: solid thin;
+  text-transform: uppercase;
+  padding: 10px;
+  cursor: pointer;
+  // border-radius: 5px;
+}
+
+.pd-size-selector-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  position: relative;
+  height: $buttonSize;
+}
+
+.pd-size-selector-options-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: $buttonSize;
+}
+
+.pd-inner-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

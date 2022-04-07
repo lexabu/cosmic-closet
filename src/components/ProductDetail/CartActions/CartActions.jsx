@@ -12,7 +12,7 @@ function CartActions() {
 
   return (
     <>
-      <div className="dp-selectors-container">
+      <div className="pd-selectors-container">
         <SizeSelector />
         <QuantitySelector />
       </div>

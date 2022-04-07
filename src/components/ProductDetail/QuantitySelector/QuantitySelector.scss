@@ -1,0 +1,45 @@
+$buttonSize: 48px;
+
+.pd-quantity-selector-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 30%;
+}
+
+.pd-quantity-selector-options-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 48px;
+}
+
+.pd-quantity-button {
+  height: $buttonSize;
+  width: 100%;
+  cursor: pointer;
+  background-color: white;
+  border: solid thin;
+  padding: 10px;
+}
+
+.pd-dd-quantity-false {
+  display: none;
+}
+
+.pd-dd-quantity-true {
+  cursor: pointer;
+  height: $buttonSize - 10;
+  background-color: white;
+  border: solid thin rgb(170, 170, 170);
+  border-bottom: none;
+}
+
+.pd-dd-quantity-true:last-child {
+  border-bottom: solid thin rgb(170, 170, 170);
+}
+
+.pd-dd-quantity-true:hover {
+  background-color: aliceblue;
+}

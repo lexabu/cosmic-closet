@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AiFillCaretDown } from 'react-icons/ai';
 import { detailStore } from '../../../stores.js';
 import './SizeSelector.scss';
 
 function SizeSelector() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
+  // const selectedSize = detailStore((state) => state.selectedSize);
   const setSelectedSize = detailStore((state) => state.setSelectedSize);
   const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
   const showSizeSelector = detailStore((state) => state.showSizeSelector);
+
+  const [shownSize, setShownSize] = useState('Select Size');
 
   if (Object.keys(selectedStyle).length === 0) {
     return <span>Loading styles...</span>;
@@ -28,46 +32,45 @@ function SizeSelector() {
     );
   }
 
-  // Set selected dropdown option as selectedSize in store
-  const handleChange = (e) => {
-    setSelectedSize(e.target.value);
-  };
-
   return (
-    <>
+    <div className="pd-size-selector-container">
       <button
-        id="pd-size-selector"
-        // className={`pd-size-selector-active ${dropdownActive}`}
+        className="pd-size-button"
         type="button"
         onClick={() => {
-          console.log('click');
           toggleShowSizeSelector();
         }}
       >
-        Select Size
+        <div className="pd-inner-button-container">
+          <h4>{shownSize}</h4>
+          <AiFillCaretDown />
+        </div>
       </button>
-      {
-        Object.keys(selectedStyle.skus).map((sku) => {
-          const obj = selectedStyle.skus[sku];
-          return (
-            obj.quantity > 0
-            && (
-              <button
-                type="button"
-                className={`pd-dd-item-${showSizeSelector}`}
-                key={sku}
-                onClick={() => {
-                  setSelectedSize(sku);
-                  toggleShowSizeSelector(false);
-                }}
-              >
-                {obj.size}
-              </button>
-            )
-          );
-        })
-      }
-    </>
+      <div className="pd-size-selector-options-container">
+        {
+          Object.keys(selectedStyle.skus).map((sku) => {
+            const obj = selectedStyle.skus[sku];
+            return (
+              obj.quantity > 0
+              && (
+                <button
+                  type="button"
+                  className={`pd-dd-size-${showSizeSelector}`}
+                  key={sku}
+                  onClick={() => {
+                    setSelectedSize(sku);
+                    setShownSize(obj.size);
+                    toggleShowSizeSelector(false);
+                  }}
+                >
+                  {obj.size}
+                </button>
+              )
+            );
+          })
+        }
+      </div>
+    </div>
   );
 
   // return (
