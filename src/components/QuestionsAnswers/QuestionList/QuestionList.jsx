@@ -3,9 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
-
-import SearchBar from '../SearchBar/SearchBar.jsx';
-import Question from '../Question/Question.jsx';
+import { SearchBar, Question, MoreQuestions } from '../index.js';
 
 function QuestionList() {
   const setQuestions = questionsStore((state) => state.setQuestions);
@@ -57,7 +55,7 @@ function QuestionList() {
         <div>{mapQuestions(allQuestions)}</div>
       </div>
       <button type="button">More Answered Questions</button>
-      <button type="button">Add a Question</button>
+      <MoreQuestions />
     </div>
   );
 }
