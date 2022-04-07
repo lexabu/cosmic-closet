@@ -23,7 +23,7 @@ function Styles() {
   };
 
   return (
-    <>
+    <div className="pd-styles">
       <div className="pd-selected-style">
         <span className="pd-selected-title">Selected Style</span>
         <AiOutlineRight />
@@ -55,7 +55,7 @@ function Styles() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

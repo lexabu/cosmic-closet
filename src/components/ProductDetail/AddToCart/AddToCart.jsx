@@ -10,6 +10,7 @@ function AddToCart() {
 
   return (
     <button
+      className="add-to-cart-button"
       type="button"
       onClick={() => {
         if (selectedSizeSku === '') {

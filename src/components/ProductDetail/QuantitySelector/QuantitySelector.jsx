@@ -5,23 +5,17 @@ import './QuantitySelector.scss';
 
 function QuantitySelector() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
-  // const selectedSize = detailStore((state) => state.selectedSize);
-  const setSelectedSize = detailStore((state) => state.setSelectedSize);
-  const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
-  const showSizeSelector = detailStore((state) => state.showSizeSelector);
-
   const selectedSizeSku = detailStore((state) => state.selectedSize);
-  const selectedQuantity = detailStore((state) => state.selectedQuantity);
   const setSelectedQuantity = detailStore((state) => state.setSelectedQuantity);
   const showQuantitySelector = detailStore((state) => state.showQuantitySelector);
   const toggleShowQuantitySelector = detailStore((state) => state.toggleShowQuantitySelector);
 
-  const [shownQuantity, setShownQuantity] = useState('-');
+  const [shownQuantity, setShownQuantity] = useState(1);
 
   if (selectedSizeSku === '') {
     return (
       <div className="pd-quantity-selector-container">
-        <button className="pd-quantity-button" type="button" disabled>-</button>
+        <button className="pd-quantity-button hidden" type="button" disabled>-</button>
       </div>
     );
   }
@@ -49,8 +43,6 @@ function QuantitySelector() {
     );
   }
 
-  console.log('quantityArr', quantityArr);
-
   return (
     <div className="pd-quantity-selector-container">
       <button
@@ -65,7 +57,7 @@ function QuantitySelector() {
           <AiFillCaretDown />
         </div>
       </button>
-      <div className="pd-quantity-selector-options-container">
+      <div className={`pd-quantity-selector-options-container-${showQuantitySelector}`}>
         {quantityArr}
       </div>
     </div>

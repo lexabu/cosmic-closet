@@ -36,6 +36,10 @@ $buttonSize: 48px;
   // border-radius: 5px;
 }
 
+.pd-size-button:hover {
+  background-color: aliceblue;
+}
+
 .pd-size-selector-container {
   display: flex;
   flex-direction: column;

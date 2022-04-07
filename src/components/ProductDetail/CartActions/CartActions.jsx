@@ -11,13 +11,13 @@ function CartActions() {
   // const setSelectedSize = detailStore((state) => state.setSelectedSize);
 
   return (
-    <>
+    <div className="cart-actions-container">
       <div className="pd-selectors-container">
         <SizeSelector />
         <QuantitySelector />
       </div>
       <AddToCart />
-    </>
+    </div>
   );
 }
 
