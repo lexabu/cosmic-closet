@@ -53,6 +53,7 @@ function QuantitySelector() {
         }}
       >
         <div className="pd-inner-button-container">
+          <div className="inner-button-filler" />
           <h4>{shownQuantity}</h4>
           <AiFillCaretDown />
         </div>

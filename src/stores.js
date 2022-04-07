@@ -28,6 +28,13 @@ const details = (set, get) => ({
       set({ showQuantitySelector: bool });
     }
   },
+  toastShown: false,
+  toggleToastShown: () => {
+    set({ toastShown: true });
+    setTimeout(() => {
+      set({ toastShown: false });
+    }, 3000);
+  },
 });
 const detailStore = create(devtools(details));
 
