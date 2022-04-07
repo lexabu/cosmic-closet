@@ -8,7 +8,7 @@ function RatingSummary() {
   const { ratings } = meta;
 
   if (ratings) {
-    // update avg to be object key times object value in order to get to actual avg
+    // TODO: update avg to be object key times object value in order to get to actual avg
     const values = Object.values(ratings);
     let numerator = 0;
     const denominator = values.length;
