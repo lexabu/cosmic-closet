@@ -5,7 +5,7 @@ import { questionsStore } from '../../../stores.js';
 
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
-  // const allAnswers = questionsStore((state) => state.answers);
+  const allAnswers = questionsStore((state) => state.answers);
 
   function getAllAnswers() {
     axios({
@@ -16,7 +16,7 @@ function Answer({ questionObj }) {
       },
     })
       .then((data) => {
-        console.log('all answers :', data);
+        console.log('all answers :', data.data.results);
         setAnswers(data.data.results);
       })
       .catch((err) => {
@@ -28,10 +28,23 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
+  console.log('after call ans :', allAnswers);
+
+  function mapAnswers(answersObj) {
+    console.log('answersObj :', answersObj);
+    console.log('answersObjValues :', Object.values(answersObj));
+    return Object.values(answersObj).map((answer) => (
+      // console.log('answer :', answer)
+      <div key={answer.answer_id}>
+        <div>{`A: ${answer.body}`}</div>
+        <div>{`by ${answer.answerer_name}, ${answer.date} | Helpful? Yes(${answer.helpfulness}) | Report`}</div>
+      </div>
+    ));
+  }
+
   return (
     <div>
-      <div> Answer Comp </div>
-      {/* <div> Answer Comp </div> */}
+      {mapAnswers(questionObj.answers)}
     </div>
   );
 }
