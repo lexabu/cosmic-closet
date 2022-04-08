@@ -8,6 +8,8 @@
 
 .image-gallery.zoomed {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .image-main {
@@ -15,6 +17,20 @@
   width: 100%;
   height: 100%;
   cursor: zoom-in;
+}
+
+.image-main-zoomed {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iiz__img {
+  margin: auto;
 }
 
 .image-overlay-container {

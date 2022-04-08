@@ -6,10 +6,12 @@ import React from 'react';
 // uuid lets us use very unique IDs for our React keys, without having to
 // worry about their value
 import uuid from 'react-uuid';
+import InnerImageZoom from 'react-inner-image-zoom';
 import {
   AiFillLeftCircle,
   AiFillRightCircle,
 } from 'react-icons/ai';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import './ImageGallery.scss';
 import { detailStore } from '../../../stores.js';
 import ImageThumbnailGallery from '../ImageThumbnailGallery/ImageThumbnailGallery.jsx';
@@ -23,6 +25,12 @@ function ImageGallery() {
   const toggleImageZoomed = detailStore((state) => state.toggleImageZoomed);
   const startingThumbnailIndex = detailStore((state) => state.startingThumbnailIndex);
   // const setStartingThumbnailIndex = detailStore((state) => state.setStartingThumbnailIndex);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      toggleImageZoomed(false);
+    }
+  });
 
   if (selectedStyle.photos === undefined) {
     return <h1>Loading images...</h1>;
@@ -54,12 +62,22 @@ function ImageGallery() {
 
   return (
     <div className={`image-gallery${imageZoomed ? ' zoomed' : ''}`}>
-      <img
-        className={`image-main${imageZoomed ? ' zoomed' : ''}`}
-        src={TEST_PHOTOS[imgIdx].url}
-        alt={selectedStyle.name}
-        onClick={() => { toggleImageZoomed(); }}
-      />
+      {imageZoomed
+        ? (
+          <InnerImageZoom
+            className="image-main-zoomed"
+            src={TEST_PHOTOS[imgIdx].url}
+            zoomScale="2.5"
+          />
+        )
+        : (
+          <img
+            className="image-main"
+            src={TEST_PHOTOS[imgIdx].url}
+            alt={selectedStyle.name}
+            onClick={() => { toggleImageZoomed(); }}
+          />
+        )}
       {imageZoomed && <ImageIconDots photos={TEST_PHOTOS} />}
       <div className="image-overlay-container">
         {!imageZoomed && <ImageThumbnailGallery shownThumbnails={shownThumbnails} />}
