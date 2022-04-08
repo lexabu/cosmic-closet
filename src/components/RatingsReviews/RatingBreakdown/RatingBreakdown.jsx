@@ -5,8 +5,6 @@ import { reviewMetaStore } from '../../../stores.js';
 function RatingBreakdown() {
   const metaRatings = reviewMetaStore((state) => state.ratings);
   const { ratings, recommended } = metaRatings;
-  // console.log('ratings: ', ratings);
-  // console.log('recommended : ', recommended);
 
   if (recommended && ratings) {
     const recommendedTrue = Number(recommended.true);

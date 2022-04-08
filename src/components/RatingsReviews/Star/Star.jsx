@@ -1,6 +1,4 @@
-/* eslint-disable no-console */
 import React from 'react';
-// import { FaStar } from 'react-icons/fa';
 import './Star.scss';
 
 const round = (value, precision) => {
@@ -10,7 +8,6 @@ const round = (value, precision) => {
 
 // if the average is 3.8, this should display as 3¾ solid stars
 const checkDecimalRating = (decimalRating) => {
-  console.log('decimalRating: ', decimalRating);
   if (decimalRating > 0 && decimalRating <= 0.25) {
     return 'quarter-star';
   } if (decimalRating > 0.25 && decimalRating <= 0.5) {
@@ -29,24 +26,15 @@ const checkDecimalRating = (decimalRating) => {
 // rating 3, position 4, pr =-1
 const determineStarType = (position, rating) => {
   const positionRating = round((rating - position), 1);
-  console.log('position: ', position);
-  console.log('rating: ', rating);
-  console.log('positionRating: ', positionRating);
-
-  console.log('floor rating: ', Math.floor(rating));
 
   if (positionRating < -1) {
-    console.log('---zero-star---: positionRating < 0:');
     return 'zero-star';
   }
   if (positionRating > 0) {
-    console.log('---full-star---positionRating > 0:');
     return 'full-star';
   }
   if (positionRating >= -1 && positionRating < 0) {
-    console.log('---decimal star--- positionRating >= 0 && positionRating < 1:');
     const starType = checkDecimalRating(1 + positionRating);
-    console.log('------Deciminal Star Rating: ', starType);
     return starType;
   }
 
