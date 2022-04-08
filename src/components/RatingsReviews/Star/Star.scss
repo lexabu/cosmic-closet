@@ -1,3 +1,33 @@
 .star {
-  display: inline
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.star:after {
+  content: '★';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: blue;
+  overflow: hidden;
+}
+
+.star.zero-star:after {
+  width: 0%;
+}
+
+.star.quarter-star:after {
+  width: 25%;
+}
+
+.star.half-star:after {
+  width: 50%;
+}
+
+.star.three-quarter-star:after {
+  width: 75%;
 }

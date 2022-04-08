@@ -8,7 +8,8 @@ function StarRating({ rating }) {
       {[1, 2, 3, 4, 5].map((value) => (
         <Star
           key={value}
-          filled={value <= rating}
+          position={value}
+          rating={rating}
         />
       ))}
     </span>
