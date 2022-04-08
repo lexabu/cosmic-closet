@@ -37,7 +37,7 @@ function RatingSummary() {
             {averageRating}
           </h1>
           <span className="rr-rs-star-rating">
-            <StarRating averageRating={averageRating} />
+            <StarRating rating={averageRating} />
           </span>
         </div>
         <div className="rr-rs-review-count">
