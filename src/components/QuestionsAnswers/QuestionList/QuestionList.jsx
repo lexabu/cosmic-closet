@@ -26,7 +26,7 @@ function QuestionList() {
         setQuestions(data.data.results);
       })
       .catch((err) => {
-        console.log('err :', err);
+        throw err;
       });
   }
 
@@ -40,7 +40,7 @@ function QuestionList() {
     if (questionsArr.length > 0) {
       return questionsArr.map((question) => (
         <div key={question.question_id}>
-          <Question questionObj={question} />
+          <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
         </div>
       ));
     }

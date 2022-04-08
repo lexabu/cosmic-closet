@@ -13,6 +13,7 @@ const details = (set, get) => ({
   selectedQuantity: '',
   setSelectedQuantity: (data) => set({ selectedQuantity: data }),
   showSizeSelector: false,
+  // TODO: Combine the two toggle functions to be a single function
   toggleShowSizeSelector: (bool) => {
     if (bool === undefined) {
       set({ showSizeSelector: !get().showSizeSelector });
@@ -35,6 +36,18 @@ const details = (set, get) => ({
       set({ toastShown: false });
     }, 3000);
   },
+  startingThumbnailIndex: 0,
+  setStartingThumbnailIndex: (data) => set({ startingThumbnailIndex: data }),
+  selectedImageIndex: 0,
+  setSelectedImageIndex: (index) => set({ selectedImageIndex: index }),
+  imageZoomed: false,
+  toggleImageZoomed: (bool) => {
+    if (bool === undefined) {
+      set({ imageZoomed: !get().imageZoomed });
+    } else {
+      set({ imageZoomed: bool });
+    }
+  },
 });
 const detailStore = create(devtools(details));
 
@@ -52,11 +65,17 @@ const questionsStore = create(
   // To be able to see multiple stores in Redux DevTools, set the selector in the
   // extension to "Autoselect instances"
   devtools((set) => ({
-    // dogs: 999,
     questions: [],
     setQuestions: (data) => set(() => ({ questions: data })),
     answers: [],
     setAnswers: (data) => set(() => ({ answers: data })),
+    wasHelpful: [],
+    addHelpful: (question) => set((state) => ({
+      wasHelpful: [
+        question, ...state.wasHelpful,
+      ],
+    })),
+    // dogs: 999,
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
   })),

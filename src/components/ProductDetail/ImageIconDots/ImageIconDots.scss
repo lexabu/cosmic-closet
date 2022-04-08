@@ -1,0 +1,27 @@
+.image-icon-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.585));
+  color: white;
+}
+
+.image-icon-dot {
+  cursor: pointer;
+  transition: .3s;
+}
+
+.image-icon-dot:hover {
+  color: rgba(0, 255, 255, 0.641);
+}
+
+.image-icon-dot.selected {
+  color: aqua;
+  transform: scale(1.4);
+  // font-size: 30px;
+}

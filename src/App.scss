@@ -5,13 +5,15 @@
 }
 
 .pd-top-row-container {
-  display: flex;
+  // display: flex;
   height: 75vh;
   min-height: 590px;
+  position: relative;
+  transition: .3s;
 }
 
-.temp-title {
-  text-align: center;
+.pd-top-row-container.zoomed {
+  height: 90vh;
 }
 
 #ratings-reviews {
