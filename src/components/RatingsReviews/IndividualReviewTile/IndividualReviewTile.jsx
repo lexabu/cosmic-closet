@@ -3,7 +3,7 @@ import './IndividualReviewTile.scss';
 
 function IndividualReviewTile() {
   return (
-    <div className="rr-IndividualReviewTile">IndividualReviewTile</div>
+    <div className="rr-individual-review-tile">IndividualReviewTile</div>
   );
 }
 
