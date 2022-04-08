@@ -1,13 +1,20 @@
 .image-gallery {
-  background-color: aquamarine;
-  width: 65vw;
-  position: relative;
+  position: absolute;
+  width: 65%;
+  height: 100%;
+  z-index: 10;
+  transition: .3s;
+}
+
+.image-gallery.zoomed {
+  width: 100%;
 }
 
 .image-main {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  cursor: zoom-in;
 }
 
 .image-overlay-container {
@@ -82,7 +89,7 @@ $highlightColor: rgb(56, 242, 208);
 
 .image-thumbnail.selected {
   border: solid $highlightColor;
-  // filter: drop-shadow(0 0 10px $highlightColor);
+  transform: scale(1.1);
 }
 
 .image-thumbnail:hover {

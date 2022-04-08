@@ -17,6 +17,7 @@ function ImageGallery() {
   const setImgIdx = detailStore((state) => state.setSelectedImageIndex);
   const selectedStyle = detailStore((state) => state.selectedStyle);
   const [startingThumbnailIndex, setStartingThumbnailIndex] = useState(0);
+  const [imageZoom, setImageZoom] = useState(false);
 
   if (selectedStyle.photos === undefined) {
     return <h1>Loading images...</h1>;
@@ -42,12 +43,12 @@ function ImageGallery() {
   }
 
   return (
-    <div className="image-gallery">
+    <div className={`image-gallery${imageZoom ? ' zoomed' : ''}`}>
       <img
-        className="image-main"
+        className={`image-main${imageZoom ? ' zoomed' : ''}`}
         src={TEST_PHOTOS[imgIdx].url}
         alt={selectedStyle.name}
-        onClick={() => { console.log('clicked image'); }}
+        onClick={() => { setImageZoom(!imageZoom); }}
       />
       <div className="image-overlay-container">
         <div className="image-thumbnail-gallery-container">
