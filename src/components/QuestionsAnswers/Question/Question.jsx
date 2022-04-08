@@ -7,26 +7,29 @@ import { Answer } from '../index.js';
 
 function Question({ questionObj, getAllQuestions }) {
   const wasHelpful = questionsStore((state) => state.wasHelpful);
-  const flipHelpful = questionsStore((state) => state.flipHelpful);
+  const addHelpful = questionsStore((state) => state.addHelpful);
 
   function getUpdateHelpfulness(question) {
-    // if (!wasHelpful) {
-    axios({
-      url: `${process.env.URL}qa/questions/${question.question_id}/helpful`,
-      method: 'PUT',
-      headers: {
-        Authorization: process.env.GITHUB_API_KEY,
-      },
-    })
-      .then(() => {
-        getAllQuestions();
-        flipHelpful();
+    // helpful check needs to work for all questions but only once
+    if (!wasHelpful.includes(question.question_id)) {
+      axios({
+        url: `${process.env.URL}qa/questions/${question.question_id}/helpful`,
+        method: 'PUT',
+        headers: {
+          Authorization: process.env.GITHUB_API_KEY,
+        },
       })
-      .catch((err) => {
-        throw err;
-      });
-    // }
+        .then(() => {
+          getAllQuestions();
+          addHelpful(question.question_id);
+        })
+        .catch((err) => {
+          throw err;
+        });
+    }
   }
+
+  console.log('was pushed? :', wasHelpful);
 
   function handleKeyPress(event, question) {
     if (event.key === 'Enter') {

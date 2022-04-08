@@ -56,8 +56,12 @@ const questionsStore = create(
     setQuestions: (data) => set(() => ({ questions: data })),
     answers: [],
     setAnswers: (data) => set(() => ({ answers: data })),
-    wasHelpful: false,
-    flipHelpful: () => set((state) => ({ wasHelpful: !state.wasHelpful })),
+    wasHelpful: [],
+    addHelpful: (question) => set((state) => ({
+      wasHelpful: [
+        question, ...state.wasHelpful,
+      ],
+    })),
     // dogs: 999,
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
