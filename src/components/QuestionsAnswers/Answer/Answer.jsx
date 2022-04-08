@@ -30,9 +30,16 @@ function Answer({ questionObj }) {
 
   // console.log('after call ans :', allAnswers);
 
+  // function answerSort() {
+  // sorting the answer list per rating
+  // split ans array into two groups, the “seller” group and the “by other”,
+  // then sort each by rating as requested, then joining
+  // }
+
   function mapAnswers(answersObj) {
-    return Object.values(answersObj).map((answer) => (
-      // console.log('answer :', answer)
+    const answerObjsArr = Object.values(answersObj);
+
+    return answerObjsArr.map((answer) => (
       <div key={answer.id}>
         <div>{`A: ${answer.body}`}</div>
         <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful? Yes(${answer.helpfulness}) | Report`}</div>
