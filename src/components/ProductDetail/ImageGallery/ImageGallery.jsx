@@ -10,6 +10,7 @@ import {
 import './ImageGallery.scss';
 import { detailStore } from '../../../stores.js';
 import ImageThumbnailGallery from '../ImageThumbnailGallery/ImageThumbnailGallery.jsx';
+import ImageIconDots from '../ImageIconDots/ImageIconDots.jsx';
 
 function ImageGallery() {
   const imgIdx = detailStore((state) => state.selectedImageIndex);
@@ -28,18 +29,18 @@ function ImageGallery() {
   // console.log('imgIdx', imgIdx);
 
   // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
-  // const TEST_PHOTOS = selectedStyle.photos;
+  const TEST_PHOTOS = selectedStyle.photos;
   // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
 
   const shownThumbnails = [];
   for (let i = startingThumbnailIndex; i < 7 + startingThumbnailIndex; i += 1) {
-    if (selectedStyle.photos[i] === undefined) {
+    if (TEST_PHOTOS[i] === undefined) {
       break;
     }
     shownThumbnails.push(
       <img
         className={`image-thumbnail${imgIdx === i ? ' selected' : ''}`}
-        src={selectedStyle.photos[i].thumbnail_url}
+        src={TEST_PHOTOS[i].thumbnail_url}
         alt="selectedStyle.name"
         onClick={() => { setImgIdx(i); }}
       />,
@@ -50,10 +51,11 @@ function ImageGallery() {
     <div className={`image-gallery${imageZoomed ? ' zoomed' : ''}`}>
       <img
         className={`image-main${imageZoomed ? ' zoomed' : ''}`}
-        src={selectedStyle.photos[imgIdx].url}
+        src={TEST_PHOTOS[imgIdx].url}
         alt={selectedStyle.name}
         onClick={() => { toggleImageZoomed(); }}
       />
+      {imageZoomed && <ImageIconDots photos={TEST_PHOTOS} />}
       <div className="image-overlay-container">
         {!imageZoomed && <ImageThumbnailGallery shownThumbnails={shownThumbnails} />}
         <div className="image-arrow-container">
@@ -69,12 +71,12 @@ function ImageGallery() {
               />
             )
             : <div className="img-arrow-divider" />}
-          {imgIdx < selectedStyle.photos.length - 1
+          {imgIdx < TEST_PHOTOS.length - 1
             ? (
               <AiFillRightCircle
                 className="image-main-arrow-right"
                 onClick={() => {
-                  if (imgIdx < selectedStyle.photos.length - 1) {
+                  if (imgIdx < TEST_PHOTOS.length - 1) {
                     setImgIdx(imgIdx + 1);
                   }
                 }}
