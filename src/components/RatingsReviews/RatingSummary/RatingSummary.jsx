@@ -10,6 +10,7 @@ const round = (value, precision) => {
 
 function RatingSummary() {
   const meta = reviewMetaStore((state) => state.ratings);
+  const setAverageRating = reviewMetaStore((state) => state.setAverageRatings);
   const { ratings } = meta;
 
   if (ratings) {
@@ -26,6 +27,7 @@ function RatingSummary() {
     const total = oneTotal + twoTotal + threeTotal + fourTotal + fiveTotal;
     const reviewCount = one + two + three + four + five;
     const averageRating = round((total / reviewCount), 1);
+    setAverageRating(averageRating);
 
     return (
       <div className="rr-rating-summary">
