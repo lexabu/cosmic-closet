@@ -9,6 +9,11 @@
   height: 75vh;
   min-height: 590px;
   position: relative;
+  transition: .3s;
+}
+
+.pd-top-row-container.zoomed {
+  height: 90vh;
 }
 
 #ratings-reviews {

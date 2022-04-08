@@ -38,6 +38,14 @@ const details = (set, get) => ({
   },
   selectedImageIndex: 0,
   setSelectedImageIndex: (index) => set({ selectedImageIndex: index }),
+  imageZoomed: false,
+  toggleImageZoomed: (bool) => {
+    if (bool === undefined) {
+      set({ imageZoomed: !get().imageZoomed });
+    } else {
+      set({ imageZoomed: bool });
+    }
+  },
 });
 const detailStore = create(devtools(details));
 

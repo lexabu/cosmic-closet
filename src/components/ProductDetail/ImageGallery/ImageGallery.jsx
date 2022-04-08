@@ -4,8 +4,8 @@
 
 import React, { useState } from 'react';
 import {
-  AiFillDownCircle,
   AiFillUpCircle,
+  AiFillDownCircle,
   AiFillLeftCircle,
   AiFillRightCircle,
 } from 'react-icons/ai';
@@ -16,16 +16,17 @@ function ImageGallery() {
   const imgIdx = detailStore((state) => state.selectedImageIndex);
   const setImgIdx = detailStore((state) => state.setSelectedImageIndex);
   const selectedStyle = detailStore((state) => state.selectedStyle);
+  const imageZoomed = detailStore((state) => state.imageZoomed);
+  const toggleImageZoomed = detailStore((state) => state.toggleImageZoomed);
   const [startingThumbnailIndex, setStartingThumbnailIndex] = useState(0);
-  const [imageZoom, setImageZoom] = useState(false);
 
   if (selectedStyle.photos === undefined) {
     return <h1>Loading images...</h1>;
   }
 
+  // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
   const TEST_PHOTOS = selectedStyle.photos;
   // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
-  // after testing, replace TEST_PHOTOS with selectedStyle.photos
 
   const shownThumbnails = [];
   for (let i = startingThumbnailIndex; i < 7 + startingThumbnailIndex; i += 1) {
@@ -43,12 +44,12 @@ function ImageGallery() {
   }
 
   return (
-    <div className={`image-gallery${imageZoom ? ' zoomed' : ''}`}>
+    <div className={`image-gallery${imageZoomed ? ' zoomed' : ''}`}>
       <img
-        className={`image-main${imageZoom ? ' zoomed' : ''}`}
+        className={`image-main${imageZoomed ? ' zoomed' : ''}`}
         src={TEST_PHOTOS[imgIdx].url}
         alt={selectedStyle.name}
-        onClick={() => { setImageZoom(!imageZoom); }}
+        onClick={() => { toggleImageZoomed(); }}
       />
       <div className="image-overlay-container">
         <div className="image-thumbnail-gallery-container">
