@@ -16,11 +16,11 @@ function Answer({ questionObj }) {
       },
     })
       .then((data) => {
-        console.log('all answers :', data.data.results);
+        // console.log('all answers :', data.data.results);
         setAnswers(data.data.results);
       })
       .catch((err) => {
-        console.log('err :', err);
+        // console.log('err :', err);
       });
   }
 

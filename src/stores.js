@@ -91,7 +91,9 @@ const reviewStore = create(
 const reviewMetaStore = create(
   devtools((set) => ({
     ratings: [],
-    setRatings: (data) => set(() => ({ ratings: data })),
+    setRatings: (data) => set({ ratings: data }),
+    averageRating: 0,
+    setAverageRatings: (data) => set({ averageRating: data }),
   })),
 );
 
