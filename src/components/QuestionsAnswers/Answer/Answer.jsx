@@ -5,7 +5,7 @@ import { questionsStore } from '../../../stores.js';
 
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
-  const allAnswers = questionsStore((state) => state.answers);
+  // const allAnswers = questionsStore((state) => state.answers);
 
   function getAllAnswers() {
     axios({
@@ -28,22 +28,18 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
-  console.log('after call ans :', allAnswers);
+  // console.log('after call ans :', allAnswers);
 
-  // function dateFormatter(apiDate) {
-  //   const dateString = apiDate.slice(0, 10);
-  //   const longDate = new Date(dateString);
-  //   console.log('date type :', typeof longDate);
-  //   console.log(Object.values(longDate));
-  //   // const date = longDate.slice(4);
-  //   return longDate;
+  // function answerSort() {
+  // sorting the answer list per rating
+  // split ans array into two groups, the “seller” group and the “by other”,
+  // then sort each by rating as requested, then joining
   // }
 
   function mapAnswers(answersObj) {
-    console.log('answersObj :', answersObj);
-    console.log('answersObjValues :', Object.values(answersObj));
-    return Object.values(answersObj).map((answer) => (
-      // console.log('answer :', answer)
+    const answerObjsArr = Object.values(answersObj);
+
+    return answerObjsArr.map((answer) => (
       <div key={answer.id}>
         <div>{`A: ${answer.body}`}</div>
         <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful? Yes(${answer.helpfulness}) | Report`}</div>
