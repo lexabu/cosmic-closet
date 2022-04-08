@@ -21,11 +21,11 @@ function Question({ questionObj, handleQuestions }) {
       });
   }
 
-  // function handleKeyPress(event, question) {
-  //   if (event.key === 'Enter') {
-  //     getUpdateHelpfulness(question);
-  //   }
-  // }
+  function handleKeyPress(event, question) {
+    if (event.key === 'Enter') {
+      getUpdateHelpfulness(question);
+    }
+  }
 
   return (
     <div>
@@ -34,7 +34,7 @@ function Question({ questionObj, handleQuestions }) {
       <div
         role="button"
         tabIndex={0}
-        // onKeyPress={() => (handleKeyPress(questionObj))}
+        onKeyPress={() => (handleKeyPress(questionObj))}
         onClick={() => (getUpdateHelpfulness(questionObj))}
       >
         Yes({questionObj.question_helpfulness})
