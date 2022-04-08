@@ -40,7 +40,7 @@ function QuestionList() {
     if (questionsArr.length > 0) {
       return questionsArr.map((question) => (
         <div key={question.question_id}>
-          <Question handleQuestions={() => (getAllQuestions())} questionObj={question} />
+          <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
         </div>
       ));
     }

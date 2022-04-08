@@ -2,10 +2,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
+import { questionsStore } from '../../../stores.js';
 import { Answer } from '../index.js';
 
-function Question({ questionObj, handleQuestions }) {
+function Question({ questionObj, getAllQuestions }) {
+  const wasHelpful = questionsStore((state) => state.wasHelpful);
+  const flipHelpful = questionsStore((state) => state.flipHelpful);
+
   function getUpdateHelpfulness(question) {
+    // if (!wasHelpful) {
     axios({
       url: `${process.env.URL}qa/questions/${question.question_id}/helpful`,
       method: 'PUT',
@@ -14,11 +19,13 @@ function Question({ questionObj, handleQuestions }) {
       },
     })
       .then(() => {
-        handleQuestions();
+        getAllQuestions();
+        flipHelpful();
       })
       .catch((err) => {
         throw err;
       });
+    // }
   }
 
   function handleKeyPress(event, question) {
