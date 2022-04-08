@@ -4,9 +4,6 @@ import { detailStore } from '../../../stores.js';
 import './ImageIconDots.scss';
 
 function ImageIconDots({ photos }) {
-  // const selectedStyle = detailStore((state) => state.selectedStyle);
-  // const startingThumbnailIndex = detailStore((state) => state.startingThumbnailIndex);
-  // const setStartingThumbnailIndex = detailStore((state) => state.setStartingThumbnailIndex);
   const imgIdx = detailStore((state) => state.selectedImageIndex);
   const setImgIdx = detailStore((state) => state.setSelectedImageIndex);
 

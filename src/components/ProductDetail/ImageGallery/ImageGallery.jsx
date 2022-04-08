@@ -43,6 +43,7 @@ function ImageGallery() {
         src={TEST_PHOTOS[i].thumbnail_url}
         alt="selectedStyle.name"
         onClick={() => { setImgIdx(i); }}
+        key={TEST_PHOTOS[i].thumbnail_url}
       />,
     );
   }
