@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Toast from '../../Toast/Toast.jsx';
+import { toast } from 'react-toastify';
 import { detailStore } from '../../../stores.js';
 import './AddToCart.scss';
 
@@ -8,13 +8,21 @@ function AddToCart() {
   const selectedSizeSku = detailStore((state) => state.selectedSize);
   const selectedQuantity = detailStore((state) => state.selectedQuantity);
   const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
-  const toggleToastShown = detailStore((state) => state.toggleToastShown);
 
   const handleClick = () => {
+    console.log('selectedQuantity', selectedQuantity);
     // Show size dropdown if no size selected
     if (selectedSizeSku === '') {
       toggleShowSizeSelector(true);
-      toggleToastShown();
+      toast.warn('Please select size', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
 
@@ -42,10 +50,16 @@ function AddToCart() {
     }
 
     Promise.all(promises)
-      // .then will be removed once out of the dev phase (keeping for debugging)
       .then((response) => {
-        console.log('Successful POST to /cart!');
-        console.log(response);
+        toast.success(`${response.length} item${response.length > 1 ? 's' : ''} added to cart!`, {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .catch((err) => {
         throw err;
@@ -53,19 +67,13 @@ function AddToCart() {
   };
 
   return (
-    // This is an empty wrapper since I can't return both button and Toast component
-    <>
-      <button
-        className="add-to-cart-button"
-        type="button"
-        onClick={handleClick}
-      >
-        Add to Cart
-      </button>
-      <Toast
-        title="Please select a size!"
-      />
-    </>
+    <button
+      className="add-to-cart-button"
+      type="button"
+      onClick={handleClick}
+    >
+      Add to Cart
+    </button>
   );
 }
 
