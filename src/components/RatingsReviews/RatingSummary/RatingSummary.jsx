@@ -3,9 +3,15 @@ import { reviewMetaStore } from '../../../stores.js';
 import { StarRating } from '../index.js';
 import './RatingSummary.scss';
 
+const round = (value, precision) => {
+  const multiplier = 10 ** (precision || 0);
+  return Math.round(value * multiplier) / multiplier;
+};
+
 function RatingSummary() {
   const meta = reviewMetaStore((state) => state.ratings);
   const { ratings } = meta;
+  console.log('ratings: ', ratings);
 
   if (ratings) {
     const one = Number(ratings['1']) || 0;
@@ -20,15 +26,22 @@ function RatingSummary() {
     const fourTotal = four * 4;
     const fiveTotal = five * 5;
 
+    console.log('fourTotal: ', fourTotal);
+    console.log('fiveTotal: ', fiveTotal);
+
     // sum total // numerator for average
     const total = oneTotal + twoTotal + threeTotal + fourTotal + fiveTotal;
+    console.log('Total: ', total);
 
     // review count // number of reviews // denominator for average
     // Additionally, the count of total reviews should be listed.
     const reviewCount = one + two + three + four + five;
+    console.log('reviewCount: ', reviewCount);
 
     // The number displayed should be rounded to the nearest single decimal.
-    const averageRating = Math.round(((total / reviewCount) * 10) / 10).toFixed(1);
+    // const averageRating2 = Math.round(((total / reviewCount) * 10) / 10).toFixed(1);
+    const averageRating = round((total / reviewCount), 1);
+    console.log('averageRating : ', averageRating);
 
     return (
       <div className="rr-rating-summary">
