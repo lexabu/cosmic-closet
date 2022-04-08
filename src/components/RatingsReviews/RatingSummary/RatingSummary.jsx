@@ -20,23 +20,31 @@ function RatingSummary() {
     const fourTotal = four * 4;
     const fiveTotal = five * 5;
 
-    // sum total of a set of figures
-    const numerator = oneTotal + twoTotal + threeTotal + fourTotal + fiveTotal;
+    // sum total // numerator for average
+    const total = oneTotal + twoTotal + threeTotal + fourTotal + fiveTotal;
 
-    // the number of figures
-    const denominator = one + two + three + four + five;
+    // review count // number of reviews // denominator for average
+    // Additionally, the count of total reviews should be listed.
+    const reviewCount = one + two + three + four + five;
 
-    // values.forEach((element) => { numerator += Number(element); });
-    const avg = numerator / denominator;
+    // The number displayed should be rounded to the nearest single decimal.
+    const averageRating = Math.round(((total / reviewCount) * 10) / 10).toFixed(1);
 
     return (
       <div className="rr-rating-summary">
-        <h1 className="rr-rs-header">
-          {avg}
-        </h1>
-        <span className="rr-rs-star-rating">
-          <StarRating avg={avg} />
-        </span>
+        <div className="rr-rs-header">
+          <h1 className="rr-rs-rating">
+            {averageRating}
+          </h1>
+          <span className="rr-rs-star-rating">
+            <StarRating averageRating={averageRating} />
+          </span>
+        </div>
+        <div className="rr-rs-review-count">
+          Total Review Count:
+          {' '}
+          {reviewCount}
+        </div>
       </div>
     );
   }

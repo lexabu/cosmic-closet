@@ -1,17 +1,29 @@
 .rr-rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   margin: 15px 0;
-  position: relative
+  border: solid;
 }
 
 .rr-rs-header {
+  display: flex;
+  margin: 20px 0;
+}
+
+.rr-rs-rating {
   display: inline;
-  padding: 40px;
   font-size: 65px;
+  margin: 0;
+  line-height: 1;
 }
 
 .rr-rs-star-rating {
   display: inline;
-  position: absolute;
   padding: 10px;
-  top: 15px;
+}
+
+.rr-rs-review-count {
+  padding: 10px;
 }
