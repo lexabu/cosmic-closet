@@ -34,13 +34,13 @@ function QuestionList() {
     getAllQuestions();
   }, []);
 
-  console.log('ALL QUESTIONS', allQuestions);
+  // console.log('ALL QUESTIONS', allQuestions);
 
   function mapQuestions(questionsArr) {
     if (questionsArr.length > 0) {
       return questionsArr.map((question) => (
         <div key={question.question_id}>
-          <Question questionObj={question} />
+          <Question handleQuestions={() => (getAllQuestions())} questionObj={question} />
         </div>
       ));
     }
