@@ -34,7 +34,7 @@ function QuestionList() {
     getAllQuestions();
   }, []);
 
-  console.log('ALL QUESTIONS', allQuestions);
+  // console.log('ALL QUESTIONS', allQuestions);
 
   function mapQuestions(questionsArr) {
     if (questionsArr.length > 0) {

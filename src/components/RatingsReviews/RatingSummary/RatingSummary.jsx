@@ -8,35 +8,23 @@ function RatingSummary() {
   const { ratings } = meta;
 
   if (ratings) {
-    // sum total of a set of figures by the number of figures.
+    const one = Number(ratings['1']) || 0;
+    const two = Number(ratings['2']) || 0;
+    const three = Number(ratings['3']) || 0;
+    const four = Number(ratings['4']) || 0;
+    const five = Number(ratings['5']) || 0;
 
-    // "1": "5",
-    // "2": "3",
-    // "3": "3",
-    // "4": "4",
-    // "5": "4"
-
-    const one = ratings['1'] || 0; // 5
-    const two = ratings['2'] || 0; // 3
-    const three = ratings['3'] || 0; // 3
-    const four = ratings['4'] || 0; // 4
-    const five = ratings['5'] || 0; // 4
-
-    const oneTotal = one * 1; // 5
-    const twoTotal = two * 2; // 6
-    const threeTotal = three * 3; // 9
-    const fourTotal = four * 4; // 16
-    const fiveTotal = five * 5; // 20
-
-    console.log({ one, two, three, four, five, oneTotal, twoTotal, threeTotal, fourTotal, fiveTotal });
+    const oneTotal = one * 1;
+    const twoTotal = two * 2;
+    const threeTotal = three * 3;
+    const fourTotal = four * 4;
+    const fiveTotal = five * 5;
 
     // sum total of a set of figures
-    const numerator = oneTotal + twoTotal + threeTotal + fourTotal + fiveTotal; // 56
+    const numerator = oneTotal + twoTotal + threeTotal + fourTotal + fiveTotal;
 
     // the number of figures
-    const denominator = one + two + three + four + five; // 19
-
-    console.log(numerator, denominator);
+    const denominator = one + two + three + four + five;
 
     // values.forEach((element) => { numerator += Number(element); });
     const avg = numerator / denominator;
