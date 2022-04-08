@@ -43,7 +43,12 @@ function ImageGallery() {
 
   return (
     <div className="image-gallery">
-      <img className="image-main" src={TEST_PHOTOS[imgIdx].url} alt={selectedStyle.name} />
+      <img
+        className="image-main"
+        src={TEST_PHOTOS[imgIdx].url}
+        alt={selectedStyle.name}
+        onClick={() => { console.log('clicked image'); }}
+      />
       <div className="image-overlay-container">
         <div className="image-thumbnail-gallery-container">
           {startingThumbnailIndex > 0 ? (
