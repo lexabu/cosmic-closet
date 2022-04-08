@@ -6,6 +6,7 @@ import React from 'react';
 // uuid lets us use very unique IDs for our React keys, without having to
 // worry about their value
 import uuid from 'react-uuid';
+import { toast } from 'react-toastify';
 import InnerImageZoom from 'react-inner-image-zoom';
 import {
   AiFillLeftCircle,
@@ -60,6 +61,17 @@ function ImageGallery() {
     );
   }
 
+  const afterZoomIn = () => {
+    toast.info('Press "Escape" to exit zoomed view!', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
   return (
     <div className={`image-gallery${imageZoomed ? ' zoomed' : ''}`}>
       {imageZoomed
@@ -68,6 +80,7 @@ function ImageGallery() {
             className="image-main-zoomed"
             src={TEST_PHOTOS[imgIdx].url}
             zoomScale="2.5"
+          // afterZoomIn={afterZoomIn}
           />
         )
         : (
@@ -75,7 +88,7 @@ function ImageGallery() {
             className="image-main"
             src={TEST_PHOTOS[imgIdx].url}
             alt={selectedStyle.name}
-            onClick={() => { toggleImageZoomed(); }}
+            onClick={() => { toggleImageZoomed(); afterZoomIn(); }}
           />
         )}
       {imageZoomed && <ImageIconDots photos={TEST_PHOTOS} />}
