@@ -16,11 +16,11 @@ function Answer({ questionObj }) {
       },
     })
       .then((data) => {
-        console.log('all answers :', data.data.results);
+        // console.log('all answers :', data.data.results);
         setAnswers(data.data.results);
       })
       .catch((err) => {
-        console.log('err :', err);
+        // console.log('err :', err);
       });
   }
 
@@ -28,7 +28,7 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
-  console.log('after call ans :', allAnswers);
+  // console.log('after call ans :', allAnswers);
 
   // function dateFormatter(apiDate) {
   //   const dateString = apiDate.slice(0, 10);
@@ -40,8 +40,8 @@ function Answer({ questionObj }) {
   // }
 
   function mapAnswers(answersObj) {
-    console.log('answersObj :', answersObj);
-    console.log('answersObjValues :', Object.values(answersObj));
+    // console.log('answersObj :', answersObj);
+    // console.log('answersObjValues :', Object.values(answersObj));
     return Object.values(answersObj).map((answer) => (
       // console.log('answer :', answer)
       <div key={answer.id}>
