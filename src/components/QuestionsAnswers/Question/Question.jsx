@@ -10,8 +10,9 @@ function Question({ questionObj, getAllQuestions }) {
   const addHelpful = questionsStore((state) => state.addHelpful);
 
   function getUpdateHelpfulness(question) {
-    // helpful check needs to work for all questions but only once
+    // ONLY if this question's id was NOT found in the wasHelpful array,
     if (!wasHelpful.includes(question.question_id)) {
+      // send a PUT and GET to update helpful quantity in api
       axios({
         url: `${process.env.URL}qa/questions/${question.question_id}/helpful`,
         method: 'PUT',
@@ -28,8 +29,6 @@ function Question({ questionObj, getAllQuestions }) {
         });
     }
   }
-
-  console.log('was pushed? :', wasHelpful);
 
   function handleKeyPress(event, question) {
     if (event.key === 'Enter') {
