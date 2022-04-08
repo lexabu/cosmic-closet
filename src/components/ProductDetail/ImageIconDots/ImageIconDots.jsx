@@ -14,6 +14,7 @@ function ImageIconDots({ photos }) {
     <div className="image-icon-dots">
       {photos.map((pic, i) => (
         <GoPrimitiveDot
+          key={`image-dot-${pic.url}`}
           className={`image-icon-dot${i === imgIdx ? ' selected' : ''}`}
           onClick={() => {
             setImgIdx(i);
