@@ -3,6 +3,9 @@
 // TODO: implement the above accessibility features
 
 import React from 'react';
+// uuid lets us use very unique IDs for our React keys, without having to
+// worry about their value
+import uuid from 'react-uuid';
 import {
   AiFillLeftCircle,
   AiFillRightCircle,
@@ -29,8 +32,9 @@ function ImageGallery() {
   // console.log('imgIdx', imgIdx);
 
   // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
-  const TEST_PHOTOS = selectedStyle.photos;
-  // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
+  // *** MAKE SURE TO CHANGE IN ImageThumbnailGallery ***
+  // const TEST_PHOTOS = selectedStyle.photos;
+  const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
 
   const shownThumbnails = [];
   for (let i = startingThumbnailIndex; i < 7 + startingThumbnailIndex; i += 1) {
@@ -43,7 +47,7 @@ function ImageGallery() {
         src={TEST_PHOTOS[i].thumbnail_url}
         alt="selectedStyle.name"
         onClick={() => { setImgIdx(i); }}
-        key={TEST_PHOTOS[i].thumbnail_url}
+        key={uuid()}
       />,
     );
   }

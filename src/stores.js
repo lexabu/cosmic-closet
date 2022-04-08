@@ -39,7 +39,7 @@ const details = (set, get) => ({
   startingThumbnailIndex: 0,
   setStartingThumbnailIndex: (data) => set({ startingThumbnailIndex: data }),
   selectedImageIndex: 0,
-  setSelectedImageIndex: (index) => set({ selectedImageIndex: index }),
+  setSelectedImageIndex: (newIndex) => set({ selectedImageIndex: newIndex }),
   imageZoomed: false,
   toggleImageZoomed: (bool) => {
     if (bool === undefined) {

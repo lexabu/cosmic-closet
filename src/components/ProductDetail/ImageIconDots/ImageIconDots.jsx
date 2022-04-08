@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'react-uuid';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { detailStore } from '../../../stores.js';
 import './ImageIconDots.scss';
@@ -11,7 +12,7 @@ function ImageIconDots({ photos }) {
     <div className="image-icon-dots">
       {photos.map((pic, i) => (
         <GoPrimitiveDot
-          key={`image-dot-${pic.url}`}
+          key={uuid()}
           className={`image-icon-dot${i === imgIdx ? ' selected' : ''}`}
           onClick={() => {
             setImgIdx(i);
