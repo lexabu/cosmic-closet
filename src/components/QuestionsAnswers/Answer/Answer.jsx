@@ -37,16 +37,9 @@ function Answer({ questionObj }) {
   // }
 
   function mapAnswers(answersObj) {
-<<<<<<< HEAD
-    // console.log('answersObj :', answersObj);
-    // console.log('answersObjValues :', Object.values(answersObj));
-    return Object.values(answersObj).map((answer) => (
-      // console.log('answer :', answer)
-=======
     const answerObjsArr = Object.values(answersObj);
 
     return answerObjsArr.map((answer) => (
->>>>>>> bd37771a966bbe9406ae9266646d0f0790bb00ca
       <div key={answer.id}>
         <div>{`A: ${answer.body}`}</div>
         <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful? Yes(${answer.helpfulness}) | Report`}</div>
