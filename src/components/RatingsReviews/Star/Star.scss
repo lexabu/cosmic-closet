@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  color: blue;
+  color: #036;
   overflow: hidden;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .star.quarter-star:after {
-  width: 25%;
+  width: 30%;
 }
 
 .star.half-star:after {
@@ -29,7 +29,7 @@
 }
 
 .star.three-quarter-star:after {
-  width: 75%;
+  width: 70%;
 }
 
 .star.full-star:after {
