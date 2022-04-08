@@ -1,9 +1,16 @@
 .pd-right-details-container {
   // background-color: rgb(255, 219, 219);
-  width: 35vw;
+  width: 35%;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  right: 0;
+  // transition: .3s;
+}
+
+.pd-right-details-container.hidden {
+  display: none;
 }
 
 .pd-stars-container {

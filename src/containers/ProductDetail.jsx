@@ -18,6 +18,7 @@ function ProductDetail() {
   const setDetailsFromApiCall = detailStore((state) => state.setProductDetails);
   const setStyles = detailStore((state) => state.setStyles);
   const setSelectedStyle = detailStore((state) => state.setSelectedStyle);
+  const imageZoomed = detailStore((state) => state.imageZoomed);
 
   useEffect(() => {
     // Get product info and add to state
@@ -42,7 +43,7 @@ function ProductDetail() {
 
   return (
     <div id="product-detail-widget">
-      <div className="pd-top-row-container">
+      <div className={`pd-top-row-container${imageZoomed ? ' zoomed' : ''}`}>
         <ImageGallery />
         <RightDetails />
       </div>
