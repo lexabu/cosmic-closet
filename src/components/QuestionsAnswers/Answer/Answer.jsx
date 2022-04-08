@@ -3,9 +3,10 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 
+// Up to two answers should display for each question.
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
-  // const allAnswers = questionsStore((state) => state.answers);
+  const allAnswers = questionsStore((state) => state.answers);
 
   function getAllAnswers() {
     axios({
@@ -16,7 +17,7 @@ function Answer({ questionObj }) {
       },
     })
       .then((data) => {
-        console.log('all answers :', data.data.results);
+        // console.log('all answers :', data.data.results);
         setAnswers(data.data.results);
       })
       .catch((err) => {
@@ -28,7 +29,8 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
-  // console.log('after call ans :', allAnswers);
+  console.log('All ans in state :', allAnswers);
+  console.log('Ans Obj in answers comp :', questionObj.answers);
 
   // function answerSort() {
   // sorting the answer list per rating
@@ -42,11 +44,13 @@ function Answer({ questionObj }) {
     return answerObjsArr.map((answer) => (
       <div key={answer.id}>
         <div>{`A: ${answer.body}`}</div>
-        <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful? Yes(${answer.helpfulness}) | Report`}</div>
+        <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful?`}</div>
+        <div>{`Yes(${answer.helpfulness}) | `}</div>
+        <div>Report</div>
       </div>
     ));
   }
-
+  // Up to two answers should display for each question.
   return (
     <div>
       {mapAnswers(questionObj.answers)}

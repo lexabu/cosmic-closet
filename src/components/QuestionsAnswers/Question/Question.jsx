@@ -5,6 +5,7 @@ import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 import { Answer } from '../index.js';
 
+// By default, on page load up to four questions should be displayed.
 function Question({ questionObj, getAllQuestions }) {
   const wasHelpful = questionsStore((state) => state.wasHelpful);
   const addHelpful = questionsStore((state) => state.addHelpful);
@@ -35,7 +36,7 @@ function Question({ questionObj, getAllQuestions }) {
       getUpdateHelpfulness(question);
     }
   }
-
+  // By default, on page load up to four questions should be displayed.
   return (
     <div>
       <div>{`Q: ${questionObj.question_body}`}</div>
