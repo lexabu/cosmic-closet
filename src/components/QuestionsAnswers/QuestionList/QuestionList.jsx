@@ -3,9 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
-
-import SearchBar from '../SearchBar/SearchBar.jsx';
-import Question from '../Question/Question.jsx';
+import { SearchBar, Question, MoreQuestions } from '../index.js';
 
 function QuestionList() {
   const setQuestions = questionsStore((state) => state.setQuestions);
@@ -28,7 +26,7 @@ function QuestionList() {
         setQuestions(data.data.results);
       })
       .catch((err) => {
-        console.log('err :', err);
+        throw err;
       });
   }
 
@@ -36,13 +34,13 @@ function QuestionList() {
     getAllQuestions();
   }, []);
 
-  console.log('ALL QUESTIONS', allQuestions);
+  // console.log('ALL QUESTIONS', allQuestions);
 
   function mapQuestions(questionsArr) {
     if (questionsArr.length > 0) {
       return questionsArr.map((question) => (
         <div key={question.question_id}>
-          <Question questionObj={question} />
+          <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
         </div>
       ));
     }
@@ -57,7 +55,7 @@ function QuestionList() {
         <div>{mapQuestions(allQuestions)}</div>
       </div>
       <button type="button">More Answered Questions</button>
-      <button type="button">Add a Question</button>
+      <MoreQuestions />
     </div>
   );
 }

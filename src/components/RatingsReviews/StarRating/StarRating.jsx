@@ -2,13 +2,14 @@ import React from 'react';
 import { Star } from '../index.js';
 import './StarRating.scss';
 
-function StarRating({ avg }) {
+function StarRating({ rating }) {
   return (
     <span>
       {[1, 2, 3, 4, 5].map((value) => (
         <Star
           key={value}
-          filled={value <= avg}
+          position={value}
+          rating={rating}
         />
       ))}
     </span>

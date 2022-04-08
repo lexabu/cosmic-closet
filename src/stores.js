@@ -65,11 +65,17 @@ const questionsStore = create(
   // To be able to see multiple stores in Redux DevTools, set the selector in the
   // extension to "Autoselect instances"
   devtools((set) => ({
-    // dogs: 999,
     questions: [],
     setQuestions: (data) => set(() => ({ questions: data })),
     answers: [],
     setAnswers: (data) => set(() => ({ answers: data })),
+    wasHelpful: [],
+    addHelpful: (question) => set((state) => ({
+      wasHelpful: [
+        question, ...state.wasHelpful,
+      ],
+    })),
+    // dogs: 999,
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
   })),
@@ -85,7 +91,9 @@ const reviewStore = create(
 const reviewMetaStore = create(
   devtools((set) => ({
     ratings: [],
-    setRatings: (data) => set(() => ({ ratings: data })),
+    setRatings: (data) => set({ ratings: data }),
+    averageRating: 0,
+    setAverageRatings: (data) => set({ averageRating: data }),
   })),
 );
 
