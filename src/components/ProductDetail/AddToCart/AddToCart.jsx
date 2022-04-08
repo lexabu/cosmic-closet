@@ -10,7 +10,6 @@ function AddToCart() {
   const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
 
   const handleClick = () => {
-    console.log('selectedQuantity', selectedQuantity);
     // Show size dropdown if no size selected
     if (selectedSizeSku === '') {
       toggleShowSizeSelector(true);
