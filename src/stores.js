@@ -36,6 +36,8 @@ const details = (set, get) => ({
       set({ toastShown: false });
     }, 3000);
   },
+  startingThumbnailIndex: 0,
+  setStartingThumbnailIndex: (data) => set({ startingThumbnailIndex: data }),
   selectedImageIndex: 0,
   setSelectedImageIndex: (index) => set({ selectedImageIndex: index }),
   imageZoomed: false,

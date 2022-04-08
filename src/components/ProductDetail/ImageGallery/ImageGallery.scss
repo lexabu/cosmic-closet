@@ -31,7 +31,7 @@
 
 .image-arrow-container {
   color: white;
-  font-size: 60px;
+  font-size: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,6 +58,12 @@
   height: 95%;
   width: 13%;
   // background-color: rgba(255, 255, 255, 0.75);
+}
+
+.image-thumbnail-gallery-container svg {
+  pointer-events: auto;
+  color: #fff;
+  filter: drop-shadow(0 0 15px rgba(36, 36, 36, 0.556));
 }
 
 .image-thumbnail-gallery {

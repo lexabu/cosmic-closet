@@ -2,15 +2,14 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // TODO: implement the above accessibility features
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  AiFillUpCircle,
-  AiFillDownCircle,
   AiFillLeftCircle,
   AiFillRightCircle,
 } from 'react-icons/ai';
 import './ImageGallery.scss';
 import { detailStore } from '../../../stores.js';
+import ImageThumbnailGallery from '../ImageThumbnailGallery/ImageThumbnailGallery.jsx';
 
 function ImageGallery() {
   const imgIdx = detailStore((state) => state.selectedImageIndex);
@@ -18,25 +17,29 @@ function ImageGallery() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
   const imageZoomed = detailStore((state) => state.imageZoomed);
   const toggleImageZoomed = detailStore((state) => state.toggleImageZoomed);
-  const [startingThumbnailIndex, setStartingThumbnailIndex] = useState(0);
+  const startingThumbnailIndex = detailStore((state) => state.startingThumbnailIndex);
+  // const setStartingThumbnailIndex = detailStore((state) => state.setStartingThumbnailIndex);
 
   if (selectedStyle.photos === undefined) {
     return <h1>Loading images...</h1>;
   }
 
+  // console.log('selectedStyle', selectedStyle);
+  // console.log('imgIdx', imgIdx);
+
   // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
-  const TEST_PHOTOS = selectedStyle.photos;
+  // const TEST_PHOTOS = selectedStyle.photos;
   // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
 
   const shownThumbnails = [];
   for (let i = startingThumbnailIndex; i < 7 + startingThumbnailIndex; i += 1) {
-    if (TEST_PHOTOS[i] === undefined) {
+    if (selectedStyle.photos[i] === undefined) {
       break;
     }
     shownThumbnails.push(
       <img
         className={`image-thumbnail${imgIdx === i ? ' selected' : ''}`}
-        src={TEST_PHOTOS[i].thumbnail_url}
+        src={selectedStyle.photos[i].thumbnail_url}
         alt="selectedStyle.name"
         onClick={() => { setImgIdx(i); }}
       />,
@@ -47,34 +50,12 @@ function ImageGallery() {
     <div className={`image-gallery${imageZoomed ? ' zoomed' : ''}`}>
       <img
         className={`image-main${imageZoomed ? ' zoomed' : ''}`}
-        src={TEST_PHOTOS[imgIdx].url}
+        src={selectedStyle.photos[imgIdx].url}
         alt={selectedStyle.name}
         onClick={() => { toggleImageZoomed(); }}
       />
       <div className="image-overlay-container">
-        <div className="image-thumbnail-gallery-container">
-          {startingThumbnailIndex > 0 ? (
-            <AiFillUpCircle
-              className="image-tg-arrow"
-              onClick={() => {
-                setStartingThumbnailIndex(startingThumbnailIndex - 1);
-              }}
-            />
-          )
-            : <div className="ig-spacer" />}
-          <div className="image-thumbnail-gallery">
-            {shownThumbnails}
-          </div>
-          {startingThumbnailIndex < TEST_PHOTOS.length - 7 ? (
-            <AiFillDownCircle
-              className="image-tg-arrow"
-              onClick={() => {
-                setStartingThumbnailIndex(startingThumbnailIndex + 1);
-              }}
-            />
-          )
-            : <div className="ig-spacer" />}
-        </div>
+        {!imageZoomed && <ImageThumbnailGallery shownThumbnails={shownThumbnails} />}
         <div className="image-arrow-container">
           {imgIdx > 0
             ? (
@@ -88,19 +69,18 @@ function ImageGallery() {
               />
             )
             : <div className="img-arrow-divider" />}
-          {imgIdx < TEST_PHOTOS.length - 1
+          {imgIdx < selectedStyle.photos.length - 1
             ? (
               <AiFillRightCircle
                 className="image-main-arrow-right"
                 onClick={() => {
-                  if (imgIdx < TEST_PHOTOS.length - 1) {
+                  if (imgIdx < selectedStyle.photos.length - 1) {
                     setImgIdx(imgIdx + 1);
                   }
                 }}
               />
             )
             : <div className="img-arrow-divider" />}
-
         </div>
       </div>
     </div>
