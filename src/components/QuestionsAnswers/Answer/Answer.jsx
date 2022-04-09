@@ -30,7 +30,7 @@ function Answer({ questionObj }) {
   // }, []);
 
   // console.log('All ans in state :', allAnswers);
-  console.log('Ans Obj in answers comp :', questionObj.answers);
+  // console.log('Ans Obj in answers comp :', questionObj.answers);
 
   function answerSort(arr) {
     // create a final array
@@ -51,29 +51,25 @@ function Answer({ questionObj }) {
     return final;
   }
 
-  // handleClick --> setMax(max + 5)
-
   const max = questionsStore((state) => state.max);
-
-  // const [max, setMax] = useState(2);
 
   function mapAnswers(answersObj) {
     const answerObjsArr = Object.values(answersObj);
-    console.log('answerObjsArr', answerObjsArr);
+    // console.log('answerObjsArr', answerObjsArr);
     return answerSort(answerObjsArr).map((answer, index) => {
-      console.log('answer', answer);
+      // console.log('answer', answer);
       // if current index is less than MAX, then return:
       if (index < max) {
         return (
           <div key={answer.id}>
             <div>{`A: ${answer.body}`}</div>
-
             <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful?`}</div>
             <div>{`Yes(${answer.helpfulness}) | `}</div>
             <div>Report</div>
           </div>
         );
       }
+      return <div key={answer.id} />;
     });
   }
   // Up to two answers should display for each question.
