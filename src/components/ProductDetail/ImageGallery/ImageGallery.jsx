@@ -3,10 +3,16 @@
 // TODO: implement the above accessibility features
 
 import React from 'react';
+// uuid lets us use very unique IDs for our React keys, without having to
+// worry about their value
+import uuid from 'react-uuid';
+import { toast } from 'react-toastify';
+import InnerImageZoom from 'react-inner-image-zoom';
 import {
   AiFillLeftCircle,
   AiFillRightCircle,
 } from 'react-icons/ai';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import './ImageGallery.scss';
 import { detailStore } from '../../../stores.js';
 import ImageThumbnailGallery from '../ImageThumbnailGallery/ImageThumbnailGallery.jsx';
@@ -21,6 +27,12 @@ function ImageGallery() {
   const startingThumbnailIndex = detailStore((state) => state.startingThumbnailIndex);
   // const setStartingThumbnailIndex = detailStore((state) => state.setStartingThumbnailIndex);
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      toggleImageZoomed(false);
+    }
+  });
+
   if (selectedStyle.photos === undefined) {
     return <h1>Loading images...</h1>;
   }
@@ -29,34 +41,57 @@ function ImageGallery() {
   // console.log('imgIdx', imgIdx);
 
   // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
-  const TEST_PHOTOS = selectedStyle.photos;
+  // *** MAKE SURE TO CHANGE IN ImageThumbnailGallery ***
+  // const TEST_PHOTOS = selectedStyle.photos;
   // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
 
   const shownThumbnails = [];
   for (let i = startingThumbnailIndex; i < 7 + startingThumbnailIndex; i += 1) {
-    if (TEST_PHOTOS[i] === undefined) {
+    if (selectedStyle.photos[i] === undefined) {
       break;
     }
     shownThumbnails.push(
       <img
         className={`image-thumbnail${imgIdx === i ? ' selected' : ''}`}
-        src={TEST_PHOTOS[i].thumbnail_url}
+        src={selectedStyle.photos[i].thumbnail_url}
         alt="selectedStyle.name"
         onClick={() => { setImgIdx(i); }}
-        key={TEST_PHOTOS[i].thumbnail_url}
+        key={uuid()}
       />,
     );
   }
 
+  const afterZoomIn = () => {
+    toast.info('Press "Escape" to exit zoomed view!', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
   return (
     <div className={`image-gallery${imageZoomed ? ' zoomed' : ''}`}>
-      <img
-        className={`image-main${imageZoomed ? ' zoomed' : ''}`}
-        src={TEST_PHOTOS[imgIdx].url}
-        alt={selectedStyle.name}
-        onClick={() => { toggleImageZoomed(); }}
-      />
-      {imageZoomed && <ImageIconDots photos={TEST_PHOTOS} />}
+      {imageZoomed
+        ? (
+          <InnerImageZoom
+            className="image-main-zoomed"
+            src={selectedStyle.photos[imgIdx].url}
+            zoomScale="2.5"
+            hideHint="true"
+          />
+        )
+        : (
+          <img
+            className="image-main"
+            src={selectedStyle.photos[imgIdx].url}
+            alt={selectedStyle.name}
+            onClick={() => { toggleImageZoomed(); afterZoomIn(); }}
+          />
+        )}
+      {imageZoomed && <ImageIconDots photos={selectedStyle.photos} />}
       <div className="image-overlay-container">
         {!imageZoomed && <ImageThumbnailGallery shownThumbnails={shownThumbnails} />}
         <div className="image-arrow-container">
@@ -72,12 +107,12 @@ function ImageGallery() {
               />
             )
             : <div className="img-arrow-divider" />}
-          {imgIdx < TEST_PHOTOS.length - 1
+          {imgIdx < selectedStyle.photos.length - 1
             ? (
               <AiFillRightCircle
                 className="image-main-arrow-right"
                 onClick={() => {
-                  if (imgIdx < TEST_PHOTOS.length - 1) {
+                  if (imgIdx < selectedStyle.photos.length - 1) {
                     setImgIdx(imgIdx + 1);
                   }
                 }}
