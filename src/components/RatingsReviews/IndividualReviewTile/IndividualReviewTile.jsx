@@ -36,7 +36,6 @@ function IndividualReviewTile({ review }) {
           <StarRating
             rating={rating}
           />
-          &nbsp;
         </span>
         <span className="rr-idr-username-date">
           ✓
