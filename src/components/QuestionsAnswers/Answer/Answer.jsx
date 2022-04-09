@@ -19,7 +19,7 @@ function Answer({ questionObj }) {
         setAnswers(data.data.results);
       })
       .catch((err) => {
-        console.log('err :', err);
+        throw err;
       });
   }
 
