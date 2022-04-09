@@ -16,36 +16,61 @@ function IndividualReviewTile({ review }) {
     date,
     reviewer_name,
     helpfulness,
-    photos, } = review;
+    photos,
+  } = review;
+  console.table({
+    review_id,
+    rating,
+    summary,
+    recommend,
+    response,
+    body,
+    date,
+    reviewer_name,
+    helpfulness,
+    photos,
+  });
+  const localDate = new Date(date).toLocaleDateString();
   // takes in a single review
   return (
     <div className="rr-individual-review-tile">
-      <span>
+      <span className="rr-idr-header">
         <StarRating
           rating={rating}
         />
-        Verified Purchaser
-        {'            '}
+        &nbsp;
+        Verified ✓
+        &nbsp;
         {reviewer_name}
-        ||
-        {' '}
-        {date}
+        &nbsp;
+        {localDate}
       </span>
-      <div>
+      <div className="rr-idr-summary">
         {summary}
       </div>
-      <div>
+      <div className="rr-idr-body">
         {body}
       </div>
-      <div>
-        {((recommend) ? (<span> I recommend this product </span>) : '')}
+      <div className="rr-idr-recommend">
+        {((recommend) ? (<span> ✓ I recommend this product </span>) : '')}
       </div>
-      <div>
-        Response to Review
-        {((response) ? (<span> response </span>) : '')}
+      <div className="rr-idr-response">
+        {((response) ? (
+          <div>
+            <div> Response: </div>
+            <div>
+              {' '}
+              {response}
+              {' '}
+            </div>
+          </div>
+        )
+          : '')}
       </div>
-      <span>
-        Rating Helpfulness || Report
+      <span className="rr-idr-helpfulness">
+        Helpful? Yes (
+        {helpfulness}
+        ) | Report
       </span>
     </div>
   );

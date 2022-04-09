@@ -20,7 +20,7 @@ function ReviewsList() {
       <div className="rr-reviews-list">
         Reviews List
         <IndividualReviewTile
-          review={sliced[0]}
+          review={sliced[1]}
         />
       </div>
     );
