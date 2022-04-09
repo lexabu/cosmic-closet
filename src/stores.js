@@ -70,7 +70,7 @@ const questionsStore = create(
     })),
     maxQuestions: 4,
     setMaxQuestions: () => set((state) => ({
-      maxQuestions: state.maxQuestions + 2,
+      maxQuestions: state.questions.length,
     })),
     maxAnswers: 2,
     setMaxAnswers: () => set((state) => ({
