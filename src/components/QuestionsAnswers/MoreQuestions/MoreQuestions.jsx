@@ -3,11 +3,11 @@ import { questionsStore } from '../../../stores.js';
 
 function MoreQuestions() {
   const max = questionsStore((state) => state.max);
-  // console.log('MAX :', max);
+  console.log('MAX :', max);
   const setMax = questionsStore((state) => state.setMax);
 
   return (
-    <button onClick={setMax} type="button">MORE Qs</button>
+    <button onClick={setMax} type="button">Add Question</button>
   );
 }
 

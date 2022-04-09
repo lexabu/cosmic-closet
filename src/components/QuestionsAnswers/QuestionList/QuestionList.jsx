@@ -54,7 +54,6 @@ function QuestionList() {
         <SearchBar />
         <div>{mapQuestions(allQuestions)}</div>
       </div>
-      <button type="button">More Answered Questions</button>
       <MoreQuestions />
     </div>
   );
