@@ -17,8 +17,9 @@ function RatingsReviews() {
   };
 
   const setRatings = reviewStore((state) => state.setRatings);
+  const ratingsUrl = new URL(`${process.env.URL}reviews/meta`);
   useEffect(() => {
-    axios.get(`${process.env.URL}reviews/meta`, authHeaders)
+    axios.get(ratingsUrl.toString(), authHeaders)
       .then((results) => {
         setRatings(results.data);
       })
@@ -28,9 +29,11 @@ function RatingsReviews() {
   }, []);
 
   const setReviews = reviewStore((state) => state.setReviews);
+  const reviewsUrl = new URL(`${process.env.URL}reviews`);
   useEffect(() => {
-    axios.get(`${process.env.URL}reviews`, authHeaders)
+    axios.get(reviewsUrl.toString(), authHeaders)
       .then((results) => {
+        console.log('setReviews data: ', results.data);
         setReviews(results.data);
       })
       .catch((err) => {

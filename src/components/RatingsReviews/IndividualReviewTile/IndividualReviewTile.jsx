@@ -7,38 +7,44 @@ import { StarRating } from '../index.js';
 
 function IndividualReviewTile() {
   const reviews = reviewStore((state) => state.reviews);
-  const rating = reviewStore((state) => state.averageRating);
-  const { allReviews } = reviews;
-  // console.log('allReviews: ', allReviews);
+  // const rating = reviewStore((state) => state.averageRating);
+  const {
+    count, page, product, results,
+  } = reviews;
+  if (count) {
 
-  return (
-    <div className="rr-individual-review-tile">
-      <span>
-        <StarRating
-          rating={rating}
-        />
-        || Verified Purchaser
-        || Date of Review
-      </span>
-      <div>
-        Review Summary
+    console.log('count, page, product, results: ', count, page, product, results);
+
+    return (
+      <div className="rr-individual-review-tile">
+        <span>
+          <StarRating
+            rating="5"
+          />
+          || Verified Purchaser
+          || Date of Review
+        </span>
+        <div>
+          Review Summary
+        </div>
+        <div>
+          Review body
+        </div>
+        <div>
+          “I recommend this product”
+        </div>
+        <div>
+          Response to Review
+        </div>
+        <span>
+          Rating Helpfulness || Report
+        </span>
       </div>
-      <div>
-        Review body
-      </div>
-      <div>
-        “I recommend this product”
-      </div>
-      <div>
-        Response to Review
-      </div>
-      <span>
-        Rating Helpfulness || Report
-      </span>
-    </div>
-  );
+    );
+  }
+
+  return <div> Loading... </div>;
 }
-
 export default IndividualReviewTile;
 
 // function Question({ questionObj, getAllQuestions }) {
