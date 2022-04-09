@@ -76,6 +76,10 @@ const questionsStore = create(
     setMaxAnswers: () => set((state) => ({
       maxAnswers: state.maxAnswers + 2,
     })),
+    maxAnswersArr: [],
+    setMaxAnswersArr: (answerArr) => set(() => ({
+      maxAnswersArr: answerArr,
+    })),
     // dogs: 999,
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
