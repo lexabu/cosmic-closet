@@ -41,7 +41,6 @@ function QuestionList() {
   // below the question and display the remainder of the list.
 
   const maxQuestions = questionsStore((state) => state.maxQuestions);
-  const setMaxQuestions = questionsStore((state) => state.setMaxQuestions);
 
   function mapQuestions(questionsArr) {
     const questionsListLength = questionsArr.length;

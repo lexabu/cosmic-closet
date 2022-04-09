@@ -59,7 +59,7 @@ function Question({ questionObj, getAllQuestions }) {
       </div>
       <div> | Add Answer</div>
       <Answer questionObj={questionObj} />
-      <MoreAnswers />
+      {/* <MoreAnswers /> */}
       {/* Add MoreAnswers button if there are > 2 answers */}
       {/* onClick --> questionObj.max = questionObj.max + 2 */}
     </div>
