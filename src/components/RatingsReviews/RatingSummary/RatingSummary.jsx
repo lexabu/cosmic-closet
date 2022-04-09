@@ -1,5 +1,5 @@
 import React from 'react';
-import { reviewMetaStore } from '../../../stores.js';
+import { reviewStore } from '../../../stores.js';
 import { StarRating } from '../index.js';
 import './RatingSummary.scss';
 
@@ -9,8 +9,8 @@ const round = (value, precision) => {
 };
 
 function RatingSummary() {
-  const meta = reviewMetaStore((state) => state.ratings);
-  const setAverageRating = reviewMetaStore((state) => state.setAverageRatings);
+  const meta = reviewStore((state) => state.ratings);
+  const setAverageRating = reviewStore((state) => state.setAverageRating);
   const { ratings } = meta;
 
   if (ratings) {

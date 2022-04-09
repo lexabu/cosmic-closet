@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { reviewMetaStore } from '../stores.js';
+import { reviewStore } from '../stores.js';
 import { LeftColumn, RightColumn } from '../components/RatingsReviews/index.js';
 
 function RatingsReviews() {
@@ -16,13 +16,22 @@ function RatingsReviews() {
     },
   };
 
-  // zustand pulling in the specified functions
-  const setReviewMetaFromApiCall = reviewMetaStore((state) => state.setRatings);
+  const setRatings = reviewStore((state) => state.setRatings);
   useEffect(() => {
-    // Get ratings via reviewMeta and add to state
     axios.get(`${process.env.URL}reviews/meta`, authHeaders)
       .then((results) => {
-        setReviewMetaFromApiCall(results.data);
+        setRatings(results.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
+
+  const setReviews = reviewStore((state) => state.setReviews);
+  useEffect(() => {
+    axios.get(`${process.env.URL}reviews`, authHeaders)
+      .then((results) => {
+        setReviews(results.data);
       })
       .catch((err) => {
         throw err;
