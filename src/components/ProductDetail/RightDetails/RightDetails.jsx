@@ -9,6 +9,7 @@ function RightDetails() {
   const title = detailStore((state) => state.productDetails.name);
   const category = detailStore((state) => state.productDetails.category);
   const selectedStyle = detailStore((state) => state.selectedStyle);
+  const imageZoomed = detailStore((state) => state.imageZoomed);
   const originalPrice = selectedStyle.original_price;
   const salePrice = selectedStyle.sale_price;
   let onSale = false;
@@ -18,7 +19,7 @@ function RightDetails() {
   }
 
   return (
-    <div className="pd-right-details-container">
+    <div className={`pd-right-details-container${imageZoomed ? ' hidden' : ''}`}>
       <div className="pd-stars-container">
         <div>⭐⭐⭐⭐⭐</div>
         <span className="pd-read-all-reviews">{`Read all ${reviewsCount} reviews`}</span>

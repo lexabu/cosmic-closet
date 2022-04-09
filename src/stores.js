@@ -10,9 +10,10 @@ const details = (set, get) => ({
   setSelectedStyle: (data) => set({ selectedStyle: data }),
   selectedSize: '',
   setSelectedSize: (data) => set({ selectedSize: data }),
-  selectedQuantity: '',
+  selectedQuantity: 1,
   setSelectedQuantity: (data) => set({ selectedQuantity: data }),
   showSizeSelector: false,
+  // TODO: Combine the two toggle functions to be a single function
   toggleShowSizeSelector: (bool) => {
     if (bool === undefined) {
       set({ showSizeSelector: !get().showSizeSelector });
@@ -28,12 +29,17 @@ const details = (set, get) => ({
       set({ showQuantitySelector: bool });
     }
   },
-  toastShown: false,
-  toggleToastShown: () => {
-    set({ toastShown: true });
-    setTimeout(() => {
-      set({ toastShown: false });
-    }, 3000);
+  startingThumbnailIndex: 0,
+  setStartingThumbnailIndex: (data) => set({ startingThumbnailIndex: data }),
+  selectedImageIndex: 0,
+  setSelectedImageIndex: (newIndex) => set({ selectedImageIndex: newIndex }),
+  imageZoomed: false,
+  toggleImageZoomed: (bool) => {
+    if (bool === undefined) {
+      set({ imageZoomed: !get().imageZoomed });
+    } else {
+      set({ imageZoomed: bool });
+    }
   },
 });
 const detailStore = create(devtools(details));
@@ -82,7 +88,9 @@ const reviewStore = create(
 const reviewMetaStore = create(
   devtools((set) => ({
     ratings: [],
-    setRatings: (data) => set(() => ({ ratings: data })),
+    setRatings: (data) => set({ ratings: data }),
+    averageRating: 0,
+    setAverageRatings: (data) => set({ averageRating: data }),
   })),
 );
 

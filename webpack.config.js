@@ -28,7 +28,7 @@ module.exports = {
       // new css test to include sass
       {
         // looks for sass OR css files on import
-        test: /\.s[ac]ss$/i,
+        test: /\.(css|scss)$/,
         use: [
           // Creates `style` nodes from JS strings
           'style-loader',

@@ -1,9 +1,10 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import ProductDetail from './containers/ProductDetail.jsx';
 import QuestionsAnswers from './containers/QuestionsAnswers.jsx';
 import RatingsReviews from './containers/RatingsReviews.jsx';
-import Toast from './components/Toast/Toast.jsx';
 
 function App() {
   return (
@@ -11,6 +12,17 @@ function App() {
       <ProductDetail />
       <QuestionsAnswers />
       <RatingsReviews />
+      <ToastContainer
+        position="top-center"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+      />
     </main>
   );
 }
