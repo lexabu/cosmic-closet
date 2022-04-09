@@ -20,6 +20,7 @@ function QuestionList() {
       },
       params: {
         product_id: id,
+        count: 100,
       },
     })
       .then((data) => {
