@@ -3,7 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
-import { Answer } from '../index.js';
+import { Answer, MoreAnswers } from '../index.js';
 
 // By default, on page load up to four questions should be displayed.
 function Question({ questionObj, getAllQuestions }) {
@@ -36,6 +36,14 @@ function Question({ questionObj, getAllQuestions }) {
       getUpdateHelpfulness(question);
     }
   }
+
+  // questionObj.max = 2
+  // let questionObj = {
+  //   id: 34235754623,
+  //   body: "asdfkhjadsg regrha kf",
+  //   max: 2,
+  // }
+
   // By default, on page load up to four questions should be displayed.
   return (
     <div>
@@ -51,6 +59,8 @@ function Question({ questionObj, getAllQuestions }) {
       </div>
       <div> | Add Answer</div>
       <Answer questionObj={questionObj} />
+      {/* Add MoreAnswers button if there are > 2 answers */}
+      {/* onClick --> questionObj.max = questionObj.max + 2 */}
     </div>
   );
 }
