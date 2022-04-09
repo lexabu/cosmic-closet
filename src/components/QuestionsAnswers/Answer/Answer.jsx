@@ -6,6 +6,22 @@ import { MoreAnswers } from '../index.js';
 
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
+  const allQuestions = questionsStore((state) => state.questions);
+  const setMaxAnswersArr = questionsStore((state) => state.setMaxAnswersArr);
+  console.log(allQuestions);
+
+  function intialMaxAnswers(questions) {
+    // create an empty arr
+    const maxAnswers = [];
+    // map over questions
+    for (let i = 0; i < questions.length; i += 1) {
+      const question = questions[i];
+      if (question.question_id) {
+        maxAnswers.push({ [question.question_id]: 2 });
+      }
+    }
+    return maxAnswers;
+  }
 
   function getAllAnswers() {
     axios({
@@ -27,6 +43,10 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
+  useEffect(() => {
+    setMaxAnswersArr(intialMaxAnswers(allQuestions));
+  }, allQuestions);
+
   function answerSort(arr) {
     const final = [];
     const ascending = arr.sort((a, b) => b.helpfulness - a.helpfulness);
@@ -40,6 +60,8 @@ function Answer({ questionObj }) {
     }
     return final;
   }
+
+  // console.log('created initialMaxAnswers', intialMaxAnswers(allQuestions));
 
   const maxAnswers = questionsStore((state) => state.maxAnswers);
 
