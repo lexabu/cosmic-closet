@@ -3,7 +3,7 @@ import './SizeScale.scss';
 
 function SizeScale() {
   return (
-    <div className="rr-SizeScale">SizeScale</div>
+    <div className="rr-size-scale">SizeScale</div>
   );
 }
 

@@ -44,15 +44,15 @@ const details = (set, get) => ({
 });
 const detailStore = create(devtools(details));
 
-const ratingStore = create(
-  // To be able to see multiple stores in Redux DevTools, set the selector in the
-  // extension to "Autoselect instances"
-  devtools((set) => ({
-    dogs: 999,
-    increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
-    decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
-  })),
-);
+// const ratingStore = create(
+//   // To be able to see multiple stores in Redux DevTools, set the selector in the
+//   // extension to "Autoselect instances"
+//   devtools((set) => ({
+//     dogs: 999,
+//     increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
+//     decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
+//   })),
+// );
 
 const questionsStore = create(
   // To be able to see multiple stores in Redux DevTools, set the selector in the
@@ -78,18 +78,13 @@ const reviewStore = create(
   devtools((set) => ({
     reviews: [],
     setReviews: (data) => set(() => ({ reviews: data })),
-  })),
-);
-
-const reviewMetaStore = create(
-  devtools((set) => ({
     ratings: [],
     setRatings: (data) => set({ ratings: data }),
     averageRating: 0,
-    setAverageRatings: (data) => set({ averageRating: data }),
+    setAverageRating: (data) => set({ averageRating: data }),
   })),
 );
 
 export {
-  detailStore, ratingStore, questionsStore, reviewStore, reviewMetaStore,
+  detailStore, questionsStore, reviewStore,
 };

@@ -21,3 +21,12 @@
   height: 90vh;
   display: flex;
 }
+
+.loading {
+  align-items: center;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 10px;
+}
