@@ -32,15 +32,20 @@ function IndividualReviewTile({ review }) {
   return (
     <div className="rr-individual-review-tile">
       <span className="rr-idr-header">
-        <StarRating
-          rating={rating}
-        />
+        <span className="rr-idr-star-rating">
+          <StarRating
+            rating={rating}
+          />
+          &nbsp;
+        </span>
+        <span className="rr-idr-username-date">
+          ✓
+          &nbsp;
+          {reviewer_name}
+          &nbsp;
+          {localDate}
+        </span>
         &nbsp;
-        Verified ✓
-        &nbsp;
-        {reviewer_name}
-        &nbsp;
-        {localDate}
       </span>
 
       <div className="rr-idr-summary">
