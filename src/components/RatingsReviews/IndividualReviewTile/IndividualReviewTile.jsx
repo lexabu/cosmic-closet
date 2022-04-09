@@ -6,33 +6,43 @@ import './IndividualReviewTile.scss';
 import { StarRating } from '../index.js';
 
 function IndividualReviewTile({ review }) {
-  const { }
   const {
-    count, page, product, results,
-  } = revieww;
+    review_id,
+    rating,
+    summary,
+    recommend,
+    response,
+    body,
+    date,
+    reviewer_name,
+    helpfulness,
+    photos, } = review;
   // takes in a single review
   return (
     <div className="rr-individual-review-tile">
       <span>
         <StarRating
-          rating="5"
+          rating={rating}
         />
-        || Verified Purchaser
+        Verified Purchaser
+        {'            '}
+        {reviewer_name}
         ||
         {' '}
-        "date"
+        {date}
       </span>
       <div>
-        Review Summary
+        {summary}
       </div>
       <div>
-        Review body
+        {body}
       </div>
       <div>
-        “I recommend this product”
+        {((recommend) ? (<span> I recommend this product </span>) : '')}
       </div>
       <div>
         Response to Review
+        {((response) ? (<span> response </span>) : '')}
       </div>
       <span>
         Rating Helpfulness || Report
