@@ -7,7 +7,7 @@ function MoreAnswers() {
   const setMax = questionsStore((state) => state.setMax);
 
   return (
-    <button onClick={setMax} type="button">Add Answered Questions</button>
+    <button onClick={setMax} type="button">See More Answers</button>
   );
 }
 

@@ -36,13 +36,25 @@ function QuestionList() {
 
   // console.log('ALL QUESTIONS', allQuestions);
 
+  // Clicking on this link should expand the area
+  // below the question and display the remainder of the list.
+
+  const maxQuestions = questionsStore((state) => state.maxQuestions);
+
   function mapQuestions(questionsArr) {
-    if (questionsArr.length > 0) {
-      return questionsArr.map((question) => (
-        <div key={question.question_id}>
-          <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
-        </div>
-      ));
+    const questionsListLength = questionsArr.length;
+
+    if (questionsListLength > 0) {
+      return questionsArr.map((question, index) => {
+        // check if max index is less than max
+        if (index < maxQuestions) {
+          return (
+            <div key={question.question_id}>
+              <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
+            </div>
+          );
+        }
+      });
     }
     return (<div />);
   }
@@ -55,6 +67,7 @@ function QuestionList() {
         <div>{mapQuestions(allQuestions)}</div>
       </div>
       <MoreQuestions />
+      <button type="button">Add Question</button>
     </div>
   );
 }

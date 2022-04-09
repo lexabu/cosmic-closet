@@ -2,12 +2,12 @@ import React from 'react';
 import { questionsStore } from '../../../stores.js';
 
 function MoreQuestions() {
-  const max = questionsStore((state) => state.max);
-  console.log('MAX :', max);
-  const setMax = questionsStore((state) => state.setMax);
+  const maxQuestions = questionsStore((state) => state.maxQuestions);
+  console.log('MAX :', maxQuestions);
+  const setMax = questionsStore((state) => state.setMaxQuestions);
 
   return (
-    <button onClick={setMax} type="button">Add Question</button>
+    <button onClick={setMax} type="button">More Answered Questions</button>
   );
 }
 

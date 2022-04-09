@@ -55,11 +55,12 @@ function Answer({ questionObj }) {
 
   function mapAnswers(answersObj) {
     const answerObjsArr = Object.values(answersObj);
+    const answerListLength = answerObjsArr.length;
     // console.log('answerObjsArr', answerObjsArr);
     return answerSort(answerObjsArr).map((answer, index) => {
       // console.log('answer', answer);
       // if current index is less than MAX, then return:
-      if (index < max) {
+      if (index < max && answerListLength > max) {
         return (
           <div key={answer.id}>
             <div>{`A: ${answer.body}`}</div>
