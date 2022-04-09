@@ -53,7 +53,7 @@ function RatingBreakdown() {
       </div>
     );
   }
-  return <div> Loading...</div>;
+  return <div className="loading"> Loading...</div>;
 }
 
 export default RatingBreakdown;
