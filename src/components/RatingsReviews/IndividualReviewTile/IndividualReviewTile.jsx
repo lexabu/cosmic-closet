@@ -1,13 +1,10 @@
 /* eslint-disable camelcase */
-/* eslint-disable max-len */
 import React from 'react';
 import './IndividualReviewTile.scss';
-// import axios from 'axios';
 import { StarRating } from '../index.js';
 
 function IndividualReviewTile({ review }) {
   const {
-    review_id,
     rating,
     summary,
     recommend,
@@ -18,18 +15,18 @@ function IndividualReviewTile({ review }) {
     helpfulness,
     photos,
   } = review;
-  console.table({
-    review_id,
-    rating,
-    summary,
-    recommend,
-    response,
-    body,
-    date,
-    reviewer_name,
-    helpfulness,
-    photos,
-  });
+  // console.table({
+  //   review_id,
+  //   rating,
+  //   summary,
+  //   recommend,
+  //   response,
+  //   body,
+  //   date,
+  //   reviewer_name,
+  //   helpfulness,
+  //   photos,
+  // });
   const localDate = new Date(date).toLocaleDateString();
   // takes in a single review
   return (
@@ -45,28 +42,25 @@ function IndividualReviewTile({ review }) {
         &nbsp;
         {localDate}
       </span>
+
       <div className="rr-idr-summary">
         {summary}
       </div>
       <div className="rr-idr-body">
         {body}
       </div>
-      <div className="rr-idr-recommend">
-        {((recommend) ? (<span> ✓ I recommend this product </span>) : '')}
-      </div>
-      <div className="rr-idr-response">
-        {((response) ? (
+      {((recommend) ? (<span className="rr-idr-recommend"> ✓ I recommend this product </span>) : '')}
+      {((response) ? (
+        <div className="rr-idr-response">
+          <div> Response: </div>
           <div>
-            <div> Response: </div>
-            <div>
-              {' '}
-              {response}
-              {' '}
-            </div>
+            {' '}
+            {response}
+            {' '}
           </div>
-        )
-          : '')}
-      </div>
+        </div>
+      )
+        : '')}
       <span className="rr-idr-helpfulness">
         Helpful? Yes (
         {helpfulness}
