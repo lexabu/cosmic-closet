@@ -4,10 +4,8 @@ import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 import { MoreAnswers } from '../index.js';
 
-// Up to two answers should display for each question.
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
-  const allAnswers = questionsStore((state) => state.answers);
 
   function getAllAnswers() {
     axios({
@@ -18,7 +16,6 @@ function Answer({ questionObj }) {
       },
     })
       .then((data) => {
-        // console.log('all answers :', data.data.results);
         setAnswers(data.data.results);
       })
       .catch((err) => {
@@ -30,39 +27,26 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
-  // console.log('All ans in state :', allAnswers);
-  // console.log('Ans Obj in answers comp :', questionObj.answers);
-
   function answerSort(arr) {
-    // create a final array
     const final = [];
-    // place in ascending order
     const ascending = arr.sort((a, b) => b.helpfulness - a.helpfulness);
-    // iterate over sorted array
+
     for (let i = 0; i < ascending.length; i += 1) {
       if (ascending[i].answerer_name === 'Seller') {
-        // unshift all seller answers to front of final arr
         final.unshift(ascending[i]);
       } else {
-        // push all other answers to the end of the arr
         final.push(ascending[i]);
       }
     }
-    // return final loop
     return final;
   }
 
   const maxAnswers = questionsStore((state) => state.maxAnswers);
 
   function mapAnswers(answersObj) {
-    // console.log('answersObj', answersObj);
     const answerObjsArr = Object.values(answersObj);
-    // const answerListLength = answerObjsArr.length;
-    // console.log('answerObjsArr', answerObjsArr);
 
     return answerSort(answerObjsArr).map((answer, index) => {
-      // console.log('answer', answer);
-      // if current index is less than MAX, then return:
       if (index < maxAnswers) {
         return (
           <div key={answer.id}>
@@ -84,8 +68,5 @@ function Answer({ questionObj }) {
     </div>
   );
 }
-// Up to two answers should display for each question.
 
 export default Answer;
-
-// Array.prototype.map() expects a value to be returned at the end of arrow function.

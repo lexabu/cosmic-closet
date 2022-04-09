@@ -6,9 +6,8 @@ function MoreQuestions() {
   const maxQuestions = questionsStore((state) => state.maxQuestions);
   const setMaxQuestions = questionsStore((state) => state.setMaxQuestions);
 
-  // if max is less than the questions array length,
+  // if max is less than the questions array length, render button
   if (maxQuestions < allQuestionsLength) {
-    // render buttom
     return (
       <button onClick={setMaxQuestions} type="button">More Answered Questions</button>
     );
