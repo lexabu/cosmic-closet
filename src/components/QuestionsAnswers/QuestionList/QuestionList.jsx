@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
-import { Question, MoreQuestions } from '../index.js';
+import { Question, MoreQuestionsButton } from '../index.js';
 
 function QuestionList() {
   const setQuestions = questionsStore((state) => state.setQuestions);
@@ -59,7 +59,7 @@ function QuestionList() {
   return (
     <div>
       <div>{mapQuestions(allQuestions)}</div>
-      <MoreQuestions />
+      <MoreQuestionsButton />
       <button type="button">Add Question</button>
     </div>
   );
