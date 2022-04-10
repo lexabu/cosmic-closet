@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
+
 import { questionsStore } from '../../../stores.js';
 import { Question, MoreQuestionsButton } from '../index.js';
+import './QuestionList.scss';
 
 function QuestionList() {
   const setQuestions = questionsStore((state) => state.setQuestions);
@@ -57,7 +59,7 @@ function QuestionList() {
   const allQuestions = questionsStore((state) => state.questions);
 
   return (
-    <div>
+    <div className="qa-question-list-container">
       <div>{mapQuestions(allQuestions)}</div>
       <MoreQuestionsButton />
       <button type="button">Add Question</button>
