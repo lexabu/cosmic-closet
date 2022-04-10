@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
-import { MoreAnswers } from '../index.js';
+import { MoreAnswersButton } from '../index.js';
 
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
@@ -70,12 +70,10 @@ function Answer({ questionObj }) {
     const answerObjsArr = Object.values(answersObj);
 
     return answerSort(answerObjsArr).map((answer, index) => {
-      // console.log('quest id :', questionObj.question_id);
-      // console.log('maxAnswersArr', maxAnswersArr);
       const questionId = questionObj.question_id;
+
       for (let i = 0; i < maxAnswersArr.length; i += 1) {
         const maxAnswer = maxAnswersArr[i];
-        // console.log('maxAn :', maxAnswer[questionId]);
         if (index < maxAnswer[questionId]) {
           return (
             <div key={answer.id}>
@@ -94,7 +92,7 @@ function Answer({ questionObj }) {
   return (
     <div>
       {mapAnswers(questionObj.answers)}
-      <MoreAnswers questionObj={questionObj} />
+      <MoreAnswersButton questionObj={questionObj} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { questionsStore } from '../../../stores.js';
 
-function MoreAnswers({ questionObj }) {
+function MoreAnswersButton({ questionObj }) {
   const maxAnswersArr = questionsStore((state) => state.maxAnswersArr);
   const setMaxAnswersArr = questionsStore((state) => state.setMaxAnswersArr);
 
@@ -33,4 +33,4 @@ function MoreAnswers({ questionObj }) {
   }
 }
 
-export default MoreAnswers;
+export default MoreAnswersButton;
