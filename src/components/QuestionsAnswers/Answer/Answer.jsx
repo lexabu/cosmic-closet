@@ -7,8 +7,6 @@ import { MoreAnswers } from '../index.js';
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
   const allQuestions = questionsStore((state) => state.questions);
-  const setMaxAnswersArr = questionsStore((state) => state.setMaxAnswersArr);
-  console.log(allQuestions);
 
   function intialMaxAnswers(questions) {
     // create an empty arr
@@ -43,6 +41,8 @@ function Answer({ questionObj }) {
     getAllAnswers();
   }, []);
 
+  const setMaxAnswersArr = questionsStore((state) => state.setMaxAnswersArr);
+
   useEffect(() => {
     setMaxAnswersArr(intialMaxAnswers(allQuestions));
   }, allQuestions);
@@ -63,21 +63,29 @@ function Answer({ questionObj }) {
 
   // console.log('created initialMaxAnswers', intialMaxAnswers(allQuestions));
 
-  const maxAnswers = questionsStore((state) => state.maxAnswers);
+  // const maxAnswers = questionsStore((state) => state.maxAnswers);
+  const maxAnswersArr = questionsStore((state) => state.maxAnswersArr);
 
   function mapAnswers(answersObj) {
     const answerObjsArr = Object.values(answersObj);
 
     return answerSort(answerObjsArr).map((answer, index) => {
-      if (index < maxAnswers) {
-        return (
-          <div key={answer.id}>
-            <div>{`A: ${answer.body}`}</div>
-            <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful?`}</div>
-            <div>{`Yes(${answer.helpfulness}) | `}</div>
-            <div>Report</div>
-          </div>
-        );
+      // console.log('quest id :', questionObj.question_id);
+      // console.log('maxAnswersArr', maxAnswersArr);
+      const questionId = questionObj.question_id;
+      for (let i = 0; i < maxAnswersArr.length; i += 1) {
+        const maxAnswer = maxAnswersArr[i];
+        // console.log('maxAn :', maxAnswer[questionId]);
+        if (index < maxAnswer[questionId]) {
+          return (
+            <div key={answer.id}>
+              <div>{`A: ${answer.body}`}</div>
+              <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful?`}</div>
+              <div>{`Yes(${answer.helpfulness}) | `}</div>
+              <div>Report</div>
+            </div>
+          );
+        }
       }
       return <div key={answer.id} />;
     });
@@ -86,7 +94,7 @@ function Answer({ questionObj }) {
   return (
     <div>
       {mapAnswers(questionObj.answers)}
-      <MoreAnswers allAnswers={questionObj.answers} />
+      <MoreAnswers questionObj={questionObj} />
     </div>
   );
 }

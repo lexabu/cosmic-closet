@@ -6,6 +6,7 @@ import { questionsStore } from '../../../stores.js';
 import { Answer } from '../index.js';
 
 function Question({ questionObj, getAllQuestions }) {
+  // console.log('quest questionObj :', questionObj);
   const wasHelpful = questionsStore((state) => state.wasHelpful);
   const addHelpful = questionsStore((state) => state.addHelpful);
 

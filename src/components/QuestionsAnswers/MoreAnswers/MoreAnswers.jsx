@@ -1,20 +1,35 @@
 import React from 'react';
 import { questionsStore } from '../../../stores.js';
 
-function MoreAnswers({ allAnswers }) {
-  const maxAnswers = questionsStore((state) => state.maxAnswers);
-  const setMaxAnswers = questionsStore((state) => state.setMaxAnswers);
-  const allAnswersLength = Object.values(allAnswers).length;
+function MoreAnswers({ questionObj }) {
+  const maxAnswersArr = questionsStore((state) => state.maxAnswersArr);
+  const setMaxAnswersArr = questionsStore((state) => state.setMaxAnswersArr);
 
-  function addAnsweredQuestions() {
-    setMaxAnswers();
+  function addAnsweredQuestions(question) {
+    const questionId = question.question_id;
+    const arr = [];
+
+    for (let i = 0; i < maxAnswersArr.length; i += 1) {
+      const maxAnswerObj = maxAnswersArr[i];
+      if (maxAnswerObj[questionId]) {
+        arr.push({ [questionId]: maxAnswerObj[questionId] + 2 });
+      } else {
+        arr.push(maxAnswerObj);
+      }
+    }
+    setMaxAnswersArr(arr);
   }
 
-  // if max answers is less than answers length
-  if (maxAnswers < allAnswersLength) {
-    return (
-      <button onClick={addAnsweredQuestions} type="button">See More Answers</button>
-    );
+  const questionId = questionObj.question_id;
+  const anwserListLength = Object.keys(questionObj.answers).length;
+
+  for (let i = 0; i < maxAnswersArr.length; i += 1) {
+    const maxAnswerObj = maxAnswersArr[i];
+    if (maxAnswerObj[questionId] < anwserListLength) {
+      return (
+        <button onClick={() => (addAnsweredQuestions(questionObj))} type="button">See More Answers</button>
+      );
+    }
   }
 }
 
