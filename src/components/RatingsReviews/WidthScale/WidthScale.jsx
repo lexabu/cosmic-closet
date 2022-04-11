@@ -1,18 +1,18 @@
 import React from 'react';
 import { RatingScale } from '../index.js';
-import './SizeScale.scss';
+import './WidthScale.scss';
 
-function SizeScale() {
+function WidthScale() {
   return (
     <div>
       <RatingScale
-        name="Size"
-        label1="Too small "
+        name="Width"
+        label1="Too narrow"
         label2="Perfect"
-        label3="Too Large"
+        label3="Too Wide"
       />
     </div>
   );
 }
 
-export default SizeScale;
+export default WidthScale;

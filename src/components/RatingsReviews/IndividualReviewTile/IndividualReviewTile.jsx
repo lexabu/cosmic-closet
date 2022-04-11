@@ -70,6 +70,7 @@ function IndividualReviewTile({ review }) {
         {helpfulness}
         ) | Report
       </span>
+      <hr />
     </div>
   );
 }

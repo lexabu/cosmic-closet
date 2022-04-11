@@ -43,11 +43,30 @@ input {
 
 .loading {
   align-items: center;
-  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px 10px;
+}
+
+.progress {
+  height: 10px;
+  background: grey;
+  border-radius: 5px;
+}
+
+.progress::-moz-progress-bar {
+  background: #036;
+  border-radius: 5px;
+}
+
+.progress::-webkit-progress-bar {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.progress::-webkit-progress-value {
+  background: #036;
+  border-radius: 5px;
 }
 
 /*==========================================================
@@ -75,7 +94,6 @@ input {
 ===========================================================*/
 
 #ratings-reviews {
-  background-color: #c678dd;
-  height: 90vh;
   display: flex;
+  height: auto;
 }

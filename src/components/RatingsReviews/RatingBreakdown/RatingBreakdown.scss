@@ -1,10 +1,9 @@
 .rr-rating-breakdown {
   align-items: center;
-  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px 10px;
+  margin: 10px;
   padding: 10px;
 }
 
@@ -20,6 +19,7 @@
   padding: 5px;
 }
 
-// .rr-rb-progress {
-//   background-color: #003366;
-// }
+.rr-rb-body-item {
+  display: flex;
+  align-items: center;
+}

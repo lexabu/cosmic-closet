@@ -1,18 +1,18 @@
 import React from 'react';
 import { RatingScale } from '../index.js';
-import './ComfortScale.scss';
+import './QualityScale.scss';
 
-function ComfortScale() {
+function QualityScale() {
   return (
     <div>
       <RatingScale
-        name="Comfort"
-        label1="Uncomfortable"
-        label2="Ok"
+        name="Quality"
+        label1="Poor"
+        label2=" "
         label3="Perfect"
       />
     </div>
   );
 }
 
-export default ComfortScale;
+export default QualityScale;
