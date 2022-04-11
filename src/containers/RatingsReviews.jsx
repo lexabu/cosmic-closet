@@ -7,6 +7,25 @@ import { LeftColumn, RightColumn } from '../components/RatingsReviews/index.js';
 function RatingsReviews() {
   const { id } = useParams();
 
+  const ratingsURL = new URL(`${process.env.URL}reviews/meta`);
+  const setRatings = reviewStore((state) => state.setRatings);
+
+  const helpfulReviewsURL = new URL(`${process.env.URL}reviews`);
+  helpfulReviewsURL.searchParams.set('sort', 'helpful');
+
+  const newestReviewsURL = new URL(`${process.env.URL}reviews`);
+  newestReviewsURL.searchParams.set('sort', 'newest');
+
+  const relevantReviewsURL = new URL(`${process.env.URL}reviews`);
+  relevantReviewsURL.searchParams.set('sort', 'relevant');
+
+  const reviewsURL = new URL(`${process.env.URL}reviews`);
+
+  const setHelpfulReviews = reviewStore((state) => state.setHelpfulReviews);
+  const setNewestReviews = reviewStore((state) => state.setNewestReviews);
+  const setRelevantReviews = reviewStore((state) => state.setRelevantReviews);
+  const setReviews = reviewStore((state) => state.setReviews);
+
   const authHeaders = {
     headers: {
       Authorization: process.env.GITHUB_API_KEY,
@@ -16,10 +35,8 @@ function RatingsReviews() {
     },
   };
 
-  const setRatings = reviewStore((state) => state.setRatings);
-  const ratingsUrl = new URL(`${process.env.URL}reviews/meta`);
   useEffect(() => {
-    axios.get(ratingsUrl.toString(), authHeaders)
+    axios.get(ratingsURL.toString(), authHeaders)
       .then((results) => {
         setRatings(results.data);
       })
@@ -28,12 +45,39 @@ function RatingsReviews() {
       });
   }, []);
 
-  const setReviews = reviewStore((state) => state.setReviews);
-  const reviewsUrl = new URL(`${process.env.URL}reviews`);
   useEffect(() => {
-    axios.get(reviewsUrl.toString(), authHeaders)
+    axios.get(helpfulReviewsURL.toString(), authHeaders)
       .then((results) => {
-        // console.log('setReviews data: ', results.data);
+        setHelpfulReviews(results.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get(newestReviewsURL.toString(), authHeaders)
+      .then((results) => {
+        setNewestReviews(results.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get(relevantReviewsURL.toString(), authHeaders)
+      .then((results) => {
+        setRelevantReviews(results.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get(reviewsURL.toString(), authHeaders)
+      .then((results) => {
         setReviews(results.data);
       })
       .catch((err) => {

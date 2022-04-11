@@ -90,12 +90,18 @@ const questionsStore = create(
 
 const reviewStore = create(
   devtools((set) => ({
-    reviews: [],
-    setReviews: (data) => set(() => ({ reviews: data })),
-    ratings: [],
-    setRatings: (data) => set({ ratings: data }),
     averageRating: 0,
     setAverageRating: (data) => set({ averageRating: data }),
+    helpfulReviews: [],
+    setHelpfulReviews: (data) => set(() => ({ helpfulReviews: data })),
+    newestReviews: [],
+    setNewestReviews: (data) => set(() => ({ newestReviews: data })),
+    ratings: [],
+    setRatings: (data) => set({ ratings: data }),
+    relevantReviews: [],
+    setRelevantReviews: (data) => set(() => ({ relevantReviews: data })),
+    reviews: [],
+    setReviews: (data) => set(() => ({ reviews: data })),
   })),
 );
 
