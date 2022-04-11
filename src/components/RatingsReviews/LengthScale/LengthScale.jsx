@@ -1,30 +1,18 @@
 import React from 'react';
-import { reviewStore } from '../../../stores.js';
+import { RatingScale } from '../index.js';
 import './LengthScale.scss';
 
 function LengthScale() {
-  const metaRatings = reviewStore((state) => state.ratings);
-  const { characteristics } = metaRatings;
-  if (characteristics) {
-    if (characteristics.Length) {
-      const { Length } = characteristics;
-      if (Length.value) {
-        return (
-          <div className="rr-length-scale">
-            <div className="rr-ls-title">
-              Length
-            </div>
-            <progress className="rr-ls-progress progress" max={5} value={Length.value} />
-            <div className="rr-ls-labels">
-              <span> Short </span>
-              <span> Perfect </span>
-              <span> Long </span>
-            </div>
-          </div>
-        );
-      }
-    }
-  }
+  return (
+    <div>
+      <RatingScale
+        name="Length"
+        label1="Short"
+        label2="Perfect"
+        label3="Long "
+      />
+    </div>
+  );
 }
 
 export default LengthScale;
