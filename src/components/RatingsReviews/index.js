@@ -6,6 +6,7 @@ export { default as LeftColumn } from './LeftColumn/LeftColumn.jsx';
 export { default as LengthScale } from './LengthScale/LengthScale.jsx';
 export { default as QualityScale } from './QualityScale/QualityScale.jsx';
 export { default as RatingBreakdown } from './RatingBreakdown/RatingBreakdown.jsx';
+export { default as RatingScale } from './RatingScale/RatingScale.jsx';
 export { default as RatingSummary } from './RatingSummary/RatingSummary.jsx';
 export { default as ReviewsList } from './ReviewsList/ReviewsList.jsx';
 export { default as RightColumn } from './RightColumn/RightColumn.jsx';

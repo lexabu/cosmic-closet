@@ -1,0 +1,43 @@
+.rr-rs-scale {
+  display: grid;
+  grid-gap: 1px;
+  justify-content: center;
+  padding: initial;
+}
+
+.rr-rs-title {
+  font-size: 15px;
+}
+
+.rr-rs-progress {
+  font-size: 15px;
+}
+
+.rr-rs-labels {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 5px;
+  width: 100%;
+  font-size: x-small;
+}
+
+.progress {
+  height: 10px;
+  background: grey;
+  border-radius: 5px;
+}
+
+.progress::-moz-progress-bar {
+  background: #036;
+  border-radius: 5px;
+}
+
+.progress::-webkit-progress-bar {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.progress::-webkit-progress-value {
+  background: #036;
+  border-radius: 5px;
+}
