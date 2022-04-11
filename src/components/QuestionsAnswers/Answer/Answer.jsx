@@ -7,14 +7,12 @@ import { MoreAnswersButton } from '../index.js';
 import './Answer.scss';
 
 function Answer({ questionObj }) {
-  // const setAnswers = questionsStore((state) => state.setAnswers);
   const allQuestions = questionsStore((state) => state.questions);
   const setQuestions = questionsStore((state) => state.setQuestions);
 
   function intialMaxAnswers(questions) {
-    // create an empty arr
     const maxAnswers = [];
-    // map over questions
+
     for (let i = 0; i < questions.length; i += 1) {
       const question = questions[i];
       if (question.question_id) {
@@ -65,37 +63,43 @@ function Answer({ questionObj }) {
   }
 
   const { id } = useParams();
+  const wasHelpfulAnswer = questionsStore((state) => state.wasHelpfulAnswer);
+  const addHelpfulAnswer = questionsStore((state) => state.addHelpfulAnswer);
 
   function handleHelpfulClick(answer) {
-    axios({
-      url: `${process.env.URL}qa/answers/${answer.id}/helpful`,
-      method: 'PUT',
-      headers: {
-        Authorization: process.env.GITHUB_API_KEY,
-      },
-    })
-      .then(() => {
-        axios({
-          url: `${process.env.URL}qa/questions`,
-          method: 'GET',
-          headers: {
-            Authorization: process.env.GITHUB_API_KEY,
-          },
-          params: {
-            product_id: id,
-            count: 100,
-          },
-        })
-          .then((data) => {
-            console.log('data', data);
-            setQuestions(data.data.results);
-          });
-      });
+    if (!wasHelpfulAnswer.includes(answer.id)) {
+      axios({
+        url: `${process.env.URL}qa/answers/${answer.id}/helpful`,
+        method: 'PUT',
+        headers: {
+          Authorization: process.env.GITHUB_API_KEY,
+        },
+      })
+        .then(() => {
+          axios({
+            url: `${process.env.URL}qa/questions`,
+            method: 'GET',
+            headers: {
+              Authorization: process.env.GITHUB_API_KEY,
+            },
+            params: {
+              product_id: id,
+              count: 100,
+            },
+          })
+            .then((data) => {
+              setQuestions(data.data.results);
+              addHelpfulAnswer(answer.id);
+            })
+            .catch((err) => {
+              throw err;
+            });
+        });
+    }
   }
 
   function handleKeyPress(event, answer) {
     if (event.key === 'Enter') {
-      // call upadting function here
       handleHelpfulClick(answer);
     }
   }
