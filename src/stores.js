@@ -3,36 +3,6 @@ import { devtools } from 'zustand/middleware';
 import axios from 'axios';
 
 const details = (set, get) => ({
-  handleAnalytics: (e) => {
-    // Get the widget
-    let widgetFound = false;
-    let widget;
-
-    e.path.forEach((path) => {
-      // console.log('checking path', path);
-      if (widgetFound) { return; }
-      if (path.classList.contains('widget')) {
-        // console.log('widget clicked in:', path.id);
-        widget = path.id;
-        widgetFound = true;
-      }
-    });
-
-    // Get the clicked element
-    const element = e.target.outerHTML;
-
-    // Get current time
-    const time = new Date();
-
-    const headers = {
-      Authorization: process.env.GITHUB_API_KEY,
-    };
-    axios.post(`${process.env.URL}interactions`, { element, widget, time }, { headers })
-      .catch((err) => {
-        throw err;
-      });
-  },
-
   productDetails: [],
   setProductDetails: (data) => set({ productDetails: data }),
   styles: [],
