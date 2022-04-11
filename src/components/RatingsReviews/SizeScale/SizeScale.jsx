@@ -6,7 +6,7 @@ function SizeScale() {
   return (
     <div>
       <RatingScale
-        name="Quality"
+        name="Size"
         label1="Too small "
         label2="Perfect"
         label3="Too Large"
