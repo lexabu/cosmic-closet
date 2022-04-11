@@ -67,7 +67,7 @@ function AddToCart() {
 
   return (
     <button
-      className="add-to-cart-button"
+      className="action-button add-to-cart-button"
       type="button"
       onClick={handleClick}
     >
