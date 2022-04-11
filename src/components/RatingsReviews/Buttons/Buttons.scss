@@ -2,7 +2,15 @@
   align-items: center;
   border: solid;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: 10px 10px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.rr-buttons-more-reviews {
+  margin: 10px 10px;
+}
+
+.rr-buttons-add-review {
   margin: 10px 10px;
 }
