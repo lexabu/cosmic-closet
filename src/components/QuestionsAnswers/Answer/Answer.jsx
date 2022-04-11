@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 import { MoreAnswersButton } from '../index.js';
+import './Answer.scss';
 
 function Answer({ questionObj }) {
   const setAnswers = questionsStore((state) => state.setAnswers);
@@ -62,7 +63,6 @@ function Answer({ questionObj }) {
   }
 
   // console.log('created initialMaxAnswers', intialMaxAnswers(allQuestions));
-
   // const maxAnswers = questionsStore((state) => state.maxAnswers);
   const maxAnswersArr = questionsStore((state) => state.maxAnswersArr);
 
@@ -77,10 +77,17 @@ function Answer({ questionObj }) {
         if (index < maxAnswer[questionId]) {
           return (
             <div key={answer.id}>
-              <div>{`A: ${answer.body}`}</div>
-              <div>{`by ${answer.answerer_name} ${answer.date.slice(0, 10)} | Helpful?`}</div>
-              <div>{`Yes(${answer.helpfulness}) | `}</div>
-              <div>Report</div>
+              <div>
+                <span className="qa-answer-tag">A:</span>
+                <span className="qa-answer-body">{`${answer.body}`}</span>
+              </div>
+              <div className="qa-sub-answer-parts-container">
+                <div className="qa-sub-answer">
+                  {`by ${answer.answerer_name} ${answer.date.slice(0, 10)}`}
+                </div>
+                <div className="qa-sub-answer">{`| Helpful? Yes(${answer.helpfulness})`}</div>
+                <div className="qa-sub-answer">| Report</div>
+              </div>
             </div>
           );
         }
@@ -90,7 +97,7 @@ function Answer({ questionObj }) {
   }
 
   return (
-    <div>
+    <div className="qa-answer-container">
       {mapAnswers(questionObj.answers)}
       <MoreAnswersButton questionObj={questionObj} />
     </div>

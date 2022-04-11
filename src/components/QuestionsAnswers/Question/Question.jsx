@@ -4,6 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import { questionsStore } from '../../../stores.js';
 import { Answer } from '../index.js';
+import './Question.scss';
 
 function Question({ questionObj, getAllQuestions }) {
   // console.log('quest questionObj :', questionObj);
@@ -38,18 +39,26 @@ function Question({ questionObj, getAllQuestions }) {
   }
 
   return (
-    <div>
-      <div>{`Q: ${questionObj.question_body}`}</div>
-      <div>Helpful? | </div>
-      <div
-        role="button"
-        tabIndex={0}
-        onKeyPress={() => (handleKeyPress(questionObj))}
-        onClick={() => (getUpdateHelpfulness(questionObj))}
-      >
-        Yes({questionObj.question_helpfulness})
+    <div className="qa-question-container">
+      <div className="qa-question-parts-container">
+        <div className="qa-question-body">
+          <span className="qa-question-tag">Q:</span>
+          {`${questionObj.question_body}`}
+        </div>
+        <div className="qa-sub-question-parts-container">
+          <div className="qa-sub-question">Helpful? |</div>
+          <div
+            className="qa-sub-question"
+            role="button"
+            tabIndex={0}
+            onKeyPress={() => (handleKeyPress(questionObj))}
+            onClick={() => (getUpdateHelpfulness(questionObj))}
+          >
+            <span>Yes({questionObj.question_helpfulness})</span>
+          </div>
+          <div className="qa-sub-question">| Add Answer</div>
+        </div>
       </div>
-      <div> | Add Answer</div>
       <Answer questionObj={questionObj} />
     </div>
   );
