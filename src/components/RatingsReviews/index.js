@@ -1,13 +1,16 @@
 export { default as Buttons } from './Buttons/Buttons.jsx';
 export { default as ComfortScale } from './ComfortScale/ComfortScale.jsx';
+export { default as FitScale } from './FitScale/FitScale.jsx';
 export { default as IndividualReviewTile } from './IndividualReviewTile/IndividualReviewTile.jsx';
 export { default as LeftColumn } from './LeftColumn/LeftColumn.jsx';
+export { default as LengthScale } from './LengthScale/LengthScale.jsx';
+export { default as QualityScale } from './QualityScale/QualityScale.jsx';
+export { default as RatingBreakdown } from './RatingBreakdown/RatingBreakdown.jsx';
 export { default as RatingSummary } from './RatingSummary/RatingSummary.jsx';
 export { default as ReviewsList } from './ReviewsList/ReviewsList.jsx';
 export { default as RightColumn } from './RightColumn/RightColumn.jsx';
 export { default as SizeScale } from './SizeScale/SizeScale.jsx';
 export { default as Sort } from './Sort/Sort.jsx';
 export { default as Star } from './Star/Star.jsx';
-export { default as RatingBreakdown } from './RatingBreakdown/RatingBreakdown.jsx';
 export { default as StarRating } from './StarRating/StarRating.jsx';
 export { default as Title } from './Title/Title.jsx';

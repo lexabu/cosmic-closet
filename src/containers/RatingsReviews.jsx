@@ -33,7 +33,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(reviewsUrl.toString(), authHeaders)
       .then((results) => {
-        console.log('setReviews data: ', results.data);
+        // console.log('setReviews data: ', results.data);
         setReviews(results.data);
       })
       .catch((err) => {

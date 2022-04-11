@@ -50,7 +50,6 @@ function RatingSummary() {
 
   return (
     <div
-      Code
       className="loading"
     >
       {' '}

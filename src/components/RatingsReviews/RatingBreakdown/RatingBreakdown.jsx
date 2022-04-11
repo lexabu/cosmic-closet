@@ -1,6 +1,6 @@
 import React from 'react';
-import './RatingBreakdown.scss';
 import { reviewStore } from '../../../stores.js';
+import './RatingBreakdown.scss';
 
 function RatingBreakdown() {
   const metaRatings = reviewStore((state) => state.ratings);
