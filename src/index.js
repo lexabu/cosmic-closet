@@ -25,6 +25,7 @@ root.render(
                      i.e. :   localhost:3000/123 -> id === 123
           or when deployed:         site.com/123 -> id === 123
       */}
+      <Route path="/" element={<App />} />
       <Route path="/:id" element={<App />} />
     </Routes>
   </BrowserRouter>,
