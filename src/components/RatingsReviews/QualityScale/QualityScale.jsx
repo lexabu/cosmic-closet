@@ -14,7 +14,7 @@ function QualityScale() {
             <div className="rr-qs-title">
               Quality
             </div>
-            <progress className="rr-qs-progress" max={5} value={Quality.value} />
+            <progress className="rr-qs-progress progress" max={5} value={Quality.value} />
             <div className="rr-qs-labels">
               <span> Poor </span>
               <span> Perfect </span>

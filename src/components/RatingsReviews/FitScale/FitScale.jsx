@@ -14,7 +14,7 @@ function FitScale() {
             <div className="rr-fs-title">
               Fit
             </div>
-            <progress className="rr-fs-progress" max={5} value={Fit.value} />
+            <progress className="rr-fs-progress progress" max={5} value={Fit.value} />
             <div className="rr-fs-labels">
               <span> Short </span>
               <span> Perfect </span>

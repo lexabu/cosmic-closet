@@ -14,7 +14,7 @@ function SizeScale() {
             <div className="rr-ss-title">
               Size
             </div>
-            <progress className="rr-ss-progress" max={5} value={Size.value} />
+            <progress className="rr-ss-progress progress" max={5} value={Size.value} />
             <div className="rr-ss-labels">
               <span> Too small </span>
               <span> Perfect </span>

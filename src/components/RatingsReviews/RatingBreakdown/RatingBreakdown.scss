@@ -1,10 +1,9 @@
 .rr-rating-breakdown {
   align-items: center;
-  border: solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px 10px;
+  margin: 10px;
   padding: 10px;
 }
 
@@ -18,4 +17,9 @@
   display: inline;
   font-size: 15px;
   padding: 5px;
+}
+
+.rr-rb-body-item {
+  display: flex;
+  align-items: center;
 }
