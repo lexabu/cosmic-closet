@@ -20,6 +20,12 @@ button {
   justify-content: center;
 }
 
+button.small-pill {
+  height: 24px;
+  font-size: 12px;
+  border-radius: 120px;
+}
+
 button:hover {
   background-color: $hoverColor;
 }
@@ -33,6 +39,15 @@ button.hidden:hover {
 input {
   height: $buttonHeight;
   padding: 10px;
+}
+
+.loading {
+  align-items: center;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 10px;
 }
 
 /*==========================================================
@@ -63,13 +78,4 @@ input {
   background-color: #c678dd;
   height: 90vh;
   display: flex;
-}
-
-.loading {
-  align-items: center;
-  border: solid;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px 10px;
 }
