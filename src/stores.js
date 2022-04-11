@@ -1,6 +1,5 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
-import axios from 'axios';
 
 const details = (set, get) => ({
   productDetails: [],
