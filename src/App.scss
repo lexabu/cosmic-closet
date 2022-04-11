@@ -1,6 +1,60 @@
+/*==========================================================
+====================== SHARED COMPONENTS ===================
+===========================================================*/
+
+$buttonHeight: 48px;
+$hoverColor: aliceblue;
+
+button {
+  background-color: transparent;
+  height: $buttonHeight;
+  padding: 10px;
+  cursor: pointer;
+  border: solid thin;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  // Center inner contents of button (if any)
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.small-pill {
+  height: 24px;
+  font-size: 12px;
+  border-radius: 120px;
+}
+
+button:hover {
+  background-color: $hoverColor;
+}
+
+// If we have hidden buttons, we won't have a hover color on them.
+button.hidden:hover {
+  background-color: transparent;
+}
+
+// Style input fields to match buttons
+input {
+  height: $buttonHeight;
+  padding: 10px;
+}
+
+.loading {
+  align-items: center;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 10px;
+}
+
+/*==========================================================
+======================= PRODUCT DETAIL =====================
+===========================================================*/
+
 #product-detail-widget {
-  // background-color: rgb(255, 222, 172);
-  // height: 90%;
   min-height: 90%;
 }
 
@@ -16,17 +70,12 @@
   height: 90vh;
 }
 
+/*==========================================================
+====================== RATINGS & REVIEWS ===================
+===========================================================*/
+
 #ratings-reviews {
   background-color: #c678dd;
   height: 90vh;
   display: flex;
-}
-
-.loading {
-  align-items: center;
-  border: solid;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px 10px;
 }
