@@ -1,7 +1,7 @@
 import React from 'react';
 import {
+  ComfortScale, FitScale, LengthScale, QualityScale, WidthScale,
   Title, RatingSummary, RatingBreakdown, SizeScale,
-  ComfortScale, FitScale, LengthScale, QualityScale,
 } from '../index.js';
 import './LeftColumn.scss';
 
@@ -16,6 +16,7 @@ function LeftColumn() {
       <FitScale />
       <LengthScale />
       <QualityScale />
+      <WidthScale />
     </div>
   );
 }
