@@ -13,20 +13,31 @@ function RatingScale({
     if (characteristics[name]) {
       const value = Number(characteristics[name].value);
       return (
-        <div className="rr-rs-scale">
-          <div className="rr-rs-title">
+        <div className="rr-rs-scale" id={`rr-rs-${name}-scale`}>
+          <div className="rr-rs-title" id={`rr-rs-${name}-title`}>
             {name}
           </div>
-          <progress className="rr-rs-progress progress" max={5} value={value} />
-          <div className="rr-rs-labels">
+          <progress
+            className="rr-rs-progress progress"
+            id={`rr-rs-${name}-progress`}
+            max={5}
+            value={value}
+          />
+          <div className="rr-rs-labels" id={`rr-rs-${name}-labels`}>
             <span>
+              {' '}
               {label1}
+              {' '}
             </span>
             <span>
+              {' '}
               {label2}
+              {' '}
             </span>
             <span>
+              {' '}
               {label3}
+              {' '}
             </span>
           </div>
         </div>
