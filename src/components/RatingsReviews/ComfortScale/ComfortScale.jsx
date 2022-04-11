@@ -1,30 +1,18 @@
 import React from 'react';
-import { reviewStore } from '../../../stores.js';
+import { RatingScale } from '../index.js';
 import './ComfortScale.scss';
 
 function ComfortScale() {
-  const metaRatings = reviewStore((state) => state.ratings);
-  const { characteristics } = metaRatings;
-  if (characteristics) {
-    if (characteristics.Comfort) {
-      const { Comfort } = characteristics;
-      if (Comfort.value) {
-        return (
-          <div className="rr-comfort-scale">
-            <div className="rr-cs-title">
-              Comfort
-            </div>
-            <progress className="rr-cs-progress progress" max={5} value={Comfort.value} />
-            <div className="rr-cs-labels">
-              <span> Poor </span>
-              <span> Ok </span>
-              <span> Perfect </span>
-            </div>
-          </div>
-        );
-      }
-    }
-  }
+  return (
+    <div>
+      <RatingScale
+        name="Comfort"
+        label1="Poor"
+        label2="Ok"
+        label3="Perfect"
+      />
+    </div>
+  );
 }
 
 export default ComfortScale;
