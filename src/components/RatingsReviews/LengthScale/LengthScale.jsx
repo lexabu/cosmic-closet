@@ -16,8 +16,10 @@ function LengthScale() {
             </div>
             <progress className="rr-ls-progress" max={5} value={Length.value} />
             <div className="rr-ls-labels">
-              <span> Poor </span>
+              <span> Short </span>
               <span> Perfect </span>
+              <span> Long </span>
+
             </div>
           </div>
         );

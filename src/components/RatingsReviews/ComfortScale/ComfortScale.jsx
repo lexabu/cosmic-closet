@@ -17,6 +17,7 @@ function ComfortScale() {
             <progress className="rr-cs-progress" max={5} value={Comfort.value} />
             <div className="rr-cs-labels">
               <span> Poor </span>
+              <span> Ok </span>
               <span> Perfect </span>
             </div>
           </div>
