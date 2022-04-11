@@ -68,13 +68,15 @@ const questionsStore = create(
         question, ...state.wasHelpful,
       ],
     })),
+    wasHelpfulAnswer: [],
+    addHelpfulAnswer: (answer) => set((state) => ({
+      wasHelpfulAnswer: [
+        answer, ...state.wasHelpfulAnswer,
+      ],
+    })),
     maxQuestions: 4,
     setMaxQuestions: () => set((state) => ({
       maxQuestions: state.questions.length,
-    })),
-    maxAnswers: 2,
-    setMaxAnswers: () => set((state) => ({
-      maxAnswers: state.maxAnswers + 2,
     })),
     maxAnswersArr: [],
     setMaxAnswersArr: (answerArr) => set(() => ({
