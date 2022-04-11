@@ -1,19 +1,19 @@
 .star {
-  position: relative;
   display: inline-block;
-  width: 20px;
   font-size: 20px;
   line-height: 1;
+  position: relative;
+  width: 20px;
 }
 
 .star:after {
+  color: #036;
   content: '★';
+  left: 0;
+  overflow: hidden;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  color: #036;
-  overflow: hidden;
 }
 
 .star.zero-star:after {

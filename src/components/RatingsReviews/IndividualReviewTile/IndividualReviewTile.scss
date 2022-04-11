@@ -9,9 +9,9 @@
 
 .rr-idr-header {
   display: flex;
+  justify-content: space-between;
   margin: 10px 10px;
   padding: 5px 5px;
-  justify-content: space-between;
   width: 100%;
 }
 
@@ -22,8 +22,6 @@
 
 .rr-idr-username-date {
   display: flex;
-  // margin: 10px 10px 0px 10px;
-  // padding: 5px 0px 5px 40px;
   text-align: right;
 }
 
