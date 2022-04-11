@@ -7,7 +7,7 @@ function ComfortScale() {
     <div>
       <RatingScale
         name="Comfort"
-        label1="Poor"
+        label1="Uncomfortable"
         label2="Ok"
         label3="Perfect"
       />

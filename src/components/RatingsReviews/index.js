@@ -15,3 +15,4 @@ export { default as Sort } from './Sort/Sort.jsx';
 export { default as Star } from './Star/Star.jsx';
 export { default as StarRating } from './StarRating/StarRating.jsx';
 export { default as Title } from './Title/Title.jsx';
+export { default as WidthScale } from './WidthScale/WidthScale.jsx';

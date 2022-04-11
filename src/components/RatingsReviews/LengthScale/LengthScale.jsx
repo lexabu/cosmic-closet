@@ -7,9 +7,9 @@ function LengthScale() {
     <div>
       <RatingScale
         name="Length"
-        label1="Short"
+        label1="Runs Short"
         label2="Perfect"
-        label3="Long "
+        label3="Runs Long "
       />
     </div>
   );
