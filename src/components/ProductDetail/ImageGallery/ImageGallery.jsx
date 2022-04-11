@@ -18,6 +18,9 @@ import { detailStore } from '../../../stores.js';
 import ImageThumbnailGallery from '../ImageThumbnailGallery/ImageThumbnailGallery.jsx';
 import ImageIconDots from '../ImageIconDots/ImageIconDots.jsx';
 
+// const noImageUrl = 'https://warrensburg4rent.com/wp-content/themes/realestate-7/images/no-image.png';
+const noImageUrl = '/assets/no-image.png';
+
 function ImageGallery() {
   const imgIdx = detailStore((state) => state.selectedImageIndex);
   const setImgIdx = detailStore((state) => state.setSelectedImageIndex);
@@ -25,7 +28,6 @@ function ImageGallery() {
   const imageZoomed = detailStore((state) => state.imageZoomed);
   const toggleImageZoomed = detailStore((state) => state.toggleImageZoomed);
   const startingThumbnailIndex = detailStore((state) => state.startingThumbnailIndex);
-  // const setStartingThumbnailIndex = detailStore((state) => state.setStartingThumbnailIndex);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -36,9 +38,6 @@ function ImageGallery() {
   if (selectedStyle.photos === undefined) {
     return <h1>Loading images...</h1>;
   }
-
-  // console.log('selectedStyle', selectedStyle);
-  // console.log('imgIdx', imgIdx);
 
   // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
   // *** MAKE SURE TO CHANGE IN ImageThumbnailGallery ***
@@ -78,22 +77,24 @@ function ImageGallery() {
         ? (
           <InnerImageZoom
             className="image-main-zoomed"
-            src={selectedStyle.photos[imgIdx].url}
-            zoomScale="2.5"
-            hideHint="true"
+            src={selectedStyle.photos[imgIdx].url || noImageUrl}
+            zoomScale={2.5}
+            hideHint
           />
         )
         : (
           <img
             className="image-main"
-            src={selectedStyle.photos[imgIdx].url}
+            src={selectedStyle.photos[imgIdx].url || noImageUrl}
             alt={selectedStyle.name}
             onClick={() => { toggleImageZoomed(); afterZoomIn(); }}
           />
         )}
       {imageZoomed && <ImageIconDots photos={selectedStyle.photos} />}
       <div className="image-overlay-container">
-        {!imageZoomed && <ImageThumbnailGallery shownThumbnails={shownThumbnails} />}
+        {!imageZoomed
+          && selectedStyle.photos[imgIdx].url !== null
+          && <ImageThumbnailGallery shownThumbnails={shownThumbnails} />}
         <div className="image-arrow-container">
           {imgIdx > 0
             ? (
