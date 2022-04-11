@@ -48,7 +48,15 @@ function RatingSummary() {
     );
   }
 
-  return <div className="loading"> Loading... </div>;
+  return (
+    <div
+      Code
+      className="loading"
+    >
+      {' '}
+      Loading...
+    </div>
+  );
 }
 
 export default RatingSummary;
