@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
+
 import { questionsStore } from '../../../stores.js';
-import { SearchBar, Question, MoreQuestions } from '../index.js';
+import { Question, MoreQuestionsButton } from '../index.js';
+import './QuestionList.scss';
 
 function QuestionList() {
   const setQuestions = questionsStore((state) => state.setQuestions);
-  const allQuestions = questionsStore((state) => state.questions);
   const { id } = useParams();
 
   // API call to access all questions associated with the current product
@@ -20,9 +21,11 @@ function QuestionList() {
       },
       params: {
         product_id: id,
+        count: 100,
       },
     })
       .then((data) => {
+        // store all questions in state management store
         setQuestions(data.data.results);
       })
       .catch((err) => {
@@ -34,28 +37,32 @@ function QuestionList() {
     getAllQuestions();
   }, []);
 
-  // console.log('ALL QUESTIONS', allQuestions);
+  const maxQuestions = questionsStore((state) => state.maxQuestions);
 
   function mapQuestions(questionsArr) {
-    if (questionsArr.length > 0) {
-      return questionsArr.map((question) => (
-        <div key={question.question_id}>
-          <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
-        </div>
-      ));
+    const questionsListLength = questionsArr.length;
+
+    if (questionsListLength > 0) {
+      return questionsArr.map((question, index) => {
+        if (index < maxQuestions) {
+          return (
+            <div key={question.question_id}>
+              <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
+            </div>
+          );
+        }
+      });
     }
     return (<div />);
   }
 
+  const allQuestions = questionsStore((state) => state.questions);
+
   return (
-    <div>
-      <div>
-        <div className="title"> Questions & Answers</div>
-        <SearchBar />
-        <div>{mapQuestions(allQuestions)}</div>
-      </div>
-      <button type="button">More Answered Questions</button>
-      <MoreQuestions />
+    <div className="qa-question-list-container">
+      <div>{mapQuestions(allQuestions)}</div>
+      <MoreQuestionsButton />
+      <button type="button">Add Question</button>
     </div>
   );
 }
