@@ -10,7 +10,7 @@ function FitScale() {
       const { Fit } = characteristics;
       if (Fit.value) {
         return (
-          <div className="rr-Fit-scale">
+          <div className="rr-fit-scale">
             <div className="rr-fs-title">
               Fit
             </div>
