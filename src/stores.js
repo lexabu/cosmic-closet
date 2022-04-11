@@ -68,6 +68,18 @@ const questionsStore = create(
         question, ...state.wasHelpful,
       ],
     })),
+    maxQuestions: 4,
+    setMaxQuestions: () => set((state) => ({
+      maxQuestions: state.questions.length,
+    })),
+    maxAnswers: 2,
+    setMaxAnswers: () => set((state) => ({
+      maxAnswers: state.maxAnswers + 2,
+    })),
+    maxAnswersArr: [],
+    setMaxAnswersArr: (answerArr) => set(() => ({
+      maxAnswersArr: answerArr,
+    })),
     // dogs: 999,
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
