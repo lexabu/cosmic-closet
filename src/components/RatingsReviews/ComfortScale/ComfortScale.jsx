@@ -3,7 +3,7 @@ import './ComfortScale.scss';
 
 function ComfortScale() {
   return (
-    <div className="rr-ComfortScale">ComfortScale</div>
+    <div className="rr-comfort-scale">ComfortScale</div>
   );
 }
 

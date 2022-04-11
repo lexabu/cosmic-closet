@@ -3,7 +3,7 @@ import './Sort.scss';
 
 function Sort() {
   return (
-    <div className="rr-Sort">Sort</div>
+    <div className="rr-sort">Sort</div>
   );
 }
 

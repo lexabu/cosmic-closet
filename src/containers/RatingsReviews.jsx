@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { reviewMetaStore } from '../stores.js';
+import { reviewStore } from '../stores.js';
 import { LeftColumn, RightColumn } from '../components/RatingsReviews/index.js';
 
 function RatingsReviews() {
@@ -16,13 +16,25 @@ function RatingsReviews() {
     },
   };
 
-  // zustand pulling in the specified functions
-  const setReviewMetaFromApiCall = reviewMetaStore((state) => state.setRatings);
+  const setRatings = reviewStore((state) => state.setRatings);
+  const ratingsUrl = new URL(`${process.env.URL}reviews/meta`);
   useEffect(() => {
-    // Get ratings via reviewMeta and add to state
-    axios.get(`${process.env.URL}reviews/meta`, authHeaders)
+    axios.get(ratingsUrl.toString(), authHeaders)
       .then((results) => {
-        setReviewMetaFromApiCall(results.data);
+        setRatings(results.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
+
+  const setReviews = reviewStore((state) => state.setReviews);
+  const reviewsUrl = new URL(`${process.env.URL}reviews`);
+  useEffect(() => {
+    axios.get(reviewsUrl.toString(), authHeaders)
+      .then((results) => {
+        console.log('setReviews data: ', results.data);
+        setReviews(results.data);
       })
       .catch((err) => {
         throw err;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Sort, ReviewsList, IndividualReviewTile, Buttons,
+  Sort, ReviewsList, Buttons,
 } from '../index.js';
 import './RightColumn.scss';
 
@@ -9,7 +9,6 @@ function RightColumn() {
     <div className="rr-right-column">
       <Sort />
       <ReviewsList />
-      <IndividualReviewTile />
       <Buttons />
     </div>
   );

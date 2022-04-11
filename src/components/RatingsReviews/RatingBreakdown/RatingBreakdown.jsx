@@ -1,9 +1,9 @@
 import React from 'react';
 import './RatingBreakdown.scss';
-import { reviewMetaStore } from '../../../stores.js';
+import { reviewStore } from '../../../stores.js';
 
 function RatingBreakdown() {
-  const metaRatings = reviewMetaStore((state) => state.ratings);
+  const metaRatings = reviewStore((state) => state.ratings);
   const { ratings, recommended } = metaRatings;
 
   if (recommended && ratings) {
@@ -53,7 +53,7 @@ function RatingBreakdown() {
       </div>
     );
   }
-  return <div> Loading...</div>;
+  return <div className="loading"> Loading...</div>;
 }
 
 export default RatingBreakdown;
