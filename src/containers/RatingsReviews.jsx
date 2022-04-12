@@ -42,7 +42,7 @@ function RatingsReviews() {
   }, []);
 
   return (
-    <div id="ratings-reviews" className="ratings-reviews">
+    <div id="ratings-reviews" className="ratings-reviews widget">
       <LeftColumn />
       <RightColumn />
     </div>

@@ -20,6 +20,8 @@ function ProductDetail() {
   const setSelectedStyle = detailStore((state) => state.setSelectedStyle);
   const imageZoomed = detailStore((state) => state.imageZoomed);
 
+  // const handleAnalytics = detailStore((state) => state.handleAnalytics);
+
   useEffect(() => {
     // Get product info and add to state
     axios.get(`${process.env.URL}products/${id}`, authHeaders)
@@ -41,8 +43,12 @@ function ProductDetail() {
       });
   }, []);
 
+  // useEffect(() => {
+  //   window.addEventListener('click', handleAnalytics);
+  // }, []);
+
   return (
-    <div id="product-detail-widget">
+    <div id="product-detail" className="widget">
       <div className={`pd-top-row-container${imageZoomed ? ' zoomed' : ''}`}>
         <ImageGallery />
         <RightDetails />
