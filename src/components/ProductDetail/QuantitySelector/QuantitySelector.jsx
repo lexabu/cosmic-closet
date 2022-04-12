@@ -16,7 +16,7 @@ function QuantitySelector() {
         <Select
           disabled
           placeholder="-"
-          data={['']}
+          data={[]}
           size="lg"
         />
       </div>

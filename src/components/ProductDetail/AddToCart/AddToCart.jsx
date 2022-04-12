@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import $ from 'jquery';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { Button } from '@mantine/core';
+import { showNotification } from '@mantine/notifications';
+import { BsFillCartCheckFill, BsRulers } from 'react-icons/bs';
 import { detailStore } from '../../../stores.js';
 import './AddToCart.scss';
 
@@ -15,14 +17,11 @@ function AddToCart() {
     if (selectedSizeSku === '') {
       $('#pd-size-selector').trigger('click');
 
-      toast.warn('Please select size', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+      showNotification({
+        title: 'Please select size',
+        message: 'It\'s gonna be tough to fit if you don\'t select a size!',
+        color: 'cyan',
+        icon: <BsRulers />,
       });
       return;
     }
@@ -52,14 +51,11 @@ function AddToCart() {
 
     Promise.all(promises)
       .then((response) => {
-        toast.success(`${response.length} item${response.length > 1 ? 's' : ''} added to cart!`, {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        showNotification({
+          title: `${response.length} item${response.length > 1 ? 's' : ''} added to cart!`,
+          message: 'You\'re gonna look 🔥!',
+          color: 'cyan',
+          icon: <BsFillCartCheckFill />,
         });
       })
       .catch((err) => {

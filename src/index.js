@@ -3,6 +3,9 @@ import React from 'react';
 // import functionality for routing in React
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { NotificationsProvider } from '@mantine/notifications';
+import { MantineProvider } from '@mantine/core';
+
 import { createRoot } from 'react-dom/client'; // new way for React 18
 // import reactDOM from "react-dom"; //old way for React 17
 
@@ -25,7 +28,20 @@ root.render(
                      i.e. :   localhost:3000/123 -> id === 123
           or when deployed:         site.com/123 -> id === 123
       */}
-      <Route path="/:id" element={<App />} />
+      <Route
+        path="/:id"
+        element={
+          (
+            <MantineProvider>
+              <NotificationsProvider
+                position="top-right"
+              >
+                <App />
+              </NotificationsProvider>
+            </MantineProvider>
+          )
+        }
+      />
     </Routes>
   </BrowserRouter>,
 );

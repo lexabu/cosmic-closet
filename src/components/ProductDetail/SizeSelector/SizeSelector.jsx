@@ -38,13 +38,15 @@ function SizeSelector() {
     );
   });
 
+  console.log('stylesArr', stylesArr);
+
   return (
     <Select
       id="pd-size-selector"
       key="pd-size-selector"
+      value={selectedSize}
       placeholder="Select Size"
       size="lg"
-      value={selectedSize}
       onChange={setSelectedSize}
       data={stylesArr}
     />
