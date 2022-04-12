@@ -102,8 +102,6 @@ const reviewStore = create(
     setRelevantReviews: (data) => set(() => ({ relevantReviews: data })),
     reviews: [],
     setReviews: (data) => set(() => ({ reviews: data })),
-    sortOption: 'relevance',
-    setSortOption: (data) => set(() => ({ sortOption: data })),
   })),
 );
 

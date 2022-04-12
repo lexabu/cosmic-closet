@@ -9,31 +9,20 @@ function RatingsReviews() {
 
   const ratingsURL = new URL(`${process.env.URL}reviews/meta`);
   const setRatings = reviewStore((state) => state.setRatings);
-  // console.log('ratingsURL: ', ratingsURL.toString());
 
-  const helpfulReviewsURL = new URL(`${process.env.URL}reviews`);
-  helpfulReviewsURL.searchParams.set('sort', 'helpful');
-  helpfulReviewsURL.searchParams.set('count', '50');
-  // helpfulReviewsURL.searchParams.set('product_id', id);
-  // console.log('helpfulReviewsURL: ', helpfulReviewsURL.toString());
-
-  const newestReviewsURL = new URL(`${process.env.URL}reviews`);
-  newestReviewsURL.searchParams.set('sort', 'newest');
-  newestReviewsURL.searchParams.set('count', '50');
-  // newestReviewsURL.searchParams.set('product_id', id);
-  console.log('newestReviewsURL: ', newestReviewsURL.toString());
-
-  const relevantReviewsURL = new URL(`${process.env.URL}reviews`);
-  relevantReviewsURL.searchParams.set('sort', 'relevant');
-  relevantReviewsURL.searchParams.set('count', '50');
-  // relevantReviewsURL.searchParams.set('product_id', id);
-  // console.log(' relevantReviewsURL: ', relevantReviewsURL.toString());
+  // todo: refactor to use reviewsURL for new URL(`${process.env.URL}reviews`)
 
   const reviewsURL = new URL(`${process.env.URL}reviews`);
-  // console.log('reviewsURL: ', reviewsURL.toString());
-
+  const helpfulReviewsURL = reviewsURL;
+  helpfulReviewsURL.searchParams.set('sort', 'helpful');
   const setHelpfulReviews = reviewStore((state) => state.setHelpfulReviews);
+
+  const newestReviewsURL = reviewsURL;
+  newestReviewsURL.searchParams.set('sort', 'newest');
   const setNewestReviews = reviewStore((state) => state.setNewestReviews);
+
+  const relevantReviewsURL = reviewsURL;
+  relevantReviewsURL.searchParams.set('sort', 'relevant');
   const setRelevantReviews = reviewStore((state) => state.setRelevantReviews);
   const setReviews = reviewStore((state) => state.setReviews);
 
@@ -43,6 +32,7 @@ function RatingsReviews() {
     },
     params: {
       product_id: id,
+      count: 50,
     },
   };
 
@@ -83,20 +73,10 @@ function RatingsReviews() {
     axios.get(relevantReviewsURL.toString(), authHeaders)
       .then((results) => {
         setRelevantReviews(results.data);
-      })
-      .catch((err) => {
-        console.log('relevantReviewsURL error: ', err);
-        throw err;
-      });
-  }, []);
-
-  useEffect(() => {
-    axios.get(reviewsURL.toString(), authHeaders)
-      .then((results) => {
         setReviews(results.data);
       })
       .catch((err) => {
-        console.log('reviewsURL error: ', err);
+        console.log('relevantReviewsURL error: ', err);
         throw err;
       });
   }, []);

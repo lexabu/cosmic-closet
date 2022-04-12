@@ -4,31 +4,22 @@ import { reviewStore } from '../../../stores.js';
 import './Sort.scss';
 
 function Sort() {
-  // const setSortOption = reviewStore((state) => state.setSortOption);
   const setReviews = reviewStore((state) => state.setReviews);
-  const [sortOption, setSortOption] = useState('relevance');
-  const { helpfulReviews, newestReviews, relevantReviews } = reviewStore;
+  const [sortOption, setSortOption] = useState('relevance'); // first is always a value, second is always a fn that changes first
+  const newestReviews = reviewStore((state) => state.newestReviews);
+  const helpfulReviews = reviewStore((state) => state.helpfulReviews);
+  const relevantReviews = reviewStore((state) => state.relevantReviews);
 
   const updateSortType = () => {
-    // if the sort option is newest, set reviews to newestReviews
-    console.log(sortOption);
     if (sortOption === 'newest') {
-      // setSortOption(sortOption);
-      console.log('newestReviews: ', newestReviews);
       setReviews(newestReviews);
     }
-    // if (sortOption === 'helpful') {
-    //   console.log(sortOption);
-
-    //   setSortOption(sortOption);
-    //   setReviews(helpfulReviews);
-    // }
-    // if (sortOption === 'relevance') {
-    //   console.log(sortOption);
-
-    //   setSortOption(sortOption);
-    //   setReviews(relevantReviews);
-    // }
+    if (sortOption === 'helpful') {
+      setReviews(helpfulReviews);
+    }
+    if (sortOption === 'relevance') {
+      setReviews(relevantReviews);
+    }
   };
   useEffect(() => {
     // Update the zustandStore when sortOption is
@@ -55,7 +46,7 @@ function Sort() {
               name="sort-options"
               defaultValue="relevance"
               onChange={(event) => {
-                setSortOption(event.target.value)
+                setSortOption(event.target.value);
               }}
             >
               <option value="newest">newest</option>
