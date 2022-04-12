@@ -13,20 +13,20 @@ $buttonHeight: 48px;
 $hoverColor: hsl(180, 59%, 92%);
 
 button {
-  background-color: transparent;
-  height: $buttonHeight;
-  padding: 10px;
-  cursor: pointer;
-  // border: none;
-  border: solid thin $color3;
-  color: $color3;
-  text-transform: uppercase;
-  font-weight: bold;
+  // background-color: transparent;
+  // height: $buttonHeight;
+  // padding: 10px;
+  // cursor: pointer;
+  // // border: none;
+  // border: solid thin $color3;
+  // color: $color3;
+  // text-transform: uppercase;
+  // font-weight: bold;
 
-  // Center inner contents of button (if any)
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  // // Center inner contents of button (if any)
+  // display: inline-flex;
+  // align-items: center;
+  // justify-content: center;
 }
 
 button.small-pill {
@@ -35,9 +35,9 @@ button.small-pill {
   border-radius: 120px;
 }
 
-button:hover {
-  background-color: $hoverColor;
-}
+// button:hover {
+//   background-color: $hoverColor;
+// }
 
 button.hidden {
   background-color: transparent;

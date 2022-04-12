@@ -1,18 +1,20 @@
 import React from 'react';
 import axios from 'axios';
+import $ from 'jquery';
 import { toast } from 'react-toastify';
+import { Button } from '@mantine/core';
 import { detailStore } from '../../../stores.js';
 import './AddToCart.scss';
 
 function AddToCart() {
   const selectedSizeSku = detailStore((state) => state.selectedSize);
   const selectedQuantity = detailStore((state) => state.selectedQuantity);
-  const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
 
   const handleClick = () => {
     // Show size dropdown if no size selected
     if (selectedSizeSku === '') {
-      toggleShowSizeSelector(true);
+      $('#pd-size-selector').trigger('click');
+
       toast.warn('Please select size', {
         position: 'top-right',
         autoClose: 5000,
@@ -66,13 +68,16 @@ function AddToCart() {
   };
 
   return (
-    <button
+    <Button
       className="add-to-cart-button"
       type="button"
       onClick={handleClick}
+      size="lg"
+      uppercase
+      color="cyan"
     >
       Add to Cart
-    </button>
+    </Button>
   );
 }
 
