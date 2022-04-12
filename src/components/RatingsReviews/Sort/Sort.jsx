@@ -1,20 +1,43 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react';
 import { reviewStore } from '../../../stores.js';
 import './Sort.scss';
 
+let sortOption;
+
 function Sort() {
+  // const updateSortType = (sortOption) => {
+  //   // Uncaught Error: Invalid hook call.
+  //   // Hooks can only be called inside of the body of a function component.
+  //   // attempted adding this fn to onChange, to the body of Sort
+  //   const setSortOption = reviewStore((state) => state.setSortOption);
+  //   const setReviews = reviewStore((state) => state.setReviews);
+  //   const { helpfulReviews, newestReviews, relevantReviews } = reviewStore;
+  //   // if the sort option is newest, set reviews to newestReviews
+  //   if (sortOption === 'newest') {
+  //     // console.log(sortOption);
+  //     setSortOption(sortOption);
+  //     setReviews(newestReviews);
+  //   }
+  //   if (sortOption === 'helpful') {
+  //     setSortOption(sortOption);
+  //     setReviews(helpfulReviews);
+  //   }
+  //   if (sortOption === 'relevance') {
+  //     setSortOption(sortOption);
+  //     setReviews(relevantReviews);
+  //   }
+  // };
+  // let [sortOption] = useState(0);
+  // useEffect(() => {
+  //   // Update the zustandStore when sortOption is
+  //   updateSortType(sortOption);
+  // });
   const reviews = reviewStore((state) => state.reviews);
   if (reviews) {
     const { results } = reviews;
     if (results) {
       const numberOfReviews = results.length;
-      const sortChange = () => {
-        // when a change event happens
-        // send the value as a parameter to the axios request
-
-        // eslint-disable-next-line max-len
-        // get all sort options from start in RR, then just get that info from state when onchange happends
-      };
 
       return (
         <span className="rr-sort">
@@ -27,7 +50,14 @@ function Sort() {
           </span>
           &nbsp;
           <u className="rr-sort-sort-type">
-            <select name="sort-options" defaultValue="relevance" onChange={sortChange}>
+            <select
+              name="sort-options"
+              defaultValue="relevance"
+              onChange={(event) => {
+                sortOption = event.target.value;
+              }}
+              value={sortOption}
+            >
               <option value="newest">newest</option>
               <option value="helpful">helpful</option>
               <option value="relevance">relevance</option>

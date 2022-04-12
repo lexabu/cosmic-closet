@@ -6,6 +6,7 @@ import './ReviewsList.scss';
 function ReviewsList() {
   const reviews = reviewStore((state) => state.reviews);
   const { results } = reviews;
+  // get the selected sort option from the state and display that review list on the page
   if (results) {
     const max = 2;
     const sliced = results.slice(0, max);
