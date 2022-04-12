@@ -9,17 +9,28 @@ function RatingsReviews() {
 
   const ratingsURL = new URL(`${process.env.URL}reviews/meta`);
   const setRatings = reviewStore((state) => state.setRatings);
+  console.log('ratingsURL: ', ratingsURL.toString());
 
   const helpfulReviewsURL = new URL(`${process.env.URL}reviews`);
   helpfulReviewsURL.searchParams.set('sort', 'helpful');
+  helpfulReviewsURL.searchParams.set('count', '50');
+  // helpfulReviewsURL.searchParams.set('product_id', id);
+  console.log('helpfulReviewsURL: ', helpfulReviewsURL.toString());
 
   const newestReviewsURL = new URL(`${process.env.URL}reviews`);
   newestReviewsURL.searchParams.set('sort', 'newest');
+  newestReviewsURL.searchParams.set('count', '50');
+  // newestReviewsURL.searchParams.set('product_id', id);
+  console.log('newestReviewsURL: ', newestReviewsURL.toString());
 
   const relevantReviewsURL = new URL(`${process.env.URL}reviews`);
   relevantReviewsURL.searchParams.set('sort', 'relevant');
+  relevantReviewsURL.searchParams.set('count', '50');
+  // relevantReviewsURL.searchParams.set('product_id', id);
+  console.log(' relevantReviewsURL: ', relevantReviewsURL.toString());
 
   const reviewsURL = new URL(`${process.env.URL}reviews`);
+  console.log('reviewsURL: ', reviewsURL.toString());
 
   const setHelpfulReviews = reviewStore((state) => state.setHelpfulReviews);
   const setNewestReviews = reviewStore((state) => state.setNewestReviews);
@@ -41,6 +52,7 @@ function RatingsReviews() {
         setRatings(results.data);
       })
       .catch((err) => {
+        console.log('ratingsURL error: ', err);
         throw err;
       });
   }, []);
@@ -51,6 +63,7 @@ function RatingsReviews() {
         setHelpfulReviews(results.data);
       })
       .catch((err) => {
+        console.log('helpfulReviewsURL error: ', err);
         throw err;
       });
   }, []);
@@ -61,6 +74,7 @@ function RatingsReviews() {
         setNewestReviews(results.data);
       })
       .catch((err) => {
+        console.log('newestReviewsURL error: ', err);
         throw err;
       });
   }, []);
@@ -71,6 +85,7 @@ function RatingsReviews() {
         setRelevantReviews(results.data);
       })
       .catch((err) => {
+        console.log('relevantReviewsURL error: ', err);
         throw err;
       });
   }, []);
@@ -81,6 +96,7 @@ function RatingsReviews() {
         setReviews(results.data);
       })
       .catch((err) => {
+        console.log('reviewsURL error: ', err);
         throw err;
       });
   }, []);
