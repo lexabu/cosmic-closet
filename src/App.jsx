@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import axios from 'axios';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import ProductDetail from './containers/ProductDetail.jsx';
@@ -46,22 +47,34 @@ function App() {
   }, []);
 
   return (
-    <main>
-      <ProductDetail />
-      <QuestionsAnswers />
-      <RatingsReviews />
-      <ToastContainer
-        position="top-center"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover
-      />
-    </main>
+    <>
+      {/* NAVBAR */}
+      <div className="top-banner">
+        <ul className="nav-list">
+          <li>Home</li>
+          <li>Products</li>
+          <li>About</li>
+        </ul>
+        <AiOutlineShoppingCart className="cart-icon" />
+      </div>
+      {/* MAIN SECTIONS */}
+      <main>
+        <ProductDetail />
+        <QuestionsAnswers />
+        <RatingsReviews />
+        <ToastContainer
+          position="top-center"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover
+        />
+      </main>
+    </>
   );
 }
 
