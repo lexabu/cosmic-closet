@@ -11,17 +11,13 @@ function Sort() {
   const setReviews = reviewStore((state) => state.setReviews);
 
   const updateSortType = () => {
-    console.log(sortOption);
     if (sortOption === 'newest') {
-      console.log('newestReviews: ', newestReviews);
       setReviews(newestReviews);
     }
     if (sortOption === 'helpful') {
-      console.log('helpfulReviews: ', helpfulReviews);
       setReviews(helpfulReviews);
     }
     if (sortOption === 'relevance') {
-      console.log('relevantReviews: ', relevantReviews);
       setReviews(relevantReviews);
     }
   };

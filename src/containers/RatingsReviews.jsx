@@ -13,10 +13,13 @@ function RatingsReviews() {
   const setReviews = reviewStore((state) => state.setReviews);
 
   const ratingsURL = new URL(`${process.env.URL}reviews/meta`);
+
   const helpfulReviewsURL = new URL(`${process.env.URL}reviews/`);
   helpfulReviewsURL.searchParams.set('sort', 'helpful');
+
   const newestReviewsURL = new URL(`${process.env.URL}reviews/`);
   newestReviewsURL.searchParams.set('sort', 'newest');
+
   const relevantReviewsURL = new URL(`${process.env.URL}reviews/`);
   relevantReviewsURL.searchParams.set('sort', 'relevant');
 
@@ -33,7 +36,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(ratingsURL.toString(), authHeaders)
       .then((results) => {
-        console.log('ratings: ', ratingsURL.toString(), results.data);
+        // console.log('ratings: ', ratingsURL.toString(), results.data);
         setRatings(results.data);
       })
       .catch((err) => {
@@ -44,7 +47,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(helpfulReviewsURL.toString(), authHeaders)
       .then((results) => {
-        console.log('helpfulReviewsURL : ', helpfulReviewsURL.toString(), results.data);
+        // console.log('helpfulReviewsURL : ', helpfulReviewsURL.toString(), results.data);
         setHelpfulReviews(results.data);
       })
       .catch((err) => {
@@ -55,7 +58,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(newestReviewsURL.toString(), authHeaders)
       .then((results) => {
-        console.log('newestReviewsURL : ', newestReviewsURL.toString(), results.data);
+        // console.log('newestReviewsURL : ', newestReviewsURL.toString(), results.data);
         setNewestReviews(results.data);
       })
       .catch((err) => {
@@ -66,7 +69,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(relevantReviewsURL.toString(), authHeaders)
       .then((results) => {
-        console.log('relevantReviewsURL : ', relevantReviewsURL.toString(), results.data);
+        // console.log('relevantReviewsURL : ', relevantReviewsURL.toString(), results.data);
         setRelevantReviews(results.data);
         setReviews(results.data);
       })
