@@ -118,6 +118,11 @@ input:focus {
   cursor: pointer;
 }
 
+.cart-item {
+  display: flex;
+  margin-left: 30px;
+}
+
 .pd-top-row-container {
   // display: flex;
   height: 75vh;
