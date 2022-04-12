@@ -1,13 +1,16 @@
+@use '../../../App.scss'as a;
+
 .star {
   display: inline-block;
   font-size: 20px;
   line-height: 1;
   position: relative;
   width: 20px;
+  color: a.$color2;
 }
 
 .star:after {
-  color: #036;
+  color: a.$color1;
   content: '★';
   left: 0;
   overflow: hidden;

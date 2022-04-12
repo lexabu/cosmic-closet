@@ -1,3 +1,4 @@
+@use '../../../App.scss'as a;
 $buttonSize: 48px;
 
 .pd-dd-size-false {
@@ -17,7 +18,7 @@ $buttonSize: 48px;
 }
 
 .pd-dd-size-true:hover {
-  background-color: aliceblue;
+  background-color: a.$hoverColor;
 }
 
 .pd-selectors-container {
