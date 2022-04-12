@@ -29,23 +29,28 @@ function RatingBreakdown() {
 
         <div className="rr-rb-body">
           <div className="rr-rb-body-item" id="five">
-            5 stars &nbsp;
+            <u>5 stars</u>
+            &nbsp;
             <progress className="rr-rb-progress progress" max={denominator} value={five} />
           </div>
           <div className="rr-rb-body-item" id="four">
-            4 stars &nbsp;
+            <u>4 stars</u>
+            &nbsp;
             <progress className="rr-rb-progress progress" max={denominator} value={four} />
           </div>
           <div className="rr-rb-body-item" id="three">
-            3 stars &nbsp;
+            <u>3 stars</u>
+            &nbsp;
             <progress className="rr-rb-progress progress" max={denominator} value={three} />
           </div>
           <div className="rr-rb-body-item" id="two">
-            2 stars &nbsp;
+            <u>2 stars</u>
+            &nbsp;
             <progress className="rr-rb-progress progress" max={denominator} value={two} />
           </div>
           <div className="rr-rb-body-item" id="one">
-            1 stars &nbsp;
+            <u>1 stars</u>
+            &nbsp;
             <progress className="rr-rb-progress progress" max={denominator} value={one} />
           </div>
         </div>
