@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { reviewStore } from '../../../stores.js';
 import { StarRating } from '../index.js';
 import './RatingSummary.scss';
@@ -27,7 +27,10 @@ function RatingSummary() {
     const total = oneTotal + twoTotal + threeTotal + fourTotal + fiveTotal;
     const reviewCount = one + two + three + four + five;
     const averageRating = round((total / reviewCount), 1);
-    setAverageRating(averageRating);
+
+    useEffect(() => {
+      setAverageRating(averageRating);
+    }, []);
 
     return (
       <div className="rr-rating-summary">

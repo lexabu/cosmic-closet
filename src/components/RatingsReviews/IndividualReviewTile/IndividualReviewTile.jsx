@@ -15,20 +15,8 @@ function IndividualReviewTile({ review }) {
     helpfulness,
     photos,
   } = review;
-  // console.table({
-  //   review_id,
-  //   rating,
-  //   summary,
-  //   recommend,
-  //   response,
-  //   body,
-  //   date,
-  //   reviewer_name,
-  //   helpfulness,
-  //   photos,
-  // });
+
   const localDate = new Date(date).toLocaleDateString();
-  // takes in a single review
   return (
     <div className="rr-individual-review-tile">
       <span className="rr-idr-header">
@@ -37,14 +25,16 @@ function IndividualReviewTile({ review }) {
             rating={rating}
           />
         </span>
+
         <span className="rr-idr-username-date">
           ✓
           &nbsp;
           {reviewer_name}
           &nbsp;
           {localDate}
+          &nbsp;
         </span>
-        &nbsp;
+
       </span>
 
       <div className="rr-idr-summary">
@@ -66,9 +56,14 @@ function IndividualReviewTile({ review }) {
       )
         : '')}
       <span className="rr-idr-helpfulness">
-        Helpful? Yes (
+        Helpful?
+        {' '}
+        <u>Yes</u>
+        {' '}
+        (
         {helpfulness}
-        ) | Report
+        ) |
+        <u> Report </u>
       </span>
       <hr />
     </div>

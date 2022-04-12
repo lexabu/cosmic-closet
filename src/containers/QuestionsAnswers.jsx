@@ -3,7 +3,7 @@ import { Title, SearchBar, QuestionList, AddQuestionModal } from '../components/
 
 function QuestionsAnswers() {
   return (
-    <div>
+    <div id="questions-answers" className="widget">
       <Title />
       <SearchBar />
       <QuestionList />
