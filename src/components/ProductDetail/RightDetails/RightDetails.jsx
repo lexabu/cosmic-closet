@@ -27,7 +27,9 @@ function RightDetails() {
     <div className={`pd-right-details-container${imageZoomed ? ' hidden' : ''}`}>
       <div className="pd-stars-container">
         <StarRating rating={averageRating} />
-        <span className="pd-read-all-reviews">{`Read all ${reviewsCount} reviews`}</span>
+        <a className="pd-read-all-reviews" href="#reviews">
+          {`Read all ${reviewsCount} reviews`}
+        </a>
       </div>
       <div className="pd-info">
         <h4 className="pd-category">{category}</h4>
