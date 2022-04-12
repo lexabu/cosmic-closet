@@ -1,3 +1,5 @@
+@use '../../../App.scss'as a;
+
 .image-icon-dots {
   position: absolute;
   bottom: 10px;
@@ -17,11 +19,11 @@
 }
 
 .image-icon-dot:hover {
-  color: rgba(0, 255, 255, 0.641);
+  color: a.$color1;
 }
 
 .image-icon-dot.selected {
-  color: aqua;
+  color: a.$color1;
   transform: scale(1.4);
   // font-size: 30px;
 }

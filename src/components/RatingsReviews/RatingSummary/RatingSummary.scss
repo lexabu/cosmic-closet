@@ -1,3 +1,5 @@
+@use '../../../App.scss'as a;
+
 .rr-rating-summary {
   align-items: center;
   display: flex;
@@ -16,6 +18,7 @@
   font-size: 65px;
   line-height: 1;
   margin: 0;
+  color: a.$color4;
 }
 
 .rr-rs-star-rating {
