@@ -11,13 +11,13 @@ function RatingsReviews() {
   const setRatings = reviewStore((state) => state.setRatings);
   const setRelevantReviews = reviewStore((state) => state.setRelevantReviews);
   const setReviews = reviewStore((state) => state.setReviews);
+
   const ratingsURL = new URL(`${process.env.URL}reviews/meta`);
-  const reviewsURL = new URL(`${process.env.URL}reviews`);
-  const helpfulReviewsURL = reviewsURL;
-  const newestReviewsURL = reviewsURL;
-  const relevantReviewsURL = reviewsURL;
+  const helpfulReviewsURL = new URL(`${process.env.URL}reviews/`);
   helpfulReviewsURL.searchParams.set('sort', 'helpful');
+  const newestReviewsURL = new URL(`${process.env.URL}reviews/`);
   newestReviewsURL.searchParams.set('sort', 'newest');
+  const relevantReviewsURL = new URL(`${process.env.URL}reviews/`);
   relevantReviewsURL.searchParams.set('sort', 'relevant');
 
   const authHeaders = {
@@ -26,13 +26,14 @@ function RatingsReviews() {
     },
     params: {
       product_id: id,
-      count: 50,
+      count: '50',
     },
   };
 
   useEffect(() => {
     axios.get(ratingsURL.toString(), authHeaders)
       .then((results) => {
+        console.log('ratings: ', ratingsURL.toString(), results.data);
         setRatings(results.data);
       })
       .catch((err) => {
@@ -43,6 +44,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(helpfulReviewsURL.toString(), authHeaders)
       .then((results) => {
+        console.log('helpfulReviewsURL : ', helpfulReviewsURL.toString(), results.data);
         setHelpfulReviews(results.data);
       })
       .catch((err) => {
@@ -53,6 +55,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(newestReviewsURL.toString(), authHeaders)
       .then((results) => {
+        console.log('newestReviewsURL : ', newestReviewsURL.toString(), results.data);
         setNewestReviews(results.data);
       })
       .catch((err) => {
@@ -63,6 +66,7 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(relevantReviewsURL.toString(), authHeaders)
       .then((results) => {
+        console.log('relevantReviewsURL : ', relevantReviewsURL.toString(), results.data);
         setRelevantReviews(results.data);
         setReviews(results.data);
       })

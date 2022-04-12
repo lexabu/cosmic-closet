@@ -11,13 +11,17 @@ function Sort() {
   const setReviews = reviewStore((state) => state.setReviews);
 
   const updateSortType = () => {
+    console.log(sortOption);
     if (sortOption === 'newest') {
+      console.log('newestReviews: ', newestReviews);
       setReviews(newestReviews);
     }
     if (sortOption === 'helpful') {
+      console.log('helpfulReviews: ', helpfulReviews);
       setReviews(helpfulReviews);
     }
     if (sortOption === 'relevance') {
+      console.log('relevantReviews: ', relevantReviews);
       setReviews(relevantReviews);
     }
   };
@@ -30,26 +34,22 @@ function Sort() {
     const { results } = reviews;
     if (results) {
       const numberOfReviews = results.length;
-
       return (
         <span className="rr-sort">
-
           <span className="rr-sort-reviews">
             {numberOfReviews}
             &nbsp;
           </span>
-
           <span className="rr-sort-text">
             reviews, sorted by
             &nbsp;
           </span>
-
           <u className="rr-sort-sort-type">
             <select
               name="sort-options"
               defaultValue="relevance"
-              onChange={(e) => {
-                setSortOption(e.target.value);
+              onChange={(event) => {
+                setSortOption(event.target.value);
               }}
             >
               <option value="newest">newest</option>
@@ -57,7 +57,6 @@ function Sort() {
               <option value="relevance">relevance</option>
             </select>
           </u>
-
         </span>
       );
     }
