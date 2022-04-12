@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 import './AddQuestionModal.scss';
 
 function AddQuestionModal() {
+  const [openQuestionModal, setOpenQuestionModal] = useState(false);
+
   return (
     <div className="qa-question-modal">
       <div className="qa-question-modal-content">
+        <button className="qa-question-modal-close small-pill" type="button" onClick={() => setOpenQuestionModal(true)}> X </button>
         <div className="qa-question-modal-header">
           <h1 className="qa-question-modal-title">Ask Your Question</h1>
         </div>
