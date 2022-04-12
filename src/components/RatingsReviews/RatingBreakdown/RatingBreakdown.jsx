@@ -3,14 +3,14 @@ import { reviewStore } from '../../../stores.js';
 import './RatingBreakdown.scss';
 
 function RatingBody({
-  starNumber, starNumberString, max, value,
+  rating, ratingString, max, value,
 }) {
   return (
     <div
       className="rr-rb-body-item"
-      id={`rr-rb-body-item-${starNumberString}`}
+      id={`rr-rb-body-item-${ratingString}`}
     >
-      <u>{`${starNumber} stars`}</u>
+      <u>{`${rating} stars`}</u>
       &nbsp;
       <progress
         className="rr-rb-progress progress"
@@ -26,35 +26,35 @@ function RatingBreakdown() {
   const { ratings, recommended } = metaRatings;
 
   if (recommended && ratings) {
-    const recommendedTrue = Number(recommended.true);
-    const recommendedFalse = Number(recommended.false);
-    const numberOfValues = recommendedTrue + recommendedFalse;
-    const percentOfReviewsRecommendProduct = ((recommendedTrue / numberOfValues) * 100).toFixed(0);
+    const recommendedTrue = Number(recommended.true) || 0;
+    const recommendedFalse = Number(recommended.false) || 0;
+    const recommendedTotal = recommendedTrue + recommendedFalse;
+    const percentRecommended = ((recommendedTrue / recommendedTotal) * 100).toFixed(0);
 
-    const one = ratings['1'] || 0;
-    const two = ratings['2'] || 0;
-    const three = ratings['3'] || 0;
-    const four = ratings['4'] || 0;
-    const five = ratings['5'] || 0;
+    const oneStarRatings = ratings['1'] || 0;
+    const twoStarRatings = ratings['2'] || 0;
+    const threeStarRatings = ratings['3'] || 0;
+    const fourStarRatings = ratings['4'] || 0;
+    const fiveStarRatings = ratings['5'] || 0;
 
-    const ratingInfo = [['one', 1, one], ['two', 2, two], ['three', 3, three], ['four', 4, four], ['five', 5, five]];
+    const ratingInfo = [['one', 1, oneStarRatings], ['two', 2, twoStarRatings], ['three', 3, threeStarRatings], ['four', 4, fourStarRatings], ['five', 5, fiveStarRatings]];
 
     return (
       <div className="rr-rating-breakdown">
 
         <div className="rr-rb-header">
-          {percentOfReviewsRecommendProduct}
+          {percentRecommended}
           % of reviews recommend this product
         </div>
 
         <div className="rr-rb-body">
-          {ratingInfo.map((starNumber) => (
+          {ratingInfo.map((rating) => (
             <RatingBody
-              key={starNumber[1]}
-              starNumber={starNumber[1]}
-              starNumberString={starNumber[0]}
-              max={numberOfValues}
-              value={starNumber[2]}
+              key={rating[1]}
+              rating={rating[1]}
+              ratingString={rating[0]}
+              max={recommendedTotal}
+              value={rating[2]}
             />
           ))}
         </div>
