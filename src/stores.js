@@ -82,6 +82,14 @@ const questionsStore = create(
     setMaxAnswersArr: (answerArr) => set(() => ({
       maxAnswersArr: answerArr,
     })),
+    questionModalToggle: false,
+    setQuestionModalToggle: () => set((state) => ({
+      questionModalToggle: !state.questionModalToggle,
+    })),
+    answerModalToggle: false,
+    setAnswerModalToggle: () => set((state) => ({
+      answerModalToggle: !state.answerModalToggle,
+    })),
     // dogs: 999,
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
