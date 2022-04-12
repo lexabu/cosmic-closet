@@ -3,36 +3,37 @@ import React, { useState, useEffect } from 'react';
 import { reviewStore } from '../../../stores.js';
 import './Sort.scss';
 
-let sortOption;
-
 function Sort() {
-  // const updateSortType = (sortOption) => {
-  //   // Uncaught Error: Invalid hook call.
-  //   // Hooks can only be called inside of the body of a function component.
-  //   // attempted adding this fn to onChange, to the body of Sort
-  //   const setSortOption = reviewStore((state) => state.setSortOption);
-  //   const setReviews = reviewStore((state) => state.setReviews);
-  //   const { helpfulReviews, newestReviews, relevantReviews } = reviewStore;
-  //   // if the sort option is newest, set reviews to newestReviews
-  //   if (sortOption === 'newest') {
-  //     // console.log(sortOption);
-  //     setSortOption(sortOption);
-  //     setReviews(newestReviews);
-  //   }
-  //   if (sortOption === 'helpful') {
-  //     setSortOption(sortOption);
-  //     setReviews(helpfulReviews);
-  //   }
-  //   if (sortOption === 'relevance') {
-  //     setSortOption(sortOption);
-  //     setReviews(relevantReviews);
-  //   }
-  // };
-  // let [sortOption] = useState(0);
-  // useEffect(() => {
-  //   // Update the zustandStore when sortOption is
-  //   updateSortType(sortOption);
-  // });
+  // const setSortOption = reviewStore((state) => state.setSortOption);
+  const setReviews = reviewStore((state) => state.setReviews);
+  const [sortOption, setSortOption] = useState('relevance');
+  const { helpfulReviews, newestReviews, relevantReviews } = reviewStore;
+
+  const updateSortType = () => {
+    // if the sort option is newest, set reviews to newestReviews
+    console.log(sortOption);
+    if (sortOption === 'newest') {
+      // setSortOption(sortOption);
+      console.log('newestReviews: ', newestReviews);
+      setReviews(newestReviews);
+    }
+    // if (sortOption === 'helpful') {
+    //   console.log(sortOption);
+
+    //   setSortOption(sortOption);
+    //   setReviews(helpfulReviews);
+    // }
+    // if (sortOption === 'relevance') {
+    //   console.log(sortOption);
+
+    //   setSortOption(sortOption);
+    //   setReviews(relevantReviews);
+    // }
+  };
+  useEffect(() => {
+    // Update the zustandStore when sortOption is
+    updateSortType();
+  });
   const reviews = reviewStore((state) => state.reviews);
   if (reviews) {
     const { results } = reviews;
@@ -54,9 +55,8 @@ function Sort() {
               name="sort-options"
               defaultValue="relevance"
               onChange={(event) => {
-                sortOption = event.target.value;
+                setSortOption(event.target.value)
               }}
-              value={sortOption}
             >
               <option value="newest">newest</option>
               <option value="helpful">helpful</option>

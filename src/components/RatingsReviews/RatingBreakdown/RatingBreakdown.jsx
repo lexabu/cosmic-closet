@@ -20,7 +20,7 @@ function RatingBody({
     </div>
   );
 }
-
+// todo looki at line 26
 function RatingBreakdown() {
   const metaRatings = reviewStore((state) => state.ratings);
   const { ratings, recommended } = metaRatings;

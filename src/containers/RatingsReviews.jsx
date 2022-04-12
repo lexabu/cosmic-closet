@@ -21,7 +21,7 @@ function RatingsReviews() {
   newestReviewsURL.searchParams.set('sort', 'newest');
   newestReviewsURL.searchParams.set('count', '50');
   // newestReviewsURL.searchParams.set('product_id', id);
-  // console.log('newestReviewsURL: ', newestReviewsURL.toString());
+  console.log('newestReviewsURL: ', newestReviewsURL.toString());
 
   const relevantReviewsURL = new URL(`${process.env.URL}reviews`);
   relevantReviewsURL.searchParams.set('sort', 'relevant');
