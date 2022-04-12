@@ -3,7 +3,7 @@ import { reviewStore } from '../../../stores.js';
 import './Sort.scss';
 
 function Sort() {
-  const [sortOption, setSortOption] = useState('relevance'); // first is always a value, second is always a fn that changes first
+  const [sortOption, setSortOption] = useState('relevance');
   const helpfulReviews = reviewStore((state) => state.helpfulReviews);
   const newestReviews = reviewStore((state) => state.newestReviews);
   const relevantReviews = reviewStore((state) => state.relevantReviews);
@@ -36,30 +36,28 @@ function Sort() {
 
           <span className="rr-sort-reviews">
             {numberOfReviews}
+            &nbsp;
           </span>
-
-          &nbsp;
 
           <span className="rr-sort-text">
             reviews, sorted by
+            &nbsp;
           </span>
-
-          &nbsp;
 
           <u className="rr-sort-sort-type">
             <select
               name="sort-options"
               defaultValue="relevance"
-              onChange={(event) => {
-                setSortOption(event.target.value);
+              onChange={(e) => {
+                setSortOption(e.target.value);
               }}
             >
               <option value="newest">newest</option>
               <option value="helpful">helpful</option>
               <option value="relevance">relevance</option>
-
             </select>
           </u>
+
         </span>
       );
     }
