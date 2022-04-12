@@ -1,8 +1,4 @@
-// .pd-styles {
-//   // background-color: aquamarine;
-//   // height: 60%;
-//   overflow: auto;
-// }
+@use '../../../App.scss'as a;
 
 .pd-selected-style {
   display: flex;
@@ -43,7 +39,7 @@ $styleThumbnailSize: 80px;
 
 .pd-style-check {
   float: right;
-  color: rgb(58, 187, 159);
+  color: a.$color1;
   font-size: 22px;
   position: absolute;
   right: -5px;

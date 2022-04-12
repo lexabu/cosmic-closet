@@ -1,3 +1,5 @@
+@use '../../../App.scss'as a;
+
 .image-gallery {
   position: absolute;
   width: 65%;
@@ -113,10 +115,8 @@
   pointer-events: auto;
 }
 
-$highlightColor: rgb(56, 242, 208);
-
 .image-thumbnail.selected {
-  border: solid $highlightColor;
+  border: solid a.$color1;
   transform: scale(1.1);
 }
 
