@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { Drawer, Divider, Text, ActionIcon } from '@mantine/core';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import ProductDetail from './containers/ProductDetail.jsx';
@@ -9,6 +10,10 @@ import QuestionsAnswers from './containers/QuestionsAnswers.jsx';
 import RatingsReviews from './containers/RatingsReviews.jsx';
 
 function App() {
+  const headers = {
+    Authorization: process.env.GITHUB_API_KEY,
+  };
+
   const handleAnalytics = (e) => {
     // Get the widget
     let widgetFound = false;
@@ -28,10 +33,6 @@ function App() {
     // Get current time
     const time = new Date();
 
-    const headers = {
-      Authorization: process.env.GITHUB_API_KEY,
-    };
-
     axios.post(`${process.env.URL}interactions`, { element, widget, time }, { headers })
       .catch((err) => {
         throw err;
@@ -46,6 +47,20 @@ function App() {
     };
   }, []);
 
+  const [cartContents, setCartContents] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${process.env.URL}cart`, { headers })
+      .then((response) => {
+        console.log(response);
+        setCartContents(response.data);
+      });
+  }, []);
+
+  const [cartOpened, setCartOpened] = useState(false);
+  console.log('app');
+  console.log('cartOpened', cartOpened);
+  console.log('setCartOpened', setCartOpened);
   return (
     <>
       {/* NAVBAR */}
@@ -55,7 +70,32 @@ function App() {
           <li>Products</li>
           <li>About</li>
         </ul>
-        <AiOutlineShoppingCart className="cart-icon" />
+        <Drawer
+          // className="cart-icon"
+          opened={cartOpened}
+          onClose={() => setCartOpened(false)}
+          position="right"
+        // width={260}
+        // target={(
+        //   <ActionIcon onClick={() => { setCartOpened((o) => !o); }}>
+        //     <AiOutlineShoppingCart />
+        //   </ActionIcon>
+        // )}
+        // position="bottom"
+        >
+          {cartContents.map((item) => (
+            <>
+              <p>{item.sku_id}</p>
+              <p>{item.count}</p>
+            </>
+          ))}
+        </Drawer>
+        <ActionIcon className="cart-icon" onClick={() => { setCartOpened(true); }}>
+          <AiOutlineShoppingCart />
+        </ActionIcon>
+        {/* <AiOutlineShoppingCart
+          className="cart-icon"
+        /> */}
       </div>
       {/* MAIN SECTIONS */}
       <main>
