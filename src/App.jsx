@@ -21,7 +21,7 @@ function App() {
 
     e.path.forEach((path) => {
       if (widgetFound) { return; }
-      if (path.classList?.contains('widget')) {
+      if (path.classList && path.classList.contains('widget')) {
         widget = path.id;
         widgetFound = true;
       }
@@ -32,11 +32,12 @@ function App() {
 
     // Get current time
     const time = new Date();
-
-    axios.post(`${process.env.URL}interactions`, { element, widget, time }, { headers })
-      .catch((err) => {
-        throw err;
-      });
+    if (widgetFound) {
+      axios.post(`${process.env.URL}interactions`, { element, widget, time }, { headers })
+        .catch((err) => {
+          throw err;
+        });
+    }
   };
 
   useEffect(() => {
@@ -85,7 +86,7 @@ function App() {
           onClose={() => setCartOpened(false)}
           position="right"
         >
-          <Table striped highlightOnHover>
+          <Table className="cart-table" striped highlightOnHover verticalSpacing="md" fontSize="md">
             <thead>
               <tr>
                 <th>Sku</th>

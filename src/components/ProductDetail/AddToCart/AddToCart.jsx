@@ -19,7 +19,7 @@ function AddToCart() {
 
       showNotification({
         title: 'Please select size',
-        message: 'It\'s gonna be tough to fit if you don\'t select a size!',
+        message: 'You want it to fit, don\'t you? 👀',
         color: 'cyan',
         icon: <BsRulers />,
       });
@@ -53,7 +53,7 @@ function AddToCart() {
       .then((response) => {
         showNotification({
           title: `${response.length} item${response.length > 1 ? 's' : ''} added to cart!`,
-          message: 'You\'re gonna look 🔥!',
+          message: 'You\'re gonna look 🔥🔥',
           color: 'cyan',
           icon: <BsFillCartCheckFill />,
         });

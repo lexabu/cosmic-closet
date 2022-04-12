@@ -123,6 +123,11 @@ input:focus {
   margin-left: 30px;
 }
 
+// Allow scrolling for overflow in the cart drawer
+.mantine-Paper-root {
+  overflow: scroll;
+}
+
 .pd-top-row-container {
   // display: flex;
   height: 75vh;
