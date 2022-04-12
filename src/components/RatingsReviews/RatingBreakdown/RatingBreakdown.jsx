@@ -2,22 +2,34 @@ import React from 'react';
 import { reviewStore } from '../../../stores.js';
 import './RatingBreakdown.scss';
 
+function clickProgressBar() {
+  return (
+    <div> </div>
+  );
+}
+
 function RatingBody({
   rating, ratingString, max, value,
 }) {
   return (
-    <div
+    <button
       className="rr-rb-body-item"
       id={`rr-rb-body-item-${ratingString}`}
+      onClick={() => clickProgressBar}
+      onKeyPress={() => clickProgressBar}
+      type="button"
     >
-      <u>{`${rating} stars`}</u>
-      &nbsp;
+      <span
+        className="rr-rb-rating"
+      >
+        {`${rating} stars`}
+      </span>
       <progress
         className="rr-rb-progress progress"
         max={max}
         value={value}
       />
-    </div>
+    </button>
   );
 }
 // todo look at line 26
