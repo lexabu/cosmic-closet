@@ -1,3 +1,5 @@
+@use '../../../App.scss'as a;
+
 .pd-right-details-container {
   // background-color: rgb(255, 219, 219);
   width: 35%;
@@ -15,21 +17,25 @@
 
 .pd-read-all-reviews {
   padding-left: 10px;
+  color: a.$color1;
 }
 
 .pd-category {
   text-transform: uppercase;
   font-size: 20px;
   margin-top: 15px;
+  color: a.$color4;
 }
 
 .pd-title {
   font-size: 42px;
+  color: a.$color4;
 }
 
 .pd-price-container {
   display: block;
   margin: 15px 0;
+  color: a.$color4;
 }
 
 .pd-price.strike {

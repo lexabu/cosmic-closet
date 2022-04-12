@@ -4,6 +4,8 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
+  color: a.$color4;
+  // font-size: 15px;
 }
 
 .pd-selected-style svg {
@@ -25,16 +27,18 @@
 $styleThumbnailSize: 80px;
 
 .pd-style-icon {
-  // object-fit: cover;
-  // height: $styleThumbnailSize;
-  // width: $styleThumbnailSize;
   border-radius: 50%;
   margin: 5px;
   cursor: pointer;
   position: relative;
-  border: solid;
-  border-width: thin;
-  border-color: rgba(164, 164, 164, 0.667);
+  border: none;
+  transition: .3s;
+  // filter: drop-shadow(5px 5px 10px rgba(143, 143, 143, 0.66));
+}
+
+.pd-style-icon:active {
+  // filter: drop-shadow(2px 2px 5px rgba(143, 143, 143, 0.66));
+  transform: scale(.95);
 }
 
 .pd-style-check {
