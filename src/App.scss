@@ -1,21 +1,96 @@
-#product-detail-widget {
-  // background-color: rgb(255, 222, 172);
-  // height: 90%;
-  min-height: 90%;
+/*==========================================================
+====================== SHARED COMPONENTS ===================
+===========================================================*/
+
+$buttonHeight: 48px;
+$hoverColor: aliceblue;
+
+button {
+  background-color: transparent;
+  height: $buttonHeight;
+  padding: 10px;
+  cursor: pointer;
+  border: solid thin;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  // Center inner contents of button (if any)
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
+button.small-pill {
+  height: 24px;
+  font-size: 12px;
+  border-radius: 120px;
+}
+
+button:hover {
+  background-color: $hoverColor;
+}
+
+// If we have hidden buttons, we won't have a hover color on them.
+button.hidden:hover {
+  background-color: transparent;
+}
+
+// Style input fields to match buttons
+input {
+  height: $buttonHeight;
+  padding: 10px;
+}
+
+.loading {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progress {
+  height: 10px;
+  background: grey;
+  border-radius: 5px;
+}
+
+.progress::-moz-progress-bar {
+  background: #036;
+  border-radius: 5px;
+}
+
+.progress::-webkit-progress-bar {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.progress::-webkit-progress-value {
+  background: #036;
+  border-radius: 5px;
+}
+
+/*==========================================================
+======================= PRODUCT DETAIL =====================
+===========================================================*/
 
 .pd-top-row-container {
-  display: flex;
+  // display: flex;
   height: 75vh;
+  max-height: 700px;
   min-height: 590px;
+  position: relative;
+  transition: .3s;
 }
 
-.temp-title {
-  text-align: center;
+.pd-top-row-container.zoomed {
+  height: 90vh;
 }
+
+/*==========================================================
+====================== RATINGS & REVIEWS ===================
+===========================================================*/
 
 #ratings-reviews {
-  background-color: #c678dd;
-  height: 90vh;
   display: flex;
+  height: auto;
 }

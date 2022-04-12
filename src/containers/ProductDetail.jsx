@@ -18,6 +18,9 @@ function ProductDetail() {
   const setDetailsFromApiCall = detailStore((state) => state.setProductDetails);
   const setStyles = detailStore((state) => state.setStyles);
   const setSelectedStyle = detailStore((state) => state.setSelectedStyle);
+  const imageZoomed = detailStore((state) => state.imageZoomed);
+
+  // const handleAnalytics = detailStore((state) => state.handleAnalytics);
 
   useEffect(() => {
     // Get product info and add to state
@@ -40,9 +43,13 @@ function ProductDetail() {
       });
   }, []);
 
+  // useEffect(() => {
+  //   window.addEventListener('click', handleAnalytics);
+  // }, []);
+
   return (
-    <div id="product-detail-widget">
-      <div className="pd-top-row-container">
+    <div id="product-detail" className="widget">
+      <div className={`pd-top-row-container${imageZoomed ? ' zoomed' : ''}`}>
         <ImageGallery />
         <RightDetails />
       </div>

@@ -1,0 +1,23 @@
+.rr-rs-scale {
+  display: grid;
+  grid-gap: 1px;
+  justify-content: center;
+  padding: initial;
+}
+
+.rr-rs-title {
+  font-size: 15px;
+}
+
+.rr-rs-progress {
+  font-size: 15px;
+}
+
+.rr-rs-labels {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 5px;
+  width: 100%;
+  font-size: x-small;
+  justify-content: space-between;
+}

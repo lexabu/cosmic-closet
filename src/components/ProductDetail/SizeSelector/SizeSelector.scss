@@ -23,22 +23,22 @@ $buttonSize: 48px;
 .pd-selectors-container {
   display: flex;
   justify-content: space-between;
-  height: $buttonSize;
+  // height: $buttonSize;
 }
 
-.pd-size-button {
-  height: $buttonSize;
-  background-color: white;
-  border: solid thin;
-  text-transform: uppercase;
-  padding: 10px;
-  cursor: pointer;
-  // border-radius: 5px;
-}
+// .pd-size-button {
+//   height: $buttonSize;
+//   background-color: white;
+//   border: solid thin;
+//   text-transform: uppercase;
+//   padding: 10px;
+//   cursor: pointer;
+//   border-radius: 5px;
+// }
 
-.pd-size-button:hover {
-  background-color: aliceblue;
-}
+// .pd-size-button:hover {
+//   background-color: aliceblue;
+// }
 
 .pd-size-selector-container {
   display: flex;
@@ -57,6 +57,7 @@ $buttonSize: 48px;
 }
 
 .pd-inner-button-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

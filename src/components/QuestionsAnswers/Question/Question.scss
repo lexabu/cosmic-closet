@@ -1,0 +1,24 @@
+.qa-question-parts-container {
+  display: flex;
+}
+
+.qa-question-tag {
+  font-weight: bold;
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+.qa-question-body {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.qa-sub-question-parts-container {
+  margin-left: auto;
+  display: flex;
+
+}
+
+.qa-question-body {
+  font-weight: bold;
+}

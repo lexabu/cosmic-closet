@@ -23,7 +23,7 @@ function QuantitySelector() {
   const availableQuantity = selectedStyle.skus[selectedSizeSku].quantity;
   const quantityArr = [];
 
-  for (let i = 1; i < availableQuantity; i += 1) {
+  for (let i = 1; i < availableQuantity + 1; i += 1) {
     if (i > 15) {
       break;
     }

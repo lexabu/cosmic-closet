@@ -10,8 +10,10 @@ function Styles() {
   const setSelectedStyle = detailStore((state) => state.setSelectedStyle);
   const setSelectedSize = detailStore((state) => state.setSelectedSize);
   const setSelectedQuantity = detailStore((state) => state.setSelectedQuantity);
+  const setImgIdx = detailStore((state) => state.setSelectedImageIndex);
 
   const handleStyleChange = (style) => {
+    setImgIdx(0);
     setSelectedSize('');
     setSelectedQuantity('');
     setSelectedStyle(style);

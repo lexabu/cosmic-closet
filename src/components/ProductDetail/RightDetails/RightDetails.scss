@@ -1,23 +1,20 @@
 .pd-right-details-container {
   // background-color: rgb(255, 219, 219);
-  width: 35vw;
+  width: 35%;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  right: 0;
+  // transition: .3s;
 }
 
-.pd-stars-container {
-  display: flex;
-  // height: 5%;
-  // justify-content: space-evenly;
+.pd-right-details-container.hidden {
+  display: none;
 }
-
-// .pd-info {
-// height: 35%;
-// }
 
 .pd-read-all-reviews {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .pd-category {

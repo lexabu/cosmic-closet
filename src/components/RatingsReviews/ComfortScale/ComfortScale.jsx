@@ -1,9 +1,17 @@
 import React from 'react';
+import { RatingScale } from '../index.js';
 import './ComfortScale.scss';
 
 function ComfortScale() {
   return (
-    <div className="rr-ComfortScale">ComfortScale</div>
+    <div>
+      <RatingScale
+        name="Comfort"
+        label1="Uncomfortable"
+        label2="Ok"
+        label3="Perfect"
+      />
+    </div>
   );
 }
 

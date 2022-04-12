@@ -10,7 +10,7 @@ import { detailStore } from '../../../stores.js';
 function DetailsFooter() {
   const slogan = detailStore((state) => state.productDetails.slogan);
   const description = detailStore((state) => state.productDetails.description);
-  console.log(window.location.href);
+  // console.log(window.location.href);
 
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`;
   const twitterShareUrl = `https://twitter.com/intent/tweet?url=${window.location.href}`;

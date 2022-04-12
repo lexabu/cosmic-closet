@@ -5,7 +5,6 @@ import './SizeSelector.scss';
 
 function SizeSelector() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
-  // const selectedSize = detailStore((state) => state.selectedSize);
   const setSelectedSize = detailStore((state) => state.setSelectedSize);
   const toggleShowSizeSelector = detailStore((state) => state.toggleShowSizeSelector);
   const showSizeSelector = detailStore((state) => state.showSizeSelector);
@@ -17,6 +16,8 @@ function SizeSelector() {
   }
 
   // Make checks for OUT OF STOCK items
+  // TODO: separate this into a utility function to be used again
+  // in the CartActions component
   const vals = Object.values(selectedStyle.skus);
   let qtySum = 0;
 
@@ -73,6 +74,8 @@ function SizeSelector() {
       </div>
     </div>
   );
+
+  // KEEPING for future reference, will delete once widget is mostly functional
 
   // return (
   //   <select

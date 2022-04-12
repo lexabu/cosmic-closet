@@ -1,61 +1,68 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import axios from 'axios';
+
 import { questionsStore } from '../../../stores.js';
-import SearchBar from '../SearchBar/SearchBar.jsx';
+import { Question, MoreQuestionsButton } from '../index.js';
+import './QuestionList.scss';
 
 function QuestionList() {
   const setQuestions = questionsStore((state) => state.setQuestions);
-  const allQuestions = questionsStore((state) => state.questions);
   const { id } = useParams();
 
   // API call to access all questions associated with the current product
-  useEffect(() => {
+  function getAllQuestions() {
     axios({
-      url: `${process.env.URL}qa/questions?product_id=${id}`,
+      url: `${process.env.URL}qa/questions`,
       method: 'GET',
       headers: {
         Authorization: process.env.GITHUB_API_KEY,
       },
+      params: {
+        product_id: id,
+        count: 100,
+      },
     })
       .then((data) => {
+        // store all questions in state management store
         setQuestions(data.data.results);
       })
       .catch((err) => {
-        console.log('err :', err);
+        throw err;
       });
-  }, []);
-
-  function mapQuestions(questionsArr) {
-    return questionsArr.map((question) => (
-      <div key={question.question_id}>
-        <div>{`Q: ${question.question_body}`}</div>
-        <div>
-          Helpful?
-          <a href="#Yes">Yes</a>
-          (0)|
-          <a href="#Add Answer">Add Answer</a>
-        </div>
-      </div>
-    ));
   }
 
+  useEffect(() => {
+    getAllQuestions();
+  }, []);
+
+  const maxQuestions = questionsStore((state) => state.maxQuestions);
+
+  function mapQuestions(questionsArr) {
+    const questionsListLength = questionsArr.length;
+
+    if (questionsListLength > 0) {
+      return questionsArr.map((question, index) => {
+        if (index < maxQuestions) {
+          return (
+            <div key={question.question_id}>
+              <Question getAllQuestions={() => (getAllQuestions())} questionObj={question} />
+            </div>
+          );
+        }
+      });
+    }
+    return (<div />);
+  }
+
+  const allQuestions = questionsStore((state) => state.questions);
+
   return (
-    <div>
-      <div>
-        <div className="title"> Questions & Answers</div>
-        <SearchBar />
-        <div>{mapQuestions(allQuestions)}</div>
-        {/* The following div is hard-coded. It will be replaced
-        once my Answer comp is up and running */}
-        <div>
-          A: Answer1
-          <div>by user1, May 14, 2022</div>
-          Answer2
-          <div>by user1, May 15, 2022</div>
-        </div>
-      </div>
-      <button type="button">More Answered Questions</button>
+    <div className="qa-question-list-container">
+      <div>{mapQuestions(allQuestions)}</div>
+      <MoreQuestionsButton />
+      <button type="button">Add Question</button>
     </div>
   );
 }

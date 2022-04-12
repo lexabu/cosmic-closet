@@ -1,11 +1,12 @@
 import React from 'react';
-import { QuestionList, Question } from '../components/QuestionsAnswers/index.js';
+import { Title, SearchBar, QuestionList } from '../components/QuestionsAnswers/index.js';
 
 function QuestionsAnswers() {
   return (
-    <div>
+    <div id="questions-answers" className="widget">
+      <Title />
+      <SearchBar />
       <QuestionList />
-      <Question />
     </div>
   );
 }

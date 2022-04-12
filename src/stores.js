@@ -10,9 +10,10 @@ const details = (set, get) => ({
   setSelectedStyle: (data) => set({ selectedStyle: data }),
   selectedSize: '',
   setSelectedSize: (data) => set({ selectedSize: data }),
-  selectedQuantity: '',
+  selectedQuantity: 1,
   setSelectedQuantity: (data) => set({ selectedQuantity: data }),
   showSizeSelector: false,
+  // TODO: Combine the two toggle functions to be a single function
   toggleShowSizeSelector: (bool) => {
     if (bool === undefined) {
       set({ showSizeSelector: !get().showSizeSelector });
@@ -28,33 +29,60 @@ const details = (set, get) => ({
       set({ showQuantitySelector: bool });
     }
   },
-  toastShown: false,
-  toggleToastShown: () => {
-    set({ toastShown: true });
-    setTimeout(() => {
-      set({ toastShown: false });
-    }, 3000);
+  startingThumbnailIndex: 0,
+  setStartingThumbnailIndex: (data) => set({ startingThumbnailIndex: data }),
+  selectedImageIndex: 0,
+  setSelectedImageIndex: (newIndex) => set({ selectedImageIndex: newIndex }),
+  imageZoomed: false,
+  toggleImageZoomed: (bool) => {
+    if (bool === undefined) {
+      set({ imageZoomed: !get().imageZoomed });
+    } else {
+      set({ imageZoomed: bool });
+    }
   },
 });
 const detailStore = create(devtools(details));
 
-const ratingStore = create(
-  // To be able to see multiple stores in Redux DevTools, set the selector in the
-  // extension to "Autoselect instances"
-  devtools((set) => ({
-    dogs: 999,
-    increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
-    decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
-  })),
-);
+// const ratingStore = create(
+//   // To be able to see multiple stores in Redux DevTools, set the selector in the
+//   // extension to "Autoselect instances"
+//   devtools((set) => ({
+//     dogs: 999,
+//     increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
+//     decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
+//   })),
+// );
 
 const questionsStore = create(
   // To be able to see multiple stores in Redux DevTools, set the selector in the
   // extension to "Autoselect instances"
   devtools((set) => ({
-    // dogs: 999,
     questions: [],
     setQuestions: (data) => set(() => ({ questions: data })),
+    answers: [],
+    setAnswers: (data) => set(() => ({ answers: data })),
+    wasHelpful: [],
+    addHelpful: (question) => set((state) => ({
+      wasHelpful: [
+        question, ...state.wasHelpful,
+      ],
+    })),
+    wasHelpfulAnswer: [],
+    addHelpfulAnswer: (answer) => set((state) => ({
+      wasHelpfulAnswer: [
+        answer, ...state.wasHelpfulAnswer,
+      ],
+    })),
+    maxQuestions: 4,
+    setMaxQuestions: () => set((state) => ({
+      maxQuestions: state.questions.length,
+    })),
+    maxAnswersArr: [],
+    setMaxAnswersArr: (answerArr) => set(() => ({
+      maxAnswersArr: answerArr,
+    })),
+    // dogs: 999,
     // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
     // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
   })),
@@ -62,18 +90,21 @@ const questionsStore = create(
 
 const reviewStore = create(
   devtools((set) => ({
+    averageRating: 0,
+    setAverageRating: (data) => set({ averageRating: data }),
+    helpfulReviews: [],
+    setHelpfulReviews: (data) => set(() => ({ helpfulReviews: data })),
+    newestReviews: [],
+    setNewestReviews: (data) => set(() => ({ newestReviews: data })),
+    ratings: [],
+    setRatings: (data) => set({ ratings: data }),
+    relevantReviews: [],
+    setRelevantReviews: (data) => set(() => ({ relevantReviews: data })),
     reviews: [],
     setReviews: (data) => set(() => ({ reviews: data })),
   })),
 );
 
-const reviewMetaStore = create(
-  devtools((set) => ({
-    ratings: [],
-    setRatings: (data) => set(() => ({ ratings: data })),
-  })),
-);
-
 export {
-  detailStore, ratingStore, questionsStore, reviewStore, reviewMetaStore,
+  detailStore, questionsStore, reviewStore,
 };

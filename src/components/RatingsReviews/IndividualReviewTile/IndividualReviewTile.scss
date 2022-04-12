@@ -1,0 +1,51 @@
+.rr-individual-review-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  padding: 5px 5px;
+}
+
+.rr-idr-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 5px 5px;
+  width: 100%;
+}
+
+.rr-idr-star-rating {
+  display: flex;
+  text-align: left;
+}
+
+.rr-idr-username-date {
+  display: flex;
+  text-align: right;
+}
+
+.rr-idr-summary {
+  font-weight: bold;
+  margin: 10px;
+  padding: 5px 5px;
+}
+
+.rr-idr-body {
+  margin: 10px;
+  padding: 5px 5px;
+}
+
+.rr-idr-recommend {
+  margin: 10px;
+  padding: 1px 1px;
+}
+
+.rr-idr-response {
+  margin: 10px;
+  padding: 1px 1px;
+}
+
+.rr-idr-helpfulness {
+  margin: 10px;
+  padding: 5px 5px;
+}
