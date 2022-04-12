@@ -25,14 +25,16 @@ function IndividualReviewTile({ review }) {
             rating={rating}
           />
         </span>
+
         <span className="rr-idr-username-date">
           ✓
           &nbsp;
           {reviewer_name}
           &nbsp;
           {localDate}
+          &nbsp;
         </span>
-        &nbsp;
+
       </span>
 
       <div className="rr-idr-summary">
