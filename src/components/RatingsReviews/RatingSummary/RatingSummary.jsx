@@ -14,14 +14,6 @@ function RatingSummary() {
   const { ratings } = meta;
 
   if (ratings) {
-<<<<<<< HEAD
-    // TODO: update avg to be object key times object value in order to get to actual avg
-    const values = Object.values(ratings);
-    let numerator = 0;
-    const denominator = values.length;
-    values.forEach((element) => { numerator += Number(element); });
-    const avg = numerator / denominator;
-=======
     const one = Number(ratings['1']) || 0;
     const two = Number(ratings['2']) || 0;
     const three = Number(ratings['3']) || 0;
@@ -39,7 +31,6 @@ function RatingSummary() {
     useEffect(() => {
       setAverageRating(averageRating);
     }, []);
->>>>>>> fd8ed6833bfc7fbeb6144324f383e3787a939fe3
 
     return (
       <div className="rr-rating-summary">
@@ -53,7 +44,7 @@ function RatingSummary() {
         </div>
         <div className="rr-rs-review-count">
           Total Review Count:
-          {' '}
+          &nbsp;
           {reviewCount}
         </div>
       </div>
