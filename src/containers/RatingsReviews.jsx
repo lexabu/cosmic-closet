@@ -36,7 +36,6 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(ratingsURL.toString(), authHeaders)
       .then((results) => {
-        // console.log('ratings: ', ratingsURL.toString(), results.data);
         setRatings(results.data);
       })
       .catch((err) => {
@@ -47,7 +46,6 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(helpfulReviewsURL.toString(), authHeaders)
       .then((results) => {
-        // console.log('helpfulReviewsURL : ', helpfulReviewsURL.toString(), results.data);
         setHelpfulReviews(results.data);
       })
       .catch((err) => {
@@ -58,7 +56,6 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(newestReviewsURL.toString(), authHeaders)
       .then((results) => {
-        // console.log('newestReviewsURL : ', newestReviewsURL.toString(), results.data);
         setNewestReviews(results.data);
       })
       .catch((err) => {
@@ -69,7 +66,6 @@ function RatingsReviews() {
   useEffect(() => {
     axios.get(relevantReviewsURL.toString(), authHeaders)
       .then((results) => {
-        // console.log('relevantReviewsURL : ', relevantReviewsURL.toString(), results.data);
         setRelevantReviews(results.data);
         setReviews(results.data);
       })
