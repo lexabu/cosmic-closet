@@ -11,7 +11,7 @@ function LeftColumn() {
   const { characteristics } = metaRatings;
   if (characteristics) {
     return (
-      <div className="rr-left-column">
+      <div className="rr-left-column" id="reviews">
         <Title />
         <RatingSummary />
         <RatingBreakdown />

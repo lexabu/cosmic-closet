@@ -73,13 +73,10 @@ input {
 ======================= PRODUCT DETAIL =====================
 ===========================================================*/
 
-#product-detail {
-  min-height: 90%;
-}
-
 .pd-top-row-container {
   // display: flex;
   height: 75vh;
+  max-height: 700px;
   min-height: 590px;
   position: relative;
   transition: .3s;
