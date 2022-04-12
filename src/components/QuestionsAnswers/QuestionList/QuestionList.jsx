@@ -57,12 +57,13 @@ function QuestionList() {
   }
 
   const allQuestions = questionsStore((state) => state.questions);
+  const setQuestionModalToggle = questionsStore((state) => state.setQuestionModalToggle);
 
   return (
     <div className="qa-question-list-container">
       <div>{mapQuestions(allQuestions)}</div>
       <MoreQuestionsButton />
-      <button type="button">Add Question</button>
+      <button type="button" onClick={setQuestionModalToggle}>Add Question</button>
     </div>
   );
 }
