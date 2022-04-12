@@ -1,14 +1,14 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { reviewStore } from '../../../stores.js';
 import './Sort.scss';
 
 function Sort() {
-  const setReviews = reviewStore((state) => state.setReviews);
   const [sortOption, setSortOption] = useState('relevance'); // first is always a value, second is always a fn that changes first
-  const newestReviews = reviewStore((state) => state.newestReviews);
   const helpfulReviews = reviewStore((state) => state.helpfulReviews);
+  const newestReviews = reviewStore((state) => state.newestReviews);
   const relevantReviews = reviewStore((state) => state.relevantReviews);
+  const reviews = reviewStore((state) => state.reviews);
+  const setReviews = reviewStore((state) => state.setReviews);
 
   const updateSortType = () => {
     if (sortOption === 'newest') {
@@ -21,11 +21,11 @@ function Sort() {
       setReviews(relevantReviews);
     }
   };
+
   useEffect(() => {
-    // Update the zustandStore when sortOption is
     updateSortType();
   });
-  const reviews = reviewStore((state) => state.reviews);
+
   if (reviews) {
     const { results } = reviews;
     if (results) {
@@ -33,14 +33,19 @@ function Sort() {
 
       return (
         <span className="rr-sort">
+
           <span className="rr-sort-reviews">
             {numberOfReviews}
           </span>
+
           &nbsp;
+
           <span className="rr-sort-text">
             reviews, sorted by
           </span>
+
           &nbsp;
+
           <u className="rr-sort-sort-type">
             <select
               name="sort-options"
@@ -52,6 +57,7 @@ function Sort() {
               <option value="newest">newest</option>
               <option value="helpful">helpful</option>
               <option value="relevance">relevance</option>
+
             </select>
           </u>
         </span>

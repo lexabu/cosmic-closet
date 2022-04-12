@@ -6,6 +6,20 @@ import { LeftColumn, RightColumn } from '../components/RatingsReviews/index.js';
 
 function RatingsReviews() {
   const { id } = useParams();
+  const setHelpfulReviews = reviewStore((state) => state.setHelpfulReviews);
+  const setNewestReviews = reviewStore((state) => state.setNewestReviews);
+  const setRatings = reviewStore((state) => state.setRatings);
+  const setRelevantReviews = reviewStore((state) => state.setRelevantReviews);
+  const setReviews = reviewStore((state) => state.setReviews);
+  const ratingsURL = new URL(`${process.env.URL}reviews/meta`);
+  const reviewsURL = new URL(`${process.env.URL}reviews`);
+  const helpfulReviewsURL = reviewsURL;
+  const newestReviewsURL = reviewsURL;
+  const relevantReviewsURL = reviewsURL;
+  helpfulReviewsURL.searchParams.set('sort', 'helpful');
+  newestReviewsURL.searchParams.set('sort', 'newest');
+  relevantReviewsURL.searchParams.set('sort', 'relevant');
+
   const authHeaders = {
     headers: {
       Authorization: process.env.GITHUB_API_KEY,
@@ -15,19 +29,6 @@ function RatingsReviews() {
       count: 50,
     },
   };
-
-  const ratingsURL = new URL(`${process.env.URL}reviews/meta`);
-  const { helpfulReviewsURL, newestReviewsURL, relevantReviewsURL } = new URL(`${process.env.URL}reviews`);
-
-  helpfulReviewsURL.searchParams.set('sort', 'helpful');
-  newestReviewsURL.searchParams.set('sort', 'newest');
-  relevantReviewsURL.searchParams.set('sort', 'relevant');
-
-  const setHelpfulReviews = reviewStore((state) => state.setHelpfulReviews);
-  const setNewestReviews = reviewStore((state) => state.setNewestReviews);
-  const setRatings = reviewStore((state) => state.setRatings);
-  const setRelevantReviews = reviewStore((state) => state.setRelevantReviews);
-  const setReviews = reviewStore((state) => state.setReviews);
 
   useEffect(() => {
     axios.get(ratingsURL.toString(), authHeaders)
