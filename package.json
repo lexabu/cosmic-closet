@@ -15,6 +15,7 @@
     "babel-preset-airbnb": "^5.0.0",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
+    "express": "^4.17.3",
     "jquery": "^3.6.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
