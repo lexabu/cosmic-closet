@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { questionsStore } from '../../../stores.js';
 import './AddQuestionModal.scss';
@@ -17,12 +17,11 @@ function AddQuestionModal() {
           <div className="qa-question-modal-sub-header">
             <h3 className="qa-question-modal-title">About the Product Name Here</h3>
           </div>
-          {/* onSubmit={this.handleSubmit} */}
+
           <form className="qa-question-modal-form" onSubmit={setQuestionModalToggle}>
             <label htmlFor="question" className="qa-question-modal-label">
               Your Question*:
               <textarea id="question" rows="4" cols="50" maxLength={1000} placeholder="Why did you like the product or not?" />
-              {/* <input type="text" id="question" /> */}
             </label>
             <label htmlFor="nickname" className="qa-question-modal-label">
               Nickname*:
