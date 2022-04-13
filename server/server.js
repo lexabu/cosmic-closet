@@ -6,9 +6,13 @@ const publicPath = path.join(__dirname, '..', 'public');
 const port = process.env.PORT || 3000;
 
 app.use(express.static(publicPath));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
-});
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(publicPath, 'index.html'));
+// });
+//        Potentially not needed, since the line above will already serve up the public folder,
+//        automatically bringing in the index.html
+
 app.listen(port, () => {
   console.log('Server is up!');
 });

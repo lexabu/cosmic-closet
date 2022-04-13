@@ -148,6 +148,8 @@ dist
 
 node_modules
 
+bundle.js
+
 *.sublime*
 
 psd
