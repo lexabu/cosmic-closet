@@ -84,6 +84,7 @@ function App() {
           onClose={() => setCartOpened(false)}
           position="right"
           size="xl"
+          zIndex={999}
         >
           <Table
             striped
