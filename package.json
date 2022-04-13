@@ -24,6 +24,7 @@
     "react-router-dom": "6",
     "react-toastify": "^8.2.0",
     "react-uuid": "^1.0.2",
+    "webpack-cli": "^4.9.2",
     "zustand": "^3.7.1"
   },
   "devDependencies": {
@@ -43,7 +44,6 @@
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
   },
   "scripts": {
@@ -53,6 +53,7 @@
     "dev": "webpack serve --open"
   },
   "engines": {
+    "node": "16.14",
     "yarn": "1.22"
   }
 }
