@@ -15,7 +15,7 @@ function Styles() {
   const handleStyleChange = (style) => {
     setImgIdx(0);
     setSelectedSize('');
-    setSelectedQuantity('');
+    setSelectedQuantity('1');
     setSelectedStyle(style);
   };
 

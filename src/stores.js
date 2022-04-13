@@ -10,7 +10,7 @@ const details = (set, get) => ({
   setSelectedStyle: (data) => set({ selectedStyle: data }),
   selectedSize: '',
   setSelectedSize: (data) => set({ selectedSize: data }),
-  selectedQuantity: 1,
+  selectedQuantity: '1',
   setSelectedQuantity: (data) => set({ selectedQuantity: data }),
   showSizeSelector: false,
   // TODO: Combine the two toggle functions to be a single function

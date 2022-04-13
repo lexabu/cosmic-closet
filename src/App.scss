@@ -4,7 +4,8 @@
 
 // $color1: rgb(206, 186, 73);
 // $color2: rgb(85, 83, 83);
-$color1: hsl(184, 58%, 51%);
+// $color1: hsl(184, 58%, 51%);
+$color1: #19aabf;
 $color2: hsl(0, 0%, 50%);
 $color3: #000;
 $color4: rgb(27, 27, 27);
@@ -13,20 +14,20 @@ $buttonHeight: 48px;
 $hoverColor: hsl(180, 59%, 92%);
 
 button {
-  background-color: transparent;
-  height: $buttonHeight;
-  padding: 10px;
-  cursor: pointer;
-  // border: none;
-  border: solid thin $color3;
-  color: $color3;
-  text-transform: uppercase;
-  font-weight: bold;
+  // background-color: transparent;
+  // height: $buttonHeight;
+  // padding: 10px;
+  // cursor: pointer;
+  // // border: none;
+  // border: solid thin $color3;
+  // color: $color3;
+  // text-transform: uppercase;
+  // font-weight: bold;
 
-  // Center inner contents of button (if any)
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  // // Center inner contents of button (if any)
+  // display: inline-flex;
+  // align-items: center;
+  // justify-content: center;
 }
 
 button.small-pill {
@@ -35,9 +36,9 @@ button.small-pill {
   border-radius: 120px;
 }
 
-button:hover {
-  background-color: $hoverColor;
-}
+// button:hover {
+//   background-color: $hoverColor;
+// }
 
 button.hidden {
   background-color: transparent;
@@ -115,6 +116,16 @@ input:focus {
   top: 27px;
   right: 5%;
   cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  margin-left: 30px;
+}
+
+// Allow scrolling for overflow in the cart drawer
+.mantine-Paper-root {
+  overflow: scroll;
 }
 
 .pd-top-row-container {
