@@ -13,6 +13,4 @@ app.use(express.static(publicPath));
 //        Potentially not needed, since the line above will already serve up the public folder,
 //        automatically bringing in the index.html
 
-app.listen(port, () => {
-  console.log('Server is up!');
-});
+app.listen(port);
