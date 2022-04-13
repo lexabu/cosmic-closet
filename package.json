@@ -49,7 +49,7 @@
   "scripts": {
     "start": "node server/server.js",
     "test": "jest",
-    "build": "webpack --mode=production",
+    "build": "webpack",
     "dev": "webpack serve --open"
   },
   "engines": {
