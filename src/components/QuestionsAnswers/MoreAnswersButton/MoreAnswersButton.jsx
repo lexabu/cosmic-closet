@@ -27,7 +27,7 @@ function MoreAnswersButton({ questionObj }) {
     const maxAnswerObj = maxAnswersArr[i];
     if (maxAnswerObj[questionId] < anwserListLength) {
       return (
-        <button onClick={() => (addAnsweredQuestions(questionObj))} type="button">See More Answers</button>
+        <button className="small-pill" onClick={() => (addAnsweredQuestions(questionObj))} type="button">See More Answers</button>
       );
     }
   }

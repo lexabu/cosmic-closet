@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, SearchBar, QuestionList } from '../components/QuestionsAnswers/index.js';
+import { Title, SearchBar, QuestionList, AddQuestionModal } from '../components/QuestionsAnswers/index.js';
 
 function QuestionsAnswers() {
   return (
@@ -7,6 +7,7 @@ function QuestionsAnswers() {
       <Title />
       <SearchBar />
       <QuestionList />
+      <AddQuestionModal />
     </div>
   );
 }

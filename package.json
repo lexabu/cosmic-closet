@@ -52,7 +52,6 @@
     "dev": "webpack serve --open"
   },
   "engines": {
-    "node": "16.14",
     "yarn": "1.22"
   }
 }

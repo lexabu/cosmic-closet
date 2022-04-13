@@ -5,3 +5,5 @@ export { default as Question } from './Question/Question.jsx';
 export { default as Answer } from './Answer/Answer.jsx';
 export { default as MoreAnswersButton } from './MoreAnswersButton/MoreAnswersButton.jsx';
 export { default as MoreQuestionsButton } from './MoreQuestionsButton/MoreQuestionsButton.jsx';
+export { default as AddQuestionModal } from './AddQuestionModal/AddQuestionModal.jsx';
+export { default as AddAnswersModal } from './AddAnswerModal/AddAnswerModal.jsx';
