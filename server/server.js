@@ -7,10 +7,9 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(publicPath));
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(publicPath, 'index.html'));
-// });
-//        Potentially not needed, since the line above will already serve up the public folder,
-//        automatically bringing in the index.html
+// Making sure that all paths will serve up the same index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 app.listen(port);
