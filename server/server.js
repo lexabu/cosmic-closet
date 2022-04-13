@@ -8,8 +8,6 @@ const port = process.env.PORT || 3000;
 app.use(express.static(publicPath));
 app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
-  console.log('GET request');
-  // console.log(req);
 });
 app.listen(port, () => {
   console.log('Server is up!');
