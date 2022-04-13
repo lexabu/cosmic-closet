@@ -17,8 +17,10 @@
 
 .dp-social-container {
   display: flex;
+  justify-content: space-between;
   font-size: 3em;
   padding: 25px;
+  width: 300px;
 }
 
 .dp-social-icon {

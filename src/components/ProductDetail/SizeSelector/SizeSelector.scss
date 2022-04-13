@@ -44,7 +44,7 @@ $buttonSize: 48px;
 .pd-size-selector-container {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 63%;
   position: relative;
   height: $buttonSize;
 }
@@ -55,6 +55,10 @@ $buttonSize: 48px;
   flex-direction: column;
   width: 100%;
   top: $buttonSize;
+}
+
+#pd-size-selector {
+  width: 60%;
 }
 
 .pd-inner-button-container {
