@@ -106,7 +106,7 @@ function App() {
       <main>
         <ProductDetail />
         <QuestionsAnswers />
-        <RatingsReviews />
+        {/* <RatingsReviews /> */}
         <ToastContainer
           position="top-center"
           autoClose={4000}
