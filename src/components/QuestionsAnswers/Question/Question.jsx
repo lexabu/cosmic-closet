@@ -46,7 +46,7 @@ function Question({ questionObj, getAllQuestions }) {
           {`${questionObj.question_body}`}
         </div>
         <div className="qa-sub-question-parts-container">
-          <div className="qa-sub-question">Helpful? |</div>
+          <div className="qa-sub-question helpful">Helpful?</div>
           <div
             className="qa-sub-question"
             role="button"
@@ -54,9 +54,9 @@ function Question({ questionObj, getAllQuestions }) {
             onKeyPress={() => (handleKeyPress(questionObj))}
             onClick={() => (getUpdateHelpfulness(questionObj))}
           >
-            <span>Yes({questionObj.question_helpfulness})</span>
+            <span className="qa-sub-question yes">| Yes({questionObj.question_helpfulness})</span>
           </div>
-          <div className="qa-sub-question">| Add Answer</div>
+          <button id="addAnswer" className="qa-sub-question" type="button">| Add Answer</button>
         </div>
       </div>
       <Answer questionObj={questionObj} />

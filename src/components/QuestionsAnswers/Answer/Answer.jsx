@@ -135,7 +135,7 @@ function Answer({ questionObj }) {
                 >
                   {`Yes(${answer.helpfulness})`}
                 </div>
-                <div className="qa-sub-answer">| Report</div>
+                <div className="qa-sub-answer report">| Report</div>
               </div>
             </div>
           );

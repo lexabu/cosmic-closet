@@ -10,7 +10,6 @@
 
 .qa-question-body {
   font-size: 17px;
-  margin-bottom: 10px;
 }
 
 .qa-sub-question-parts-container {
@@ -21,4 +20,14 @@
 
 .qa-question-body {
   font-weight: bold;
+}
+
+#addAnswer,
+.yes {
+  border: none;
+  height: auto;
+  padding: 0;
+  text-transform: none;
+  font-weight: normal;
+  text-decoration: underline;
 }
