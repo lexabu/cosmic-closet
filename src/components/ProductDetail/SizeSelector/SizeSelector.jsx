@@ -41,15 +41,16 @@ function SizeSelector() {
   console.log('stylesArr', stylesArr);
 
   return (
-    <Select
-      id="pd-size-selector"
-      key="pd-size-selector"
-      value={selectedSize}
-      placeholder="Select Size"
-      size="lg"
-      onChange={setSelectedSize}
-      data={stylesArr}
-    />
+    <div id="pd-size-selector">
+      <Select
+        key="pd-size-selector"
+        value={selectedSize}
+        placeholder="Select Size"
+        size="lg"
+        onChange={setSelectedSize}
+        data={stylesArr}
+      />
+    </div>
   );
 }
 

@@ -13,22 +13,22 @@ $color4: rgb(27, 27, 27);
 $buttonHeight: 48px;
 $hoverColor: hsl(180, 59%, 92%);
 
-button {
-  // background-color: transparent;
-  // height: $buttonHeight;
-  // padding: 10px;
-  // cursor: pointer;
-  // // border: none;
-  // border: solid thin $color3;
-  // color: $color3;
-  // text-transform: uppercase;
-  // font-weight: bold;
+// button {
+// background-color: transparent;
+// height: $buttonHeight;
+// padding: 10px;
+// cursor: pointer;
+// // border: none;
+// border: solid thin $color3;
+// color: $color3;
+// text-transform: uppercase;
+// font-weight: bold;
 
-  // // Center inner contents of button (if any)
-  // display: inline-flex;
-  // align-items: center;
-  // justify-content: center;
-}
+// // Center inner contents of button (if any)
+// display: inline-flex;
+// align-items: center;
+// justify-content: center;
+// }
 
 button.small-pill {
   height: 24px;
@@ -91,7 +91,11 @@ input:focus {
 .top-banner {
   background-color: #fff;
   height: 80px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100vw;
+  margin-bottom: 114px;
 }
 
 .nav-list {
@@ -124,8 +128,9 @@ input:focus {
 }
 
 // Allow scrolling for overflow in the cart drawer
-.mantine-Paper-root {
+.cart-table-container {
   overflow: scroll;
+  padding: 10px;
 }
 
 .pd-top-row-container {

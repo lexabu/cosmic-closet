@@ -20,7 +20,6 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #eeeeee;
 }
 
 img,
@@ -49,9 +48,14 @@ h6 {
   overflow-wrap: break-word;
 }
 
+#root {
+  background-color: #eeeeee;
+}
+
 main {
   max-width: 1240px;
   padding: 16px;
   margin: auto;
-  height: 100vh;
+  margin-top: 86px;
+  height: 100%;
 }

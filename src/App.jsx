@@ -55,20 +55,17 @@ function App() {
       <td>{element.sku_id}</td>
       <td>{element.count}</td>
     </tr>
-  ))
+  ));
 
   useEffect(() => {
     axios.get(`${process.env.URL}cart`, { headers })
       .then((response) => {
-        console.log(response);
         setCartContents(response.data);
       });
   }, []);
 
   const [cartOpened, setCartOpened] = useState(false);
-  // console.log('app');
-  // console.log('cartOpened', cartOpened);
-  // console.log('setCartOpened', setCartOpened);
+
   return (
     <>
       {/* NAVBAR */}
@@ -82,11 +79,18 @@ function App() {
           <AiOutlineShoppingCart />
         </ActionIcon>
         <Drawer
+          className="cart-table-container"
           opened={cartOpened}
           onClose={() => setCartOpened(false)}
           position="right"
+          size="xl"
         >
-          <Table className="cart-table" striped highlightOnHover verticalSpacing="md" fontSize="md">
+          <Table
+            striped
+            highlightOnHover
+            verticalSpacing="md"
+            fontSize="md"
+          >
             <thead>
               <tr>
                 <th>Sku</th>
