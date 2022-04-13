@@ -47,6 +47,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "scripts": {
+    "start": "node server/server.js",
     "test": "jest",
     "build": "webpack --mode=production",
     "dev": "webpack serve --open"
