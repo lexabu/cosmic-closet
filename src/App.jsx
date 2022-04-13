@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { Drawer, Table, ActionIcon } from '@mantine/core';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import ProductDetail from './containers/ProductDetail.jsx';
@@ -9,6 +10,10 @@ import QuestionsAnswers from './containers/QuestionsAnswers.jsx';
 import RatingsReviews from './containers/RatingsReviews.jsx';
 
 function App() {
+  const headers = {
+    Authorization: process.env.GITHUB_API_KEY,
+  };
+
   const handleAnalytics = (e) => {
     // Get the widget
     let widgetFound = false;
@@ -16,7 +21,7 @@ function App() {
 
     e.path.forEach((path) => {
       if (widgetFound) { return; }
-      if (path.classList.contains('widget')) {
+      if (path.classList && path.classList.contains('widget')) {
         widget = path.id;
         widgetFound = true;
       }
@@ -27,15 +32,12 @@ function App() {
 
     // Get current time
     const time = new Date();
-
-    const headers = {
-      Authorization: process.env.GITHUB_API_KEY,
-    };
-
-    axios.post(`${process.env.URL}interactions`, { element, widget, time }, { headers })
-      .catch((err) => {
-        throw err;
-      });
+    if (widgetFound) {
+      axios.post(`${process.env.URL}interactions`, { element, widget, time }, { headers })
+        .catch((err) => {
+          throw err;
+        });
+    }
   };
 
   useEffect(() => {
@@ -46,6 +48,27 @@ function App() {
     };
   }, []);
 
+  const [cartContents, setCartContents] = useState([]);
+
+  const cartArr = cartContents.map((element) => (
+    <tr key={element.sku_id}>
+      <td>{element.sku_id}</td>
+      <td>{element.count}</td>
+    </tr>
+  ))
+
+  useEffect(() => {
+    axios.get(`${process.env.URL}cart`, { headers })
+      .then((response) => {
+        console.log(response);
+        setCartContents(response.data);
+      });
+  }, []);
+
+  const [cartOpened, setCartOpened] = useState(false);
+  // console.log('app');
+  // console.log('cartOpened', cartOpened);
+  // console.log('setCartOpened', setCartOpened);
   return (
     <>
       {/* NAVBAR */}
@@ -55,7 +78,24 @@ function App() {
           <li>Products</li>
           <li>About</li>
         </ul>
-        <AiOutlineShoppingCart className="cart-icon" />
+        <ActionIcon className="cart-icon" onClick={() => { setCartOpened(true); }}>
+          <AiOutlineShoppingCart />
+        </ActionIcon>
+        <Drawer
+          opened={cartOpened}
+          onClose={() => setCartOpened(false)}
+          position="right"
+        >
+          <Table className="cart-table" striped highlightOnHover verticalSpacing="md" fontSize="md">
+            <thead>
+              <tr>
+                <th>Sku</th>
+                <th>Qty</th>
+              </tr>
+            </thead>
+            <tbody>{cartArr}</tbody>
+          </Table>
+        </Drawer>
       </div>
       {/* MAIN SECTIONS */}
       <main>

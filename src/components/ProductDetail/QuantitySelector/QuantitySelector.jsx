@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import { AiFillCaretDown } from 'react-icons/ai';
+import React from 'react';
+// import { AiFillCaretDown } from 'react-icons/ai';
+import { Select } from '@mantine/core';
 import { detailStore } from '../../../stores.js';
 import './QuantitySelector.scss';
 
 function QuantitySelector() {
   const selectedStyle = detailStore((state) => state.selectedStyle);
   const selectedSizeSku = detailStore((state) => state.selectedSize);
+  const selectedQuantity = detailStore((state) => state.selectedQuantity);
   const setSelectedQuantity = detailStore((state) => state.setSelectedQuantity);
-  const showQuantitySelector = detailStore((state) => state.showQuantitySelector);
-  const toggleShowQuantitySelector = detailStore((state) => state.toggleShowQuantitySelector);
-
-  const [shownQuantity, setShownQuantity] = useState(1);
 
   if (selectedSizeSku === '') {
     return (
       <div className="pd-quantity-selector-container">
-        <button className="pd-quantity-button hidden" type="button" disabled>-</button>
+        <Select
+          disabled
+          placeholder="-"
+          data={[]}
+          size="lg"
+        />
       </div>
     );
   }
@@ -28,39 +31,21 @@ function QuantitySelector() {
       break;
     }
     quantityArr.push(
-      <button
-        className={`pd-dd-quantity-${showQuantitySelector}`}
-        type="button"
-        key={i}
-        onClick={() => {
-          setShownQuantity(i);
-          setSelectedQuantity(i);
-          toggleShowQuantitySelector(false);
-        }}
-      >
-        {i}
-      </button>,
+      {
+        value: i.toString(),
+        label: i.toString(),
+      },
     );
   }
 
   return (
     <div className="pd-quantity-selector-container">
-      <button
-        className="pd-quantity-button"
-        type="button"
-        onClick={() => {
-          toggleShowQuantitySelector();
-        }}
-      >
-        <div className="pd-inner-button-container">
-          <div className="inner-button-filler" />
-          <h4>{shownQuantity}</h4>
-          <AiFillCaretDown />
-        </div>
-      </button>
-      <div className={`pd-quantity-selector-options-container-${showQuantitySelector}`}>
-        {quantityArr}
-      </div>
+      <Select
+        value={selectedQuantity}
+        onChange={setSelectedQuantity}
+        data={quantityArr}
+        size="lg"
+      />
     </div>
   );
 }
