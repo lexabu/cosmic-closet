@@ -7,3 +7,4 @@ export { default as MoreAnswersButton } from './MoreAnswersButton/MoreAnswersBut
 export { default as MoreQuestionsButton } from './MoreQuestionsButton/MoreQuestionsButton.jsx';
 export { default as AddQuestionModal } from './AddQuestionModal/AddQuestionModal.jsx';
 export { default as AddAnswersModal } from './AddAnswerModal/AddAnswerModal.jsx';
+export { default as AddQuestionButton } from './AddQuestionButton/AddQuestionButton.jsx';

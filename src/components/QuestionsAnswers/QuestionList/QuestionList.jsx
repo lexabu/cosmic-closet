@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button } from '@mantine/core';
 
 import axios from 'axios';
 
 import { questionsStore } from '../../../stores.js';
-import { Question, MoreQuestionsButton } from '../index.js';
+import { Question, MoreQuestionsButton, AddQuestionButton } from '../index.js';
 import './QuestionList.scss';
 
 function QuestionList() {
@@ -59,19 +58,12 @@ function QuestionList() {
   }
 
   const allQuestions = questionsStore((state) => state.questions);
-  const setQuestionModalToggle = questionsStore((state) => state.setQuestionModalToggle);
 
   return (
     <div className="qa-question-list-container">
       <div>{mapQuestions(allQuestions)}</div>
       <MoreQuestionsButton />
-      <Button
-        className="add-question"
-        type="button"
-        onClick={setQuestionModalToggle}
-      >
-        Add Question
-      </Button>
+      <AddQuestionButton />
     </div>
   );
 }
