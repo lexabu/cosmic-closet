@@ -22,8 +22,11 @@
 }
 
 .home-product:hover {
-  transform: scale(1.1);
-  border: a.$color1 solid 1px;
+  transform: scale(1.05);
+  // border: a.$color1 solid 1px;
+  background: rgb(188 230 236);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(335deg, rgba(255, 255, 255, 1) 0%, rgba(188, 230, 236, 1) 100%);
 }
 
 .home-product-title {

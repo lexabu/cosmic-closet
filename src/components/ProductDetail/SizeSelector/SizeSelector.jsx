@@ -25,9 +25,12 @@ function SizeSelector() {
 
   if ((vals.length === 1 && vals[0].quantity == null) || qtySum === 0) {
     return (
-      <select disabled>
-        <option>OUT OF STOCK</option>
-      </select>
+      <Select
+        data={[]}
+        placeholder="OUT OF STOCK"
+        disabled
+        size="lg"
+      />
     );
   }
 
