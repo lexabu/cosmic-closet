@@ -3,10 +3,10 @@ import { ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
-import ProductDetail from './containers/ProductDetail.jsx';
-import QuestionsAnswers from './containers/QuestionsAnswers.jsx';
-import RatingsReviews from './containers/RatingsReviews.jsx';
-import Navbar from './containers/Navbar.jsx';
+import ProductDetail from '../containers/ProductDetail.jsx';
+import QuestionsAnswers from '../containers/QuestionsAnswers.jsx';
+import RatingsReviews from '../containers/RatingsReviews.jsx';
+import Navbar from '../containers/Navbar.jsx';
 
 function App() {
   const headers = {
