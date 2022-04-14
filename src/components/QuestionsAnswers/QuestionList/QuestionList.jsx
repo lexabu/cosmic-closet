@@ -62,8 +62,10 @@ function QuestionList() {
   return (
     <div className="qa-question-list-container">
       <div>{mapQuestions(allQuestions)}</div>
-      <MoreQuestionsButton />
-      <AddQuestionButton />
+      <div className="qa-buttons-container">
+        <MoreQuestionsButton />
+        <AddQuestionButton />
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@mantine/core';
 import { questionsStore } from '../../../stores.js';
 
 function MoreAnswersButton({ questionObj }) {
@@ -27,7 +28,16 @@ function MoreAnswersButton({ questionObj }) {
     const maxAnswerObj = maxAnswersArr[i];
     if (maxAnswerObj[questionId] < anwserListLength) {
       return (
-        <button className="small-pill" onClick={() => (addAnsweredQuestions(questionObj))} type="button">See More Answers</button>
+        <Button
+          color="cyan"
+          radius="xl"
+          size="md"
+          compact
+          type="button"
+          onClick={() => (addAnsweredQuestions(questionObj))}
+        >
+          See More Answers
+        </Button>
       );
     }
   }
