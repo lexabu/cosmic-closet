@@ -1,0 +1,79 @@
+@use '../colors.scss'as a;
+
+.top-banner {
+  background-color: #fff;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  margin-bottom: 114px;
+}
+
+.nav-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  /* list-style-type: none; */
+  width: 50%;
+  height: 100%;
+  margin: auto;
+}
+
+.nav-item {
+  display: flex;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  // transition: .1s;
+}
+
+.nav-item:hover {
+  color: a.$color1;
+  // font-size: 17px;
+}
+
+.nav-item.active {
+  font-weight: 800;
+  color: a.$color1;
+}
+
+.nav-item svg {
+  font-size: 24px;
+}
+
+.cart-icon {
+  position: absolute;
+  font-size: 26px;
+  top: 27px;
+  right: 5%;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  margin-left: 30px;
+}
+
+// Allow scrolling for overflow in the cart drawer
+.cart-table-container {
+  overflow: scroll;
+  padding: 10px;
+}
+
+.pd-top-row-container {
+  // display: flex;
+  height: 75vh;
+  max-height: 700px;
+  min-height: 590px;
+  position: relative;
+  transition: .3s;
+}
+
+.pd-top-row-container.zoomed {
+  height: 90vh;
+}

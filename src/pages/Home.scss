@@ -1,0 +1,56 @@
+@use '../colors.scss'as a;
+
+.all-products-container {
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 25px;
+}
+
+.home-product {
+  height: 333px;
+  // width: 18%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  font-weight: bold;
+  text-align: center;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));
+  transition: .3s;
+  text-decoration: none;
+  color: #000;
+}
+
+.home-product:hover {
+  transform: scale(1.05);
+  // border: a.$color1 solid 1px;
+  background: rgb(188 230 236);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(335deg, rgba(255, 255, 255, 1) 0%, rgba(188, 230, 236, 1) 100%);
+}
+
+.home-product-title {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+  align-items: center;
+}
+
+.home-product-title h2 {
+  text-transform: uppercase;
+}
+
+.home-product-title em {
+  font-size: 13px;
+}
+
+$breakpoint-main: 1200px;
+
+@media (max-width: $breakpoint-main) {
+  .all-products-container {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 25px;
+  }
+}

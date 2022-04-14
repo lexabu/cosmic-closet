@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import $ from 'jquery';
-// import { toast } from 'react-toastify';
 import { Button } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { BsFillCartCheckFill, BsRulers } from 'react-icons/bs';
@@ -15,7 +13,7 @@ function AddToCart() {
   const handleClick = () => {
     // Show size dropdown if no size selected
     if (selectedSizeSku === '') {
-      $('#pd-size-selector').trigger('click');
+      document.getElementById('pd-size-selector').click();
 
       showNotification({
         title: 'Please select size',

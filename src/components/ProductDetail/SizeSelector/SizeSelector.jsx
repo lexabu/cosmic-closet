@@ -25,9 +25,12 @@ function SizeSelector() {
 
   if ((vals.length === 1 && vals[0].quantity == null) || qtySum === 0) {
     return (
-      <select disabled>
-        <option>OUT OF STOCK</option>
-      </select>
+      <Select
+        data={[]}
+        placeholder="OUT OF STOCK"
+        disabled
+        size="lg"
+      />
     );
   }
 
@@ -38,12 +41,13 @@ function SizeSelector() {
     );
   });
 
-  console.log('stylesArr', stylesArr);
+  // console.log('stylesArr', stylesArr);
 
   return (
-    <div id="pd-size-selector">
+    <div className="pd-size-selector-container">
       <Select
         key="pd-size-selector"
+        id="pd-size-selector"
         value={selectedSize}
         placeholder="Select Size"
         size="lg"
