@@ -92,9 +92,6 @@ const questionsStore = create(
     setAnswerModalToggle: () => set((state) => ({
       answerModalToggle: !state.answerModalToggle,
     })),
-    // dogs: 999,
-    // increaseDogs: () => set((state) => ({ dogs: state.dogs + 1 })),
-    // decreaseDogs: () => set((state) => ({ dogs: state.dogs - 1 })),
   })),
 );
 
