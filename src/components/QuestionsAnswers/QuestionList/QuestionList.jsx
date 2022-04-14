@@ -51,9 +51,10 @@ function QuestionList() {
             </div>
           );
         }
+        return <div />;
       });
     }
-    return (<div />);
+    return <div />;
   }
 
   const allQuestions = questionsStore((state) => state.questions);
