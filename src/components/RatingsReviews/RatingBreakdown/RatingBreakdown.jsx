@@ -32,7 +32,6 @@ function RatingBody({
     </button>
   );
 }
-// todo look at line 26
 function RatingBreakdown() {
   const metaRatings = reviewStore((state) => state.ratings);
   const { ratings, recommended } = metaRatings;
