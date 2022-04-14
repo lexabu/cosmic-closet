@@ -44,7 +44,7 @@ function RatingSummary() {
         </div>
         <div className="rr-rs-review-count">
           Total Review Count:
-          {' '}
+          &nbsp;
           {reviewCount}
         </div>
       </div>
