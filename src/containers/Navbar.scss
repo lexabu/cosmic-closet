@@ -19,6 +19,7 @@
   width: 50%;
   height: 100%;
   margin: auto;
+  padding: 0;
 }
 
 .nav-item {
@@ -76,4 +77,8 @@
 
 .pd-top-row-container.zoomed {
   height: 90vh;
+}
+
+.product-popdown-item {
+  // text-align: center;
 }

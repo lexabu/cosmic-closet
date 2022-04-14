@@ -1,9 +1,23 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
+// import axios from 'axios';
+
+// const headers = {
+//   Authorization: process.env.GITHUB_API_KEY,
+// };
 
 const details = (set, get) => ({
-  tab: 'home',
-  setTab: (data) => set({ tab: data }),
+  allProducts: [],
+  setAllProducts: (data) => set({ allProducts: data }),
+  // fetchAllProducts: () => {
+  //   axios.get(`${process.env.URL}products`, { headers })
+  //     .then((response) => {
+  //       set({ allProducts: response.data });
+  //     })
+  //     .catch((err) => {
+  //       throw err;
+  //     });
+  // },
   productDetails: [],
   setProductDetails: (data) => set({ productDetails: data }),
   styles: [],
