@@ -1,11 +1,13 @@
 .qa-question-list-container {
   display: flex;
   flex-direction: column;
-  border-left: solid 2px black;
-  border-right: solid 2px black;
   max-height: 600px;
   overflow-y: auto;
-  padding: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.qa-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
 }
