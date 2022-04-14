@@ -1,14 +1,16 @@
 import React from 'react';
+import { Button } from '@mantine/core';
 import './SearchBar.scss';
 
 function SearchBar() {
   return (
     <div>
       <input
+        className="search"
         type="text"
         placeholder="Have a question? Search for answers…"
       />
-      <button type="button">Search</button>
+      <Button className="search-button">Search</Button>
     </div>
   );
 }

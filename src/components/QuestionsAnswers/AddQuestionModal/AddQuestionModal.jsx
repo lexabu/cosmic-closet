@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { questionsStore } from '../../../stores.js';
+import { questionsStore, detailStore } from '../../../stores.js';
 import './AddQuestionModal.scss';
 
 function AddQuestionModal() {
   const questionModalToggle = questionsStore((state) => state.questionModalToggle);
   const setQuestionModalToggle = questionsStore((state) => state.setQuestionModalToggle);
+  const productDetails = detailStore((state) => state.productDetails);
 
   if (questionModalToggle) {
     return (
@@ -15,7 +16,7 @@ function AddQuestionModal() {
             <h2 className="qa-question-modal-title">Ask Your Question</h2>
           </div>
           <div className="qa-question-modal-sub-header">
-            <h3 className="qa-question-modal-title">About the Product Name Here</h3>
+            <h3 className="qa-question-modal-title">{`About the ${productDetails.name}`}</h3>
           </div>
 
           <form className="qa-question-modal-form" onSubmit={setQuestionModalToggle}>

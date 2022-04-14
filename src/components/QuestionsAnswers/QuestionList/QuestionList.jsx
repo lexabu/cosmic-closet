@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import { questionsStore } from '../../../stores.js';
-import { Question, MoreQuestionsButton } from '../index.js';
+import { Question, MoreQuestionsButton, AddQuestionButton } from '../index.js';
 import './QuestionList.scss';
 
 function QuestionList() {
@@ -51,19 +51,19 @@ function QuestionList() {
             </div>
           );
         }
+        return <div key={question.question_id} />;
       });
     }
-    return (<div />);
+    return <div />;
   }
 
   const allQuestions = questionsStore((state) => state.questions);
-  const setQuestionModalToggle = questionsStore((state) => state.setQuestionModalToggle);
 
   return (
     <div className="qa-question-list-container">
       <div>{mapQuestions(allQuestions)}</div>
       <MoreQuestionsButton />
-      <button type="button" onClick={setQuestionModalToggle}>Add Question</button>
+      <AddQuestionButton />
     </div>
   );
 }
