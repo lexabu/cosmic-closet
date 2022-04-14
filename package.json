@@ -47,7 +47,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "yarn global add webpack-cli && webpack --mode=production",
     "dev": "webpack serve --open",
     "start": "node server/server.js",
     "test": "jest"
