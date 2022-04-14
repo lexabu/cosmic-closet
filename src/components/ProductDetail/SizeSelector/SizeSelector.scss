@@ -1,4 +1,4 @@
-@use '../../../App.scss'as a;
+@use 'src/colors.scss'as a;
 $buttonSize: 48px;
 
 .pd-dd-size-false {
@@ -24,22 +24,7 @@ $buttonSize: 48px;
 .pd-selectors-container {
   display: flex;
   justify-content: space-between;
-  // height: $buttonSize;
 }
-
-// .pd-size-button {
-//   height: $buttonSize;
-//   background-color: white;
-//   border: solid thin;
-//   text-transform: uppercase;
-//   padding: 10px;
-//   cursor: pointer;
-//   border-radius: 5px;
-// }
-
-// .pd-size-button:hover {
-//   background-color: aliceblue;
-// }
 
 .pd-size-selector-container {
   display: flex;
@@ -55,10 +40,6 @@ $buttonSize: 48px;
   flex-direction: column;
   width: 100%;
   top: $buttonSize;
-}
-
-#pd-size-selector {
-  width: 60%;
 }
 
 .pd-inner-button-container {

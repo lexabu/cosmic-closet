@@ -2,6 +2,8 @@ import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 const details = (set, get) => ({
+  tab: 'home',
+  setTab: (data) => set({ tab: data }),
   productDetails: [],
   setProductDetails: (data) => set({ productDetails: data }),
   styles: [],

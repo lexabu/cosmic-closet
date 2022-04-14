@@ -37,7 +37,8 @@ function ImageGallery() {
     }
   });
 
-  if (selectedStyle.photos === undefined) {
+  // Optional chaining here is the simplest way
+  if (selectedStyle?.photos?.[imgIdx] === undefined) {
     return <LoadingOverlay visible />;
   }
 
