@@ -1,4 +1,4 @@
-@use '../../../App.scss'as a;
+@use '../../../colors.scss'as a;
 
 .rr-rating-breakdown {
   align-items: center;
@@ -27,10 +27,19 @@
 }
 
 .rr-rb-body-item {
+  background-color: transparent;
+  padding: 10px;
+  cursor: pointer;
+  color: a.$color3;
+  align-items: center;
   border: none;
   text-transform: none;
   font-weight: normal;
   text-decoration: underline;
   display: flex;
   justify-content: space-between;
+}
+
+.rr-rb-body-item:hover {
+  background-color: a.$hoverColor;
 }
