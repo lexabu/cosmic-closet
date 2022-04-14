@@ -1,5 +1,8 @@
 .qa-question-container {
   margin-bottom: 15px;
+  background: white;
+  border-radius: 31px;
+  padding: 18px;
 }
 
 .qa-question-parts-container {
@@ -31,6 +34,7 @@
   border: none;
   height: auto;
   padding: 0;
+  background-color: white;
   text-transform: none;
   font-weight: normal;
   text-decoration: underline;
