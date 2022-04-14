@@ -12,26 +12,17 @@
 <br />
 <br />
 
-<p>Make axios requests in React using hooks.</p>
-
-# retro
-Project Atelier Shopping App
-
-
-
+# Front End Capstone Shopping App
 ## ✨ Development Features
 - 🔍 airbnb linting
 - 💾 env ready
 - 🧶 yarn package manager
 
 ## ✨ Front End Features
-- react Version: 18
-State Management: Zustand with a single store.js file and many store objects
-
-
-## ✨ Back End Features
-- 🔍 airbnb linting
-- 💾 env ready
-
+- ⚛️ react 18
+- 🧸 zustand bearbones state-management
+- 💁‍♀️ sassy CSS
+- ⼬ react-router
+- ಊ react-uuid
 ## Check out our website
 [<img src="https://www.svgrepo.com/show/4942/link-button.svg" alt="Open Link to Hosted Repo">](http://3.91.19.158:3000/66642)
