@@ -1,0 +1,27 @@
+.all-products-container {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.home-product {
+  height: 333px;
+  width: 18%;
+  background-color: #fff;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));
+  transition: .3s;
+}
+
+.home-product:hover {
+  transform: scale(1.15);
+  text-decoration: none;
+}
+
+.home-product-title {
+  height: 100%;
+}

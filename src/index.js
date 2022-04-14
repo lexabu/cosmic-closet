@@ -11,6 +11,7 @@ import { createRoot } from 'react-dom/client'; // new way for React 18
 
 import './index.scss';
 import App from './pages/App.jsx';
+import Home from './pages/Home.jsx';
 
 // render the App
 const container = document.getElementById('root');
@@ -28,12 +29,15 @@ root.render(
                      i.e. :   localhost:3000/123 -> id === 123
           or when deployed:         site.com/123 -> id === 123
       */}
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<Home />} />
       <Route
         path="/:id"
         element={
           (
-            <MantineProvider>
+            <MantineProvider theme={{
+              primaryColor: 'cyan',
+            }}
+            >
               <NotificationsProvider
                 position="top-right"
                 zIndex={9999}
