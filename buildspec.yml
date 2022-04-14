@@ -22,4 +22,5 @@ phases:
       - yarn run build
   post_build:
     commands:
+      - yarn start
       - echo 'Finished.'
