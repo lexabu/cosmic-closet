@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { Drawer, Table, ActionIcon } from '@mantine/core';
-import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
+import { AiOutlineShoppingCart, AiOutlineGithub } from 'react-icons/ai';
+import {
+  Drawer,
+  Table,
+  ActionIcon,
+  Space,
+} from '@mantine/core';
+import './Navbar.scss';
 
 function Navbar() {
   const headers = {
@@ -32,9 +38,28 @@ function Navbar() {
       {/* NAVBAR */}
       <div className="top-banner">
         <ul className="nav-list">
-          <li>Home</li>
-          <li>Products</li>
-          <li>About</li>
+          <Link
+            className={`nav-item${window.location.pathname === '/' ? ' active' : ''}`}
+            to="/"
+          >
+            Home
+          </Link>
+          <li
+            className={`nav-item${window.location.pathname !== '/' ? ' active' : ''}`}
+          // onClick={() => { console.log('clicked products tab'); }}
+          >
+            Products
+          </li>
+          <a
+            className="nav-item"
+            href="https://github.com/Team-1-Mercury/retro#readme"
+            target="_blank"
+            rel="noreferrer"
+          >
+            About
+            <Space w="md" />
+            <AiOutlineGithub />
+          </a>
         </ul>
         <ActionIcon className="cart-icon" onClick={() => { setCartOpened(true); }}>
           <AiOutlineShoppingCart />

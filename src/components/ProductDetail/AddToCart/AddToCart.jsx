@@ -15,6 +15,7 @@ function AddToCart() {
   const handleClick = () => {
     // Show size dropdown if no size selected
     if (selectedSizeSku === '') {
+      console.log('no selected size');
       $('#pd-size-selector').trigger('click');
 
       showNotification({

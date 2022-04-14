@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import uuid from 'react-uuid';
-import { Center, Anchor } from '@mantine/core';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Home.scss';
 import Navbar from '../containers/Navbar.jsx';
@@ -25,11 +25,12 @@ function Home() {
       <main>
         <div className="all-products-container">
           {products.map((product) => (
-            <Anchor key={uuid()} className="home-product" href={product.id} color="cyan">
-              <Center className="home-product-title">
-                {product.name}
-              </Center>
-            </Anchor>
+            <Link key={uuid()} className="home-product" to={`/${product.id}`}>
+              <div className="home-product-title">
+                <h2>{product.name}</h2>
+                <em>{product.slogan}</em>
+              </div>
+            </Link>
           ))}
         </div>
       </main>

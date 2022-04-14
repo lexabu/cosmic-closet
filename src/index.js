@@ -30,6 +30,7 @@ root.render(
           or when deployed:         site.com/123 -> id === 123
       */}
       <Route path="/" element={<Home />} />
+      {/* <Route path="/about" element={<Home />} /> */}
       <Route
         path="/:id"
         element={
