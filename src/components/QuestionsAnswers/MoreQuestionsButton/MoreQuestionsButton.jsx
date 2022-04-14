@@ -1,5 +1,7 @@
 import React from 'react';
+import { Button } from '@mantine/core';
 import { questionsStore } from '../../../stores.js';
+import './MoreQuestionsButton.scss';
 
 function MoreQuestionsButton() {
   const allQuestionsLength = questionsStore((state) => state.questions.length);
@@ -9,7 +11,7 @@ function MoreQuestionsButton() {
   // Only if max is less than the questions array length, render button
   if (maxQuestions < allQuestionsLength) {
     return (
-      <button onClick={setMaxQuestions} type="button">More Answered Questions</button>
+      <Button className="add-more-answers" onClick={setMaxQuestions} type="button">More Answered Questions</Button>
     );
   }
 }

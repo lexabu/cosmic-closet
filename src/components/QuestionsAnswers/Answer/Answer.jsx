@@ -22,26 +22,6 @@ function Answer({ questionObj }) {
     return maxAnswers;
   }
 
-  // function getAllAnswers() {
-  //   axios({
-  //     url: `${process.env.URL}qa/questions/${questionObj.question_id}/answers`,
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: process.env.GITHUB_API_KEY,
-  //     },
-  //   })
-  //     .then((data) => {
-  //       setAnswers(data.data.results);
-  //     })
-  //     .catch((err) => {
-  //       throw err;
-  //     });
-  // }
-
-  // useEffect(() => {
-  //   getAllAnswers();
-  // }, []);
-
   const setMaxAnswersArr = questionsStore((state) => state.setMaxAnswersArr);
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Button } from '@mantine/core';
 
 import axios from 'axios';
 
@@ -51,7 +52,7 @@ function QuestionList() {
             </div>
           );
         }
-        return <div />;
+        return <div key={question.question_id} />;
       });
     }
     return <div />;
@@ -64,7 +65,13 @@ function QuestionList() {
     <div className="qa-question-list-container">
       <div>{mapQuestions(allQuestions)}</div>
       <MoreQuestionsButton />
-      <button type="button" onClick={setQuestionModalToggle}>Add Question</button>
+      <Button
+        className="add-question"
+        type="button"
+        onClick={setQuestionModalToggle}
+      >
+        Add Question
+      </Button>
     </div>
   );
 }
