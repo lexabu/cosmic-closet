@@ -47,9 +47,9 @@
     "webpack-dev-server": "^4.7.4"
   },
   "engines": {
-    "node": "16.14.2",
-    "npm": "8.5.0",
-    "yarn": "1.22.17"
+    "node": ">=12.x",
+    "npm": "8.x",
+    "yarn": "1.x"
   },
   "scripts": {
     "build": "webpack --mode=production",
