@@ -49,7 +49,13 @@ function RatingBreakdown() {
     const fourStarRatings = ratings['4'] || 0;
     const fiveStarRatings = ratings['5'] || 0;
 
-    const ratingInfo = [['one', 1, oneStarRatings], ['two', 2, twoStarRatings], ['three', 3, threeStarRatings], ['four', 4, fourStarRatings], ['five', 5, fiveStarRatings]];
+    const ratingInfo = [
+      ['five', 5, fiveStarRatings],
+      ['four', 4, fourStarRatings],
+      ['three', 3, threeStarRatings],
+      ['two', 2, twoStarRatings],
+      ['one', 1, oneStarRatings],
+    ];
 
     return (
       <div className="rr-rating-breakdown">
