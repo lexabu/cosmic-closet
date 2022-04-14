@@ -36,6 +36,7 @@ root.render(
             <MantineProvider>
               <NotificationsProvider
                 position="top-right"
+                zIndex={9999}
               >
                 <App />
               </NotificationsProvider>
