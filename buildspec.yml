@@ -1,14 +1,15 @@
+version: 0.2
+
 phases:
   install:
     runtime-versions:
-       nodejs: 14
+       nodejs: 16
+  pre_build:
     commands:
       - npm install -g yarn
       - git config --global credential.helper '!aws codecommit credential-helper $@'
       - git config --global credential.UseHttpPath true
       - yarn
-  pre_build:
-    commands:
       - echo 'pre_build Finished.'
   build:
     commands:
@@ -16,6 +17,3 @@ phases:
   post_build:
     commands:
       - echo 'Finished.'
-cache:
-  paths:
-    - 'node_modules/**/*'
