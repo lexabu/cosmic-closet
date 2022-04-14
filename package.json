@@ -47,12 +47,12 @@
     "webpack-dev-server": "^4.7.4"
   },
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.x",
     "npm": ">=8.x",
     "yarn": ">=1.x"
   },
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "webpack",
     "dev": "webpack serve --open",
     "start": "node server/server.js",
     "test": "jest"
