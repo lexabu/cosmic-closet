@@ -2,17 +2,23 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 14.x
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+      - npm install -g yarn
+      - yarn
+      - echo Install complete
+    finally:
+      - echo Final Install
   pre_build:
     commands:
-      - npm install -g yarn
-      - git config --global credential.helper '!aws codecommit credential-helper $@'
-      - git config --global credential.UseHttpPath true
-      - yarn
-      - echo 'pre_build Finished.'
+      - echo Entered the pre_build phase...
+    finally:
+      - echo Final Pre_build
   build:
     commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
       - yarn run build
   post_build:
     commands:
