@@ -174,3 +174,7 @@ sketch
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/yarn,node,react
+
+# compression and stats
+stats.json
+public/bundle.js.gz
