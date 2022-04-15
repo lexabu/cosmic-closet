@@ -47,6 +47,7 @@
   "repository": "https://github.com/Team-1-Mercury/retro.git",
   "scripts": {
     "build": "webpack --mode=production",
+    "build-stats": "webpack --json > stats.json",
     "dev": "webpack serve --open",
     "start": "node server/server.js",
     "test": "jest"
