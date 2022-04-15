@@ -4,7 +4,7 @@
 
 import React from 'react';
 import uuid from 'react-uuid';
-import { LoadingOverlay, Skeleton } from '@mantine/core';
+import { LoadingOverlay } from '@mantine/core';
 import { showNotification, cleanNotifications } from '@mantine/notifications';
 import InnerImageZoom from 'react-inner-image-zoom';
 import {
