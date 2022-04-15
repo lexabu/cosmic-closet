@@ -106,7 +106,13 @@ function Navbar() {
             <Github />
           </a>
         </ul>
-        <ActionIcon className="cart-icon" onClick={() => { setCartOpened(true); }}>
+        <ActionIcon
+          aria-label="cart button"
+          className="cart-icon"
+          onClick={() => {
+            setCartOpened(true);
+          }}
+        >
           <Cart />
         </ActionIcon>
         <Drawer
