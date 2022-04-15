@@ -4,14 +4,12 @@ import './WidthScale.scss';
 
 function WidthScale() {
   return (
-    <div>
-      <RatingScale
-        name="Width"
-        label1="Too narrow"
-        label2="Perfect"
-        label3="Too Wide"
-      />
-    </div>
+    <RatingScale
+      name="Width"
+      label1="Too narrow"
+      label2="Perfect"
+      label3="Too Wide"
+    />
   );
 }
 
