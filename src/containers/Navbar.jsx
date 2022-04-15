@@ -69,7 +69,7 @@ function Navbar() {
                 tabIndex={0}
                 role="button"
                 className={`nav-item${window.location.pathname !== '/' ? ' active' : ''}`}
-                onClick={() => { setProductsOpened(true); }}
+                onClick={() => { setProductsOpened(!productsOpened); }}
                 onKeyDown={(e) => { console.log(e); }}
               >
                 Products
@@ -79,14 +79,17 @@ function Navbar() {
             position="bottom"
             withArrow
           >
-            {allProducts.map((product) => {
-              console.log(product.category);
-              return (
-                <div className="product-popdown-item" key={uuid()}>
+            <div className="nav-product-link-container">
+              {allProducts.map((product) => (
+                <a
+                  href={`/${product.id}`}
+                  className={`product-popdown-item${window.location.pathname === `/${product.id}` ? ' active' : ''}`}
+                  key={uuid()}
+                >
                   {product.name}
-                </div>
-              );
-            })}
+                </a>
+              ))}
+            </div>
           </Popover>
           <a
             className="nav-item"
