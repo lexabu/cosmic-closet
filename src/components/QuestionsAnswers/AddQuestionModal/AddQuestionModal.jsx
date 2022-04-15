@@ -1,5 +1,8 @@
 import React from 'react';
-import { Button } from '@mantine/core';
+import { useParams } from 'react-router-dom';
+
+import axios from 'axios';
+
 import { questionsStore, detailStore } from '../../../stores.js';
 import './AddQuestionModal.scss';
 
@@ -7,6 +10,50 @@ function AddQuestionModal() {
   const questionModalToggle = questionsStore((state) => state.questionModalToggle);
   const setQuestionModalToggle = questionsStore((state) => state.setQuestionModalToggle);
   const productDetails = detailStore((state) => state.productDetails);
+  const setQuestions = questionsStore((state) => state.setQuestions);
+  const { id } = useParams();
+
+  function handleSubmit() {
+    axios({
+      url: `${process.env.URL}qa/questions`,
+      method: 'POST',
+      headers: {
+        Authorization: process.env.GITHUB_API_KEY,
+      },
+      data: {
+        body: 'ksdjf',
+        name: 'sdf',
+        email: 'asd@ksnd.com',
+        product_id: id,
+      },
+    })
+      .then(() => {
+        axios({
+          url: `${process.env.URL}qa/questions`,
+          method: 'GET',
+          headers: {
+            Authorization: process.env.GITHUB_API_KEY,
+          },
+          params: {
+            product_id: id,
+            count: 100,
+          },
+        })
+          .then((data) => {
+            setQuestions(data.data.results);
+          })
+          .catch((err) => {
+            throw err;
+          });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+  // NEXT STEPS:
+  // Create a variables to hold the current state of the inputs: body, name, email
+  // Create handleChange function to update those inputs in state
+  // add those inputs to the request
 
   if (questionModalToggle) {
     return (
