@@ -2,6 +2,8 @@
   "author": "Alex Abushanab <38299309+lexabu@users.noreply.github.com>",
   "dependencies": {
     "@mantine/core": "^4.1.3",
+    "@mantine/hooks": "^4.1.3",
+    "@mantine/next": "^4.1.3",
     "@mantine/notifications": "^4.1.3",
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
