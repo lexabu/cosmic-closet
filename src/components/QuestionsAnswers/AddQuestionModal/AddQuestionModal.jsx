@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button } from '@mantine/core';
 import { questionsStore, detailStore } from '../../../stores.js';
 import './AddQuestionModal.scss';
 
@@ -34,7 +34,7 @@ function AddQuestionModal() {
               <input type="text" id="email" placeholder="example@gmail.com" maxLength={60} />
               <h5>For authentication reasons, you will not be emailed</h5>
             </label>
-            <input type="submit" value="Submit" />
+            <input className="submit-button" type="submit" value="Submit" />
           </form>
         </div>
       </div>
