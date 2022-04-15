@@ -1,23 +1,9 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
-// import axios from 'axios';
-
-// const headers = {
-//   Authorization: process.env.GITHUB_API_KEY,
-// };
 
 const details = (set, get) => ({
   allProducts: [],
   setAllProducts: (data) => set({ allProducts: data }),
-  // fetchAllProducts: () => {
-  //   axios.get(`${process.env.URL}products`, { headers })
-  //     .then((response) => {
-  //       set({ allProducts: response.data });
-  //     })
-  //     .catch((err) => {
-  //       throw err;
-  //     });
-  // },
   productDetails: [],
   setProductDetails: (data) => set({ productDetails: data }),
   styles: [],
@@ -28,23 +14,6 @@ const details = (set, get) => ({
   setSelectedSize: (data) => set({ selectedSize: data }),
   selectedQuantity: '1',
   setSelectedQuantity: (data) => set({ selectedQuantity: data }),
-  showSizeSelector: false,
-  // TODO: Combine the two toggle functions to be a single function
-  toggleShowSizeSelector: (bool) => {
-    if (bool === undefined) {
-      set({ showSizeSelector: !get().showSizeSelector });
-    } else {
-      set({ showSizeSelector: bool });
-    }
-  },
-  showQuantitySelector: false,
-  toggleShowQuantitySelector: (bool) => {
-    if (bool === undefined) {
-      set({ showQuantitySelector: !get().showQuantitySelector });
-    } else {
-      set({ showQuantitySelector: bool });
-    }
-  },
   startingThumbnailIndex: 0,
   setStartingThumbnailIndex: (data) => set({ startingThumbnailIndex: data }),
   selectedImageIndex: 0,

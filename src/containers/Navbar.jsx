@@ -70,7 +70,11 @@ function Navbar() {
                 role="button"
                 className={`nav-item${window.location.pathname !== '/' ? ' active' : ''}`}
                 onClick={() => { setProductsOpened(!productsOpened); }}
-                onKeyDown={(e) => { console.log(e); }}
+                onKeyDown={(e) => {
+                  if (e.code === 'Enter') {
+                    setProductsOpened(true);
+                  }
+                }}
               >
                 Products
               </span>
