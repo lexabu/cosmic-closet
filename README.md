@@ -16,7 +16,7 @@
   
 ## ✨ Development Features
 - 🔍 airbnb linting
-- 💾 env ready
+- 💾 env
 - 🧶 yarn package manager
 
 ## ✨ Front End Features
@@ -25,3 +25,4 @@
 - 💁‍♀️ sassy CSS
 - ⼬ react-router
 - ಊ react-uuid
+- 🗜 Node.js compression
