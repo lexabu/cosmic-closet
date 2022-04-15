@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import uuid from 'react-uuid';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { AiOutlineShoppingCart, AiOutlineGithub } from 'react-icons/ai';
+import { Cart, Github } from 'react-bootstrap-icons';
 import {
   Drawer,
   Table,
@@ -103,11 +103,11 @@ function Navbar() {
           >
             About
             <Space w="md" />
-            <AiOutlineGithub />
+            <Github />
           </a>
         </ul>
         <ActionIcon className="cart-icon" onClick={() => { setCartOpened(true); }}>
-          <AiOutlineShoppingCart />
+          <Cart />
         </ActionIcon>
         <Drawer
           className="cart-table-container"

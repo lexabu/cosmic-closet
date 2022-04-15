@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Button } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
-import { BsFillCartCheckFill, BsRulers } from 'react-icons/bs';
+import { CartCheckFill, Rulers } from 'react-bootstrap-icons';
 import { detailStore } from '../../../stores.js';
 import './AddToCart.scss';
 
@@ -19,7 +19,7 @@ function AddToCart() {
         title: 'Please select size',
         message: 'You want it to fit, don\'t you? 👀',
         color: 'cyan',
-        icon: <BsRulers />,
+        icon: <Rulers />,
       });
       return;
     }
@@ -53,7 +53,7 @@ function AddToCart() {
           title: `${response.length} item${response.length > 1 ? 's' : ''} added to cart!`,
           message: 'You\'re gonna look 🔥🔥',
           color: 'cyan',
-          icon: <BsFillCartCheckFill />,
+          icon: <CartCheckFill />,
         });
       })
       .catch((err) => {

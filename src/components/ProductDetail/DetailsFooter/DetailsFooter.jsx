@@ -1,10 +1,6 @@
 import React from 'react';
 import './DetailsFooter.scss';
-import {
-  TiSocialFacebook,
-  TiSocialTwitter,
-  TiSocialPinterest,
-} from 'react-icons/ti';
+import { Facebook, Pinterest, Twitter } from 'react-bootstrap-icons';
 import { detailStore } from '../../../stores.js';
 
 function DetailsFooter() {
@@ -26,13 +22,13 @@ function DetailsFooter() {
       </div>
       <div className="dp-social-container">
         <a href={facebookShareUrl} rel="noreferrer" target="_blank">
-          <TiSocialFacebook className="dp-social-icon icon-facebook" />
+          <Facebook className="dp-social-icon icon-facebook" />
         </a>
         <a href={twitterShareUrl} rel="noreferrer" target="_blank">
-          <TiSocialTwitter className="dp-social-icon icon-twitter" />
+          <Twitter className="dp-social-icon icon-twitter" />
         </a>
         <a href={pinterestShareUrl} rel="noreferrer" target="_blank">
-          <TiSocialPinterest className="dp-social-icon icon-pinterest" />
+          <Pinterest className="dp-social-icon icon-pinterest" />
         </a>
       </div>
     </div>
