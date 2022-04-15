@@ -4,14 +4,12 @@ import './SizeScale.scss';
 
 function SizeScale() {
   return (
-    <div>
-      <RatingScale
-        name="Size"
-        label1="Too small "
-        label2="Perfect"
-        label3="Too Large"
-      />
-    </div>
+    <RatingScale
+      name="Size"
+      label1="Too small "
+      label2="Perfect"
+      label3="Too Large"
+    />
   );
 }
 

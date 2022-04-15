@@ -1,12 +1,11 @@
 @use 'src/colors.scss'as a;
 
 .star {
+  color: a.$color2;
   display: inline-block;
   font-size: 20px;
   line-height: 1;
   position: relative;
-  width: 20px;
-  color: a.$color2;
 }
 
 .star:after {
@@ -16,7 +15,6 @@
   overflow: hidden;
   position: absolute;
   top: 0;
-  width: 100%;
 }
 
 .star.zero-star:after {

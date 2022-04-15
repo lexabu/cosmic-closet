@@ -1,11 +1,23 @@
 import React from 'react';
+import { Button } from '@mantine/core';
 import './Buttons.scss';
 
 function Buttons() {
   return (
     <div className="rr-buttons">
-      <button type="button" className="rr-buttons-more-reviews"> More Reviews </button>
-      <button type="button" className="rr-buttons-add-review"> Add a Review + </button>
+      <Button
+        color="cyan"
+        className="rr-buttons-more-reviews"
+      >
+        More Reviews
+      </Button>
+
+      <Button
+        color="cyan"
+        className="rr-buttons-add-review"
+      >
+        Add a Review
+      </Button>
     </div>
   );
 }

@@ -4,14 +4,12 @@ import './QualityScale.scss';
 
 function QualityScale() {
   return (
-    <div>
-      <RatingScale
-        name="Quality"
-        label1="Poor"
-        label2=" "
-        label3="Perfect"
-      />
-    </div>
+    <RatingScale
+      name="Quality"
+      label1="Poor"
+      label2=" "
+      label3="Perfect"
+    />
   );
 }
 

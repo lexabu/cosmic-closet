@@ -33,7 +33,7 @@ const determineStarType = (position, rating) => {
     return starType;
   }
 
-  return 'unexpected checkRating Error';
+  return 'unexpected determineStarType Error';
 };
 
 function Star({ position, rating }) {
