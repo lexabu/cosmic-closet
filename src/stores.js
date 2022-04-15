@@ -2,8 +2,8 @@ import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 const details = (set, get) => ({
-  tab: 'home',
-  setTab: (data) => set({ tab: data }),
+  allProducts: [],
+  setAllProducts: (data) => set({ allProducts: data }),
   productDetails: [],
   setProductDetails: (data) => set({ productDetails: data }),
   styles: [],
@@ -14,23 +14,6 @@ const details = (set, get) => ({
   setSelectedSize: (data) => set({ selectedSize: data }),
   selectedQuantity: '1',
   setSelectedQuantity: (data) => set({ selectedQuantity: data }),
-  showSizeSelector: false,
-  // TODO: Combine the two toggle functions to be a single function
-  toggleShowSizeSelector: (bool) => {
-    if (bool === undefined) {
-      set({ showSizeSelector: !get().showSizeSelector });
-    } else {
-      set({ showSizeSelector: bool });
-    }
-  },
-  showQuantitySelector: false,
-  toggleShowQuantitySelector: (bool) => {
-    if (bool === undefined) {
-      set({ showQuantitySelector: !get().showQuantitySelector });
-    } else {
-      set({ showQuantitySelector: bool });
-    }
-  },
   startingThumbnailIndex: 0,
   setStartingThumbnailIndex: (data) => set({ startingThumbnailIndex: data }),
   selectedImageIndex: 0,

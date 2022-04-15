@@ -47,9 +47,7 @@ function Styles() {
             }}
             className={`pd-style-icon ${style.name === selectedStyle.name ? 'selected' : ''} ${style.photos[0].thumbnail_url == null ? 'empty' : ''}`}
             onKeyDown={(e) => { handleKeyPress(e, style); }}
-            onClick={
-              () => { handleStyleChange(style); }
-            }
+            onClick={() => { handleStyleChange(style); }}
             aria-label={`Select style${style.style_id}`}
           >
             {style.photos[0].thumbnail_url == null && style.name}

@@ -1,23 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import uuid from 'react-uuid';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import './Home.scss';
 import Navbar from '../containers/Navbar.jsx';
-
-const headers = {
-  Authorization: process.env.GITHUB_API_KEY,
-};
+import { detailStore } from '../stores.js';
 
 function Home() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${process.env.URL}products`, { headers })
-      .then((response) => {
-        setProducts(response.data);
-      });
-  }, []);
+  const products = detailStore((state) => state.allProducts);
 
   return (
     <>

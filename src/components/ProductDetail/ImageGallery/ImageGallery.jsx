@@ -3,8 +3,6 @@
 // TODO: implement the above accessibility features
 
 import React from 'react';
-// uuid lets us use very unique IDs for our React keys, without having to
-// worry about their value
 import uuid from 'react-uuid';
 import { LoadingOverlay } from '@mantine/core';
 import { showNotification, cleanNotifications } from '@mantine/notifications';
@@ -41,11 +39,6 @@ function ImageGallery() {
   if (selectedStyle?.photos?.[imgIdx] === undefined) {
     return <LoadingOverlay visible />;
   }
-
-  // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
-  // *** MAKE SURE TO CHANGE IN ImageThumbnailGallery ***
-  // const TEST_PHOTOS = selectedStyle.photos;
-  // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
 
   const shownThumbnails = [];
   for (let i = startingThumbnailIndex; i < 7 + startingThumbnailIndex; i += 1) {

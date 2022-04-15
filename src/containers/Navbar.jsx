@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import uuid from 'react-uuid';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineGithub } from 'react-icons/ai';
@@ -7,7 +8,9 @@ import {
   Table,
   ActionIcon,
   Space,
+  Popover,
 } from '@mantine/core';
+import { detailStore } from '../stores.js';
 import './Navbar.scss';
 
 function Navbar() {
@@ -15,6 +18,8 @@ function Navbar() {
     Authorization: process.env.GITHUB_API_KEY,
   };
 
+  const allProducts = detailStore((state) => state.allProducts);
+  const setAllProducts = detailStore((state) => state.setAllProducts);
   const [cartContents, setCartContents] = useState([]);
 
   const cartArr = cartContents.map((element) => (
@@ -28,10 +33,22 @@ function Navbar() {
     axios.get(`${process.env.URL}cart`, { headers })
       .then((response) => {
         setCartContents(response.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+
+    axios.get(`${process.env.URL}products`, { headers })
+      .then((response) => {
+        setAllProducts(response.data);
+      })
+      .catch((err) => {
+        throw err;
       });
   }, []);
 
   const [cartOpened, setCartOpened] = useState(false);
+  const [productsOpened, setProductsOpened] = useState(false);
 
   return (
     <>
@@ -44,12 +61,40 @@ function Navbar() {
           >
             Home
           </Link>
-          <li
-            className={`nav-item${window.location.pathname !== '/' ? ' active' : ''}`}
-          // onClick={() => { console.log('clicked products tab'); }}
+          <Popover
+            opened={productsOpened}
+            onClose={() => { setProductsOpened(false); }}
+            target={(
+              <span
+                tabIndex={0}
+                role="button"
+                className={`nav-item${window.location.pathname !== '/' ? ' active' : ''}`}
+                onClick={() => { setProductsOpened(!productsOpened); }}
+                onKeyDown={(e) => {
+                  if (e.code === 'Enter') {
+                    setProductsOpened(true);
+                  }
+                }}
+              >
+                Products
+              </span>
+            )}
+            // width={260}
+            position="bottom"
+            withArrow
           >
-            Products
-          </li>
+            <div className="nav-product-link-container">
+              {allProducts.map((product) => (
+                <a
+                  href={`/${product.id}`}
+                  className={`product-popdown-item${window.location.pathname === `/${product.id}` ? ' active' : ''}`}
+                  key={uuid()}
+                >
+                  {product.name}
+                </a>
+              ))}
+            </div>
+          </Popover>
           <a
             className="nav-item"
             href="https://github.com/Team-1-Mercury/retro#readme"
