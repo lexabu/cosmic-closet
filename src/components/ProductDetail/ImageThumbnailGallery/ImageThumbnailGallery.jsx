@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  AiFillUpCircle,
-  AiFillDownCircle,
-} from 'react-icons/ai';
+import { ArrowUpCircleFill, ArrowDownCircleFill } from 'react-bootstrap-icons';
 import { detailStore } from '../../../stores.js';
 import './ImageThumbnailGallery.scss';
 
@@ -17,7 +14,7 @@ function ImageThumbnailGallery({ shownThumbnails }) {
   return (
     <div className="image-thumbnail-gallery-container">
       {startingThumbnailIndex > 0 ? (
-        <AiFillUpCircle
+        <ArrowUpCircleFill
           className="image-tg-arrow"
           onClick={() => {
             setStartingThumbnailIndex(startingThumbnailIndex - 1);
@@ -29,7 +26,7 @@ function ImageThumbnailGallery({ shownThumbnails }) {
         {shownThumbnails}
       </div>
       {startingThumbnailIndex < selectedStyle.photos.length - 7 ? (
-        <AiFillDownCircle
+        <ArrowDownCircleFill
           className="image-tg-arrow"
           onClick={() => {
             setStartingThumbnailIndex(startingThumbnailIndex + 1);

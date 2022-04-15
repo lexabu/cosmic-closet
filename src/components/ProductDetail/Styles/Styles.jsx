@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
-import { AiOutlineRight, AiFillCheckCircle } from 'react-icons/ai';
+import { ChevronRight, CheckCircleFill } from 'react-bootstrap-icons';
 import { detailStore } from '../../../stores.js';
 import './Styles.scss';
 
@@ -28,7 +28,7 @@ function Styles() {
     <div className="pd-styles">
       <div className="pd-selected-style">
         <span className="pd-selected-title">Selected Style</span>
-        <AiOutlineRight />
+        <ChevronRight />
         <span>{selectedStyle.name}</span>
       </div>
       <div className="pd-styles-container">
@@ -51,7 +51,7 @@ function Styles() {
             aria-label={`Select style${style.style_id}`}
           >
             {style.photos[0].thumbnail_url == null && style.name}
-            {style.name === selectedStyle.name && <AiFillCheckCircle className="pd-style-check" />}
+            {style.name === selectedStyle.name && <CheckCircleFill className="pd-style-check" />}
           </div>
         ))}
       </div>
