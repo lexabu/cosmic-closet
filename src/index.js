@@ -9,9 +9,14 @@ import { MantineProvider } from '@mantine/core';
 import { createRoot } from 'react-dom/client'; // new way for React 18
 // import reactDOM from "react-dom"; //old way for React 17
 
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+
 import './index.scss';
 import App from './pages/App.jsx';
 import Home from './pages/Home.jsx';
+
+const queryClient = new QueryClient();
 
 // render the App
 const container = document.getElementById('root');
@@ -43,7 +48,10 @@ root.render(
                 position="top-right"
                 zIndex={9999}
               >
-                <App />
+                <QueryClientProvider client={queryClient}>
+                  <App />
+                  <ReactQueryDevtools initialIsOpen={false} />
+                </QueryClientProvider>
               </NotificationsProvider>
             </MantineProvider>
           )
