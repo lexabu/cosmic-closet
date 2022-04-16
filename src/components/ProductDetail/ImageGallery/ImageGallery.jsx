@@ -72,7 +72,6 @@ function ImageGallery() {
             <Notification
               id='fullscreen-notification'
               title="Press Escape to exit zoomed view"
-              color="cyan"
               style={styles}
               onClose={() => { setShowNotification(false) }}
             />

@@ -29,7 +29,6 @@ function MoreAnswersButton({ questionObj }) {
     if (maxAnswerObj[questionId] < anwserListLength) {
       return (
         <Button
-          color="cyan"
           radius="xl"
           size="md"
           compact

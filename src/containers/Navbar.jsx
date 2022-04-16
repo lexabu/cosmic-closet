@@ -3,40 +3,20 @@ import uuid from 'react-uuid';
 import { Link } from 'react-router-dom';
 import { Github } from 'react-bootstrap-icons';
 import { useQuery } from 'react-query';
-import {
-  Space,
-  Popover,
-} from '@mantine/core';
-import './Navbar.scss';
-
+import { Space, Popover, Loader } from '@mantine/core';
 import { getAllProducts } from '../utils/productInfoApi.js';
 import CartButton from '../components/ProductDetail/CartButton/CartButton.jsx';
+import './Navbar.scss';
 
 function Navbar() {
-  // Access the client
-  // const queryClient = useQueryClient();
-  // console.log(queryClient);
-
-  // const cachedData = queryClient.getQueryData('allProducts');
-  // console.log('🚀 ~ Navbar ~ allProducts', cachedData);
-
-  // Queries
-  // const allProducts = useQuery('allProducts', getAllProducts);
   const {
     data: allProducts,
     isLoading,
     isError,
     error,
   } = useQuery('allProducts', getAllProducts);
-  // const cart = useQuery('cart', getCart);
-  // console.log('allProducts', allProducts);
 
-  // const [cartOpened, setCartOpened] = useState(false);
   const [productsOpened, setProductsOpened] = useState(false);
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
 
   if (isError) {
     return (
@@ -78,7 +58,7 @@ function Navbar() {
           withArrow
         >
           <div className="nav-product-link-container">
-            {allProducts.data.map((product) => (
+            {isLoading ? <Loader /> : allProducts.data.map((product) => (
               <a
                 href={`/${product.id}`}
                 className={`product-popdown-item${window.location.pathname === `/${product.id}` ? ' active' : ''}`}

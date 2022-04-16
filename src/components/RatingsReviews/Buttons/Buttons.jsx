@@ -6,14 +6,12 @@ function Buttons() {
   return (
     <div className="rr-buttons">
       <Button
-        color="cyan"
         className="rr-buttons-more-reviews"
       >
         More Reviews
       </Button>
 
       <Button
-        color="cyan"
         className="rr-buttons-add-review"
       >
         Add a Review

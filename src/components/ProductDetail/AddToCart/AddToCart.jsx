@@ -18,7 +18,6 @@ function AddToCart() {
       showNotification({
         title: 'Please select size',
         message: 'You want it to fit, don\'t you? 👀',
-        color: 'cyan',
         icon: <Rulers />,
       });
       return;
@@ -52,7 +51,6 @@ function AddToCart() {
         showNotification({
           title: `${response.length} item${response.length > 1 ? 's' : ''} added to cart!`,
           message: 'You\'re gonna look 🔥🔥',
-          color: 'cyan',
           icon: <CartCheckFill />,
         });
       })
@@ -68,7 +66,6 @@ function AddToCart() {
       onClick={handleClick}
       size="lg"
       uppercase
-      color="cyan"
     >
       Add to Cart
     </Button>

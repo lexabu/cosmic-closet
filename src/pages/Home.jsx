@@ -2,12 +2,10 @@ import React from 'react';
 import uuid from 'react-uuid';
 import { Link } from 'react-router-dom';
 import { Loader } from '@mantine/core';
-import './Home.scss';
 import { useQuery } from 'react-query';
-// import 'regenerator-runtime/runtime';
-import Navbar from '../containers/Navbar.jsx';
-// import { detailStore } from '../stores.js';
 import { getAllProducts } from '../utils/productInfoApi.js';
+import Navbar from '../containers/Navbar.jsx';
+import './Home.scss';
 
 function Home() {
   const {

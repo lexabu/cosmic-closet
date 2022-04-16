@@ -7,13 +7,11 @@ import {
   ActionIcon,
   Loader,
 } from '@mantine/core';
-// import { detailStore } from '../stores.js';
 import './CartButton.scss';
 
 import { getCart } from '../../../utils/productInfoApi.js';
 
 function CartButton() {
-  // Access the client
   const {
     data: cart,
     isError,
