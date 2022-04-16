@@ -134,3 +134,12 @@
 .ig-spacer {
   height: 50px;
 }
+
+#fullscreen-notification {
+  position: absolute;
+  top: 10px;
+  left: 35%;
+  width: 30%;
+  min-width: 305px;
+  z-index: 999999;
+}
