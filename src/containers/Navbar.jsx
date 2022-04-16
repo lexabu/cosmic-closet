@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
-// import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Cart, Github } from 'react-bootstrap-icons';
-import { useQueryClient, useQuery } from 'react-query';
+import { Github } from 'react-bootstrap-icons';
+import { useQuery } from 'react-query';
 import {
-  Drawer,
-  Table,
-  ActionIcon,
   Space,
   Popover,
 } from '@mantine/core';
-// import { detailStore } from '../stores.js';
 import './Navbar.scss';
 
-import { getAllProducts, getCart } from '../utils/productInfoApi.js';
+import { getAllProducts } from '../utils/productInfoApi.js';
+import CartButton from '../components/ProductDetail/CartButton/CartButton.jsx';
 
 function Navbar() {
   // Access the client
@@ -25,26 +21,31 @@ function Navbar() {
   // console.log('🚀 ~ Navbar ~ allProducts', cachedData);
 
   // Queries
-  const allProducts = useQuery('allProducts', getAllProducts);
-  const cart = useQuery('cart', getCart);
+  // const allProducts = useQuery('allProducts', getAllProducts);
+  const {
+    data: allProducts,
+    isLoading,
+    isError,
+    error,
+  } = useQuery('allProducts', getAllProducts);
+  // const cart = useQuery('cart', getCart);
+  // console.log('allProducts', allProducts);
 
-  const [cartOpened, setCartOpened] = useState(false);
+  // const [cartOpened, setCartOpened] = useState(false);
   const [productsOpened, setProductsOpened] = useState(false);
 
-  if (allProducts.isLoading || cart.isLoading) {
+  if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
-  if (allProducts.isError || cart.isError) {
-    return <h1>Error...</h1>;
+  if (isError) {
+    return (
+      <h1>
+        Error:
+        {error.message}
+      </h1>
+    );
   }
-
-  const cartArr = cart.data.data.map((element) => (
-    <tr key={element.sku_id}>
-      <td>{element.sku_id}</td>
-      <td>{element.count}</td>
-    </tr>
-  ));
 
   return (
     <div className="top-banner">
@@ -77,7 +78,7 @@ function Navbar() {
           withArrow
         >
           <div className="nav-product-link-container">
-            {allProducts.data.data.map((product) => (
+            {allProducts.data.map((product) => (
               <a
                 href={`/${product.id}`}
                 className={`product-popdown-item${window.location.pathname === `/${product.id}` ? ' active' : ''}`}
@@ -99,38 +100,7 @@ function Navbar() {
           <Github />
         </a>
       </ul>
-      <ActionIcon
-        aria-label="cart button"
-        className="cart-icon"
-        onClick={() => {
-          setCartOpened(true);
-        }}
-      >
-        <Cart />
-      </ActionIcon>
-      <Drawer
-        className="cart-table-container"
-        opened={cartOpened}
-        onClose={() => setCartOpened(false)}
-        position="right"
-        size="xl"
-        zIndex={999}
-      >
-        <Table
-          striped
-          highlightOnHover
-          verticalSpacing="md"
-          fontSize="md"
-        >
-          <thead>
-            <tr>
-              <th>Sku</th>
-              <th>Qty</th>
-            </tr>
-          </thead>
-          <tbody>{cartArr}</tbody>
-        </Table>
-      </Drawer>
+      <CartButton />
     </div>
   );
 }
