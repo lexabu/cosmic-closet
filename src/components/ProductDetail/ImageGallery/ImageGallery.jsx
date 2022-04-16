@@ -3,16 +3,11 @@
 // TODO: implement the above accessibility features
 
 import React from 'react';
-// uuid lets us use very unique IDs for our React keys, without having to
-// worry about their value
 import uuid from 'react-uuid';
 import { LoadingOverlay } from '@mantine/core';
 import { showNotification, cleanNotifications } from '@mantine/notifications';
 import InnerImageZoom from 'react-inner-image-zoom';
-import {
-  AiFillLeftCircle,
-  AiFillRightCircle,
-} from 'react-icons/ai';
+import { ArrowLeftCircleFill, ArrowRightCircleFill } from 'react-bootstrap-icons';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import './ImageGallery.scss';
 import { detailStore } from '../../../stores.js';
@@ -41,11 +36,6 @@ function ImageGallery() {
   if (selectedStyle?.photos?.[imgIdx] === undefined) {
     return <LoadingOverlay visible />;
   }
-
-  // NOTE: After testing, replace TEST_PHOTOS with selectedStyle.photos
-  // *** MAKE SURE TO CHANGE IN ImageThumbnailGallery ***
-  // const TEST_PHOTOS = selectedStyle.photos;
-  // const TEST_PHOTOS = selectedStyle.photos.concat(selectedStyle.photos);
 
   const shownThumbnails = [];
   for (let i = startingThumbnailIndex; i < 7 + startingThumbnailIndex; i += 1) {
@@ -101,7 +91,7 @@ function ImageGallery() {
         <div className="image-arrow-container">
           {imgIdx > 0
             ? (
-              <AiFillLeftCircle
+              <ArrowLeftCircleFill
                 className="image-main-arrow-left"
                 onClick={() => {
                   if (imgIdx > 0) {
@@ -113,7 +103,7 @@ function ImageGallery() {
             : <div className="img-arrow-divider" />}
           {imgIdx < selectedStyle.photos.length - 1
             ? (
-              <AiFillRightCircle
+              <ArrowRightCircleFill
                 className="image-main-arrow-right"
                 onClick={() => {
                   if (imgIdx < selectedStyle.photos.length - 1) {

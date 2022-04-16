@@ -1,5 +1,4 @@
 import React from 'react';
-// import { AiFillCaretDown } from 'react-icons/ai';
 import { Select } from '@mantine/core';
 import { detailStore } from '../../../stores.js';
 import './SizeSelector.scss';

@@ -1,9 +1,11 @@
-const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const path = require('path');
 
 module.exports = {
   plugins: [
     new Dotenv(),
+    new CompressionPlugin(),
   ],
   mode: 'development',
   entry: './src/index.js',

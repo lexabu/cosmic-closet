@@ -4,14 +4,12 @@ import './ComfortScale.scss';
 
 function ComfortScale() {
   return (
-    <div>
-      <RatingScale
-        name="Comfort"
-        label1="Uncomfortable"
-        label2="Ok"
-        label3="Perfect"
-      />
-    </div>
+    <RatingScale
+      name="Comfort"
+      label1="Uncomfortable"
+      label2="Ok"
+      label3="Perfect"
+    />
   );
 }
 

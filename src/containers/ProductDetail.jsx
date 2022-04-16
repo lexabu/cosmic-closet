@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { detailStore } from '../stores.js';
+// eslint-disable-next-line import/named
 import { RightDetails, ImageGallery, DetailsFooter } from '../components/ProductDetail/index.js';
 
 function ProductDetail() {
@@ -19,8 +20,6 @@ function ProductDetail() {
   const setStyles = detailStore((state) => state.setStyles);
   const setSelectedStyle = detailStore((state) => state.setSelectedStyle);
   const imageZoomed = detailStore((state) => state.imageZoomed);
-
-  // const handleAnalytics = detailStore((state) => state.handleAnalytics);
 
   useEffect(() => {
     // Get product info and add to state
@@ -42,10 +41,6 @@ function ProductDetail() {
         throw err;
       });
   }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener('click', handleAnalytics);
-  // }, []);
 
   return (
     <div id="product-detail" className="widget">
