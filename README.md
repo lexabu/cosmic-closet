@@ -1,5 +1,7 @@
 <br />
 
+[![CircleCI](https://circleci.com/gh/Team-1-Mercury/cosmic-closet/tree/main.svg?style=svg)](https://circleci.com/gh/Team-1-Mercury/cosmic-closet/tree/main)
+
 <div align="center">
 <a href="http://3.91.19.158:3000/66645">
   <img
@@ -13,7 +15,7 @@
 <br />
 
 # Team Mercury Front End Capstone
-  
+
 ## ✨ Development Features
 - 🔍 airbnb linting
 - 💾 env

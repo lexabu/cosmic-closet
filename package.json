@@ -11,18 +11,22 @@
     "dotenv-webpack": "^7.1.0",
     "express": "^4.17.3",
     "express-static-gzip": "^2.1.5",
+    "jest-dom": "^4.0.0",
     "react": "^18.0.0",
     "react-bootstrap-icons": "^1.8.1",
     "react-dom": "^18.0.0",
     "react-inner-image-zoom": "^3.0.0",
     "react-router-dom": "6",
     "react-uuid": "^1.0.2",
+    "regenerator-runtime": "^0.13.9",
     "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@testing-library/react": "^13.1.1",
+    "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.4",
     "babel-preset-airbnb": "^5.0.0",
     "compression-webpack-plugin": "^9.2.0",
@@ -34,6 +38,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jest": "^27.5.1",
+    "react-test-renderer": "^18.0.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
@@ -52,5 +57,11 @@
     "start": "node server/server.js",
     "test": "jest"
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/mocks/fileMock.js"
+    }
+  }
 }
