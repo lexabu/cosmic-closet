@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 export { default as Buttons } from './Buttons/Buttons.jsx';
 export { default as ComfortScale } from './ComfortScale/ComfortScale.jsx';
 export { default as FitScale } from './FitScale/FitScale.jsx';

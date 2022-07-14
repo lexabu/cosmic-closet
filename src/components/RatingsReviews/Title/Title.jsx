@@ -3,7 +3,7 @@ import './Title.scss';
 
 function Title() {
   return (
-    <h3 className="rr-Title">RATINGS & REVIEWS</h3>
+    <h3 aria-level="3" className="rr-Title">RATINGS & REVIEWS</h3>
   );
 }
 
